@@ -14,6 +14,8 @@ $templates = data::findTemplates();
 
     <?php growl($action) ?>
 
+
+    
     <fieldset>
       <h3><?php echo l::get('pages.add.title') ?></h3>
       
@@ -29,18 +31,37 @@ $templates = data::findTemplates();
 
       <div class="field">
         <?php if(count($templates) == 1): ?>
-        <?php $template = a::first($templates) ?>
-        <label><?php echo l::get('pages.add.label.template') ?>: <em><?php echo html(data::templateName($template)) ?> (<?php echo html($template) ?>)</em></label>
-        <input type="hidden" name="template" value="<?php echo html($template) ?>" />
+          <?php $template = a::first($templates) ?>
+          <label><?php echo l::get('pages.add.label.template') ?>: <em><?php echo html(data::templateName($template)) ?> (<?php echo html($template) ?>)</em></label>
+          <input type="hidden" name="template" value="<?php echo html($template) ?>" />
+
         <?php else: ?>
-        <label><?php echo l::get('pages.add.label.template') ?></label>
-        <select name="template">
-          <?php foreach($templates as $value): ?>
-          <option value="<?php echo html($value) ?>"<?php if(get('template', 'default') == $value) echo ' selected="selected"' ?>><?php echo html(data::templateName($value)) ?> (<?php echo html($value) ?>)</option>
-          <?php endforeach ?>
-        </select>
+
+          <?php if($page->template() == get('template', 'project')):?>
+            <label><?php echo l::get('pages.add.label.template') ?></label>
+            <select name="template">
+              <?php foreach($templates as $value): ?>
+
+                <?php if(get('template', 'default') != $value && $value != 'search' && $value != 'project'):?>
+                  <option value="<?php echo html($value) ?>"<?php if(get('template', 'default') == $value) echo ' selected="selected"' ?>><?php echo html(data::templateName($value)) ?> (<?php echo html($value) ?>)</option>
+                <?php endif ?>
+
+              <?php endforeach ?>
+
+            </select>
+          
+          <?php else:
+              $template = get('template', 'project')
+          ?>
+          
+          <input type="hidden" name="template" value="<?php echo html($template) ?>" />
+          
+          <?php endif ?>
+
         <?php endif ?>
+          
       </div>
+
 
       <div class="buttons">
         <input type="submit" name="add-page" value="<?php echo l::get('pages.add.button') ?>" />
@@ -51,3 +72,4 @@ $templates = data::findTemplates();
 
   </form>
 </div>
+
