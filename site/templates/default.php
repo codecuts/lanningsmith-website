@@ -1,10 +1,6 @@
 <?php snippet('header') ?>
 <?php snippet('menu') ?>
 <?php snippet('submenu') ?>
-<?php
-$search  = new search(array('searchfield' => 'search'));
-$results = $search->results();
-?>
 
 <section class="content">
 
