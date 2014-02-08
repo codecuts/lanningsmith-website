@@ -78,7 +78,17 @@
   <?php if(!$panel->isHome): ?>    
   <ul class="bar submenu">
     <li><a<?php echo $panel->show == 'content' ?   ' class="active"' : '' ?> href="<?php echo showurl('content') ?>"><?php echo l::get('tabs.content') ?></a></li>  
-    <li><a<?php echo $panel->show == 'files'   ?   ' class="active"' : '' ?> href="<?php echo showurl('files') ?>"><?php echo l::get('tabs.files') ?></a></li>  
+    <?php 
+      if($page ->template() == 'image')
+      {?>
+        <li><a<?php echo $panel->show == 'files'   ?   ' class="active"' : '' ?> href="<?php echo showurl('files') ?>"><?php echo l::get('tabs.files') ?></a></li>
+  <?php
+      }
+    ?>
+
+   
+    
+
     <li><a<?php echo $panel->show == 'options' ?   ' class="active"' : '' ?> href="<?php echo showurl('options') ?>"><?php echo l::get('tabs.options') ?></a></li>  
     <li class="preview"><a target="_blank" href="<?php echo ourl($page->url()) ?>"><?php echo l::get('tabs.preview') ?></a></li>  
   </ul>
