@@ -10,6 +10,9 @@ fields:
     label: Title
     type:  text
   text: 
-    label: Text
+    label: Project Description
     type:  textarea
-    size:  large
+    size:  medium
+  tags:
+   	label: Project Tags
+   	type: text
