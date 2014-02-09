@@ -1,0 +1,14 @@
+body {
+	min-width: 980px;
+}
+
+.view-frame {
+	@extend .row-fluid;
+	
+	> div {
+		@extend .span8;
+		@extend .offset3;
+		background: #333;
+		height: 1000px;
+	}
+}
