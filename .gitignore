@@ -3,3 +3,6 @@ docs
 content
 site/cache
 thumbs
+
+# for compass
+.sass-cache
