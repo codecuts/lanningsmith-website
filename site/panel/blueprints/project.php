@@ -2,12 +2,12 @@
 
 # default blueprint
 
-title: default
+title: Project
 pages: true
 files: false
 fields:
   title: 
-    label: Default Project Title
+    label: Project Title
     type:  text
   text: 
     label: Project Description

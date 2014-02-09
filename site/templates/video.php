@@ -2,5 +2,4 @@
 <?php snippet('menu') ?>
 
 
-
 <?php snippet('footer') ?>
