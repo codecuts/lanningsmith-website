@@ -7,12 +7,12 @@ pages: true
 files: false
 fields:
   title: 
-    label: Default Project Title
+    label: Category Title
     type:  text
   text: 
-    label: Project Description
+    label: Category Description
     type:  textarea
     size:  medium
   tags:
-   	label: Project Tags
+   	label: Category Tags
    	type: text
