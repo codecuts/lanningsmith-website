@@ -59,7 +59,7 @@ $templates = data::findTemplates();
               <?php foreach($templates as $value): ?>
 
                 <?php if(get('template', 'default') != $value && $value != 'search' && $value != 'project'):?>
-                  <option value="<?php echo html($value) ?>"<?php if(get('template', 'default') == $value) echo ' selected="selected"' ?>><?php echo html(data::templateName($value)) ?> (<?php echo html($value) ?>)</option>
+                  <option value="<?php echo html($value) ?>"<?php if(get('template', 'image') == $value) echo ' selected="selected"' ?>><?php echo html(data::templateName($value)) ?> (<?php echo html($value) ?>)</option>
                 <?php endif ?>
 
               <?php endforeach ?>
