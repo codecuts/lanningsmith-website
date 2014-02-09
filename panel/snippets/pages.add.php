@@ -17,7 +17,16 @@ $templates = data::findTemplates();
 
     
     <fieldset>
-      <h3><?php echo l::get('pages.add.title') ?></h3>
+      <?php if($panel->isHome):?>
+        <h3>New Category</h3>
+      <?php endif ?>
+      <?php if($page->template() == get('template', 'default') && !($panel->isHome)):?>
+        <h3>New Project</h3>
+      <?php endif ?>
+      <?php if($page->template() == get('template', 'project')):?>
+        <h3>New Media</h3>
+      <?php endif ?>
+      
       
       <div class="field">
         <label><?php echo l::get('pages.add.label.title') ?></label>
@@ -35,7 +44,7 @@ $templates = data::findTemplates();
                         so that we can add categories which are then NOT of type 'project' but use the
                         default template -->
 
-                        
+
       <div class="field">
         <?php if(count($templates) == 1): ?>
           <?php $template = a::first($templates) ?>
@@ -45,7 +54,7 @@ $templates = data::findTemplates();
         <?php else: ?>
 
           <?php if($page->template() == get('template', 'project')):?>
-            <label><?php echo l::get('pages.add.label.template') ?></label>
+            <label>Type<?php /*echo l::get('pages.add.label.template') */?></label>
             <select name="template">
               <?php foreach($templates as $value): ?>
 
