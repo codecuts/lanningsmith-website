@@ -82,6 +82,15 @@ l::set(array(
   'pages.errors.sort' => 'Not all pages could be sorted',
   'pages.errors.nosort' => 'There\'s nothing to sort',
 
+
+  // LANNINGSMITH
+
+  'media.visible' => 'Visible media',
+  'media.invisible' => 'Invisible media',
+  'projects.visible' => 'Visible projects',
+  'projects.invisible' => 'Invisible projects',
+
+
   // no subpages allowed
   'nopages.title' => 'Subpages',
   'nopages.text' => 'This page is not supposed to have subpages',  

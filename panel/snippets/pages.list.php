@@ -5,7 +5,11 @@ $children = ($type == 'visible') ? $children->visible() : $children->invisible()
 if($settings->flip && $type == 'visible') $children = $children->flip();
 
 ?>
+
 <h3><?php echo $headline ?></h3>
+
+
+
 <ul class="<?php echo $type ?>">
   <?php $n=0; foreach($children AS $child): ?>
   <li<?php if($settings->limit && $n>=$settings->limit) echo ' class="more"' ?> id="<?php echo $child->uid() ?>">
