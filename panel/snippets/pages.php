@@ -26,7 +26,23 @@ $action   = action::sortPages($settings->flip);
       <?php if($children->count() && $settings->sortable): ?>
       <a class="button sort" href="<?php echo dourl('content', 'edit-pages') ?>"><?php echo l::get('pages.sort') ?></a>
       <?php endif ?>
-      <a class="button add" title="<?php echo l::get('pages.add') ?>" href="<?php echo dourl('content', 'add-page') ?>"><?php echo l::get('pages.add') ?></a>
+
+      <!-- MAX START -->
+      <?php if($panel->isHome):?>
+      <a class="button" title="Add Category" href="<?php echo dourl('content', 'add-page') ?>">Add Category</a>
+      <?php endif ?>
+      
+    <?php if($page->template() == get('template', 'default') && !($panel->isHome)): ?>
+      <a class="button" title="Add Project" href="<?php echo dourl('content', 'add-page') ?>">Add Project</a>
+      <?php endif ?>
+
+      <?php if($page->template() == get('template', 'project')): ?>
+      <a class="button" title="Add Media" href="<?php echo dourl('content', 'add-page') ?>">Add Media</a>
+      <?php endif ?>
+
+
+
+      <!-- MAX END -->
     </span>
     <?php endif ?>
 
