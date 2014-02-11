@@ -19,7 +19,6 @@
 
 <body>
 
-  <header></header>
+  <div class="container">
 
-  <section class="grid-panel">
-  </section>
+    <header></header>

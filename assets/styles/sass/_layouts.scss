@@ -1,14 +1,7 @@
-body {
-	min-width: 980px;
-}
-
-.view-frame {
-	@extend .row-fluid;
-	
-	> div {
-		@extend .span8;
-		@extend .offset3;
-		background: #999;
-		height: 1000px;
-	}
+.container {
+	width: 98%;
+	height: 1000px;
+	min-width: 960px;
+	margin: 0 auto;
+	background: #333;
 }

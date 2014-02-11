@@ -1,4 +1,6 @@
-	<footer></footer>
+		<footer></footer>
+
+	</div><!-- .container -->
 
 	<!-- RequireJS: Loads jQuery and Other Modules -->
 	<script data-main="assets/js/app" src="assets/js/vendor/require.js"></script>
