@@ -17,9 +17,9 @@ $templates = data::findTemplates();
 
     
     <fieldset>
-      <?php if($panel->isHome):?>
+      <?php /*if($panel->isHome):?>
         <h3>New Category</h3>
-      <?php endif ?>
+      <?php endif */?>
       <?php if($page->template() == get('template', 'default') && !($panel->isHome)):?>
         <h3>New Project</h3>
       <?php endif ?>

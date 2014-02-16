@@ -32,7 +32,7 @@ $action   = action::sortPages($settings->flip);
 
 
       <?php if($panel->isHome):?>
-      <a class="button" title="Add Category" href="<?php echo dourl('content', 'add-page') ?>">Add Category</a>
+      <a class="button" title="Add Page" href="<?php echo dourl('content', 'add-page') ?>">Add Page</a>
       <?php endif ?>
       
     <?php if($page->template() == get('template', 'default') && !($panel->isHome)): ?>
