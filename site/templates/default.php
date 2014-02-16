@@ -9,15 +9,12 @@
 
 		<?php
 
-			
-
 			$category = $site->uri()->path()->last();
 			if($category == 'projects'){
 				$category = '';
 			}
 			echo $category;echo '<br>';
 			$projects = $pages->find('projects')->children();
-			//echo $projects;
 
 			$found = $projects->filterBy('categories', $category);
 			foreach($found as $p){
