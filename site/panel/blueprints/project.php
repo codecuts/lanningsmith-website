@@ -16,3 +16,11 @@ fields:
   tags:
    	label: Project Tags
    	type: text
+  categories:
+    label: Categories
+    type: multicheckbox
+    options: 
+      everybodys: Everybody's
+      ours: Ours
+      clients: Client's
+    size: small
