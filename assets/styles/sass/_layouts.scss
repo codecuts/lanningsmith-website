@@ -1,21 +1,60 @@
 .container {
-	width: 98%;
+	//width: 98%;
 	min-width: 960px;
 	margin: 0 auto;
+	overflow: hidden;
+	/*opacity: 1; */
+		/* page is hidden at first so jQuery mangagePageLoad can set
+		   things up behind the scenes, see assets/app/helpers.js */
 }
+
+
+.gridnav {
+
+	.gridframe {
+		@extend .row-fluid;
+		height: 1000px;
+		background: #333;
+	}
+
+	.jcarousel {
+		
+		width: 100%;
+		
+		li {
+			@extend .span3;
+		}
+
+		.grid-item-rightmost{
+
+			margin-right: 0;
+		}	
+	}
+
+}
+
 
 .main {
 	@extend .row-fluid;
 }
 
+
 .main-frame {
 	@extend .span8;
 	@extend .offset2;
-
+	height: 70%;
+	
 	.jcarousel {
 		width: 100%;
+		height: 100%;
 
-		li img { width: 100%; }
+		ul, li { height: inherit; }
+
+		li { text-align: center; }
+		li img { 
+			height: 100%;
+			width: auto;
+		}
 	}
 }
 

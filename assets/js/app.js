@@ -1,5 +1,5 @@
 requirejs.config({
-    "baseUrl": "assets/js/vendor",
+    "baseUrl": "../assets/js/vendor",
     "paths": {
       "app": "../../app",
       "jquery": "jquery-2.1.0",
@@ -13,4 +13,4 @@ requirejs.config({
 });
 
 // Load the main app module to start the app
-requirejs(["app/helpers","app/main"]);
+requirejs(["app/main"]);

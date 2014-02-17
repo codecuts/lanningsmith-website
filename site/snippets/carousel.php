@@ -12,8 +12,8 @@
 					<li>
 						<div>
 				<?php endif; ?>		
-				
-							<div style = "display : inline-block"> 
+
+							<div class="grid-item">  <!-- test fort everz 4th element and switcnh to class="grid-item-rightmost" -->
 								<img src="http://lorempixel.com/400/200" alt="dumdidum"/>
 								<div> 
 									<?php echo $item->title() ?>	
@@ -34,12 +34,12 @@
 		<a class="jcarousel-control-prev" href="#">Prev</a>
 	    <a class="jcarousel-control-next" href="#">Next</a>
 	</div>
-<?php elseif ($content == 'mainframe') : ?>
+<?php elseif ($context == 'mainframe') : ?>
 	<div class='jcarousel'>
 		<ul>
 			<?php foreach ($found->visible() as $item) : ?>
 				<li>
-					<img src="http://lorempixel.com/800/540/"/ alt="first image">
+					<img src="http://lorempixel.com/350/420/" alt="first image">
 					<!-- <div class="jcarousel-caption"><?php //echo $item->title(); ?></div>-->
 				</li>
 			<?php endforeach; ?>

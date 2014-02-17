@@ -3,7 +3,7 @@
 	</div><!-- .container -->
 
 	<!-- RequireJS: Loads jQuery and Other Modules -->
-	<script data-main="assets/js/app" src="assets/js/vendor/require.js"></script>
+	<script data-main="<?php echo $site->url() ?>/assets/js/app" src="<?php echo $site->url() ?>/assets/js/vendor/require.js"></script>
 
 	<!-- Google Analytics -->
 	<script>

@@ -14,7 +14,7 @@
   <?php //echo css('assets/styles/bootstrap-full.css') ?>
   <?php echo css('assets/styles/styles.css') ?>
 
-  <script src="assets/js/vendor/modernizr-full.js"></script>
+  <script src="<?php echo $site->url() ?>/assets/js/vendor/modernizr-full.js"></script>
 </head>
 
 <body>

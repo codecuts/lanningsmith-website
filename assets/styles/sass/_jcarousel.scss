@@ -5,9 +5,8 @@ The width can be either fixed in px or flexible in %.
 Position must be relative!
 */
 .jcarousel {
-    width: 400px;
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 /*
@@ -50,8 +49,8 @@ have a fixed width and height (but it's not required).
 
 .jcarousel-control-prev,
 .jcarousel-control-next {
-    position: absolute;
-    top: 0px;
+    position: fixed;
+    top: 0;
     width: 30px;
     height: 30px;
     text-align: center;
