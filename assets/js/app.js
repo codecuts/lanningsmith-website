@@ -1,9 +1,16 @@
 requirejs.config({
-    "baseUrl": "assets/js",
+    "baseUrl": "assets/js/vendor",
     "paths": {
-    	"jquery": "//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min"
+      "app": "../../app",
+      "jquery": "jquery-2.1.0",
+      "jcarousel": "jquery.jcarousel-core",
+      "jcarousel-control": "jquery.jcarousel-control.min"
+    },
+    "shim": {
+        "jcarousel": ["jquery"],
+        "jcarousel-control": ["jquery", "jcarousel"]
     }
 });
 
 // Load the main app module to start the app
-requirejs(["main"]);
+requirejs(["app/helpers","app/main"]);

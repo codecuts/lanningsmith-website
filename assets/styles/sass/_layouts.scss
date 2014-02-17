@@ -1,7 +1,21 @@
 .container {
 	width: 98%;
-	height: 1000px;
 	min-width: 960px;
 	margin: 0 auto;
-	background: #333;
 }
+
+.main {
+	@extend .row-fluid;
+}
+
+.main-frame {
+	@extend .span8;
+	@extend .offset2;
+
+	.jcarousel {
+		width: 100%;
+
+		li img { width: 100%; }
+	}
+}
+
