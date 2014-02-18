@@ -398,7 +398,7 @@ a:focus {
 }
 
 /* line 599, ../../../../../../var/lib/gems/1.9.1/gems/compass_twitter_bootstrap-2.3.1/stylesheets/compass_twitter_bootstrap/_mixins.scss */
-.span3, .gridnav .jcarousel li {
+.span3, .gridnav .jcarousel.gridnav li {
   width: 220px;
 }
 
@@ -643,7 +643,7 @@ a:focus {
   *margin-left: 33.93617%;
 }
 /* line 647, ../../../../../../var/lib/gems/1.9.1/gems/compass_twitter_bootstrap-2.3.1/stylesheets/compass_twitter_bootstrap/_mixins.scss */
-.row-fluid .span3, .gridnav .gridframe .span3, .main .span3, .row-fluid .gridnav .jcarousel li, .gridnav .jcarousel .row-fluid li, .gridnav .gridframe .jcarousel li, .gridnav .jcarousel .gridframe li, .main .gridnav .jcarousel li, .gridnav .jcarousel .main li {
+.row-fluid .span3, .gridnav .gridframe .span3, .main .span3, .row-fluid .gridnav .jcarousel.gridnav li, .gridnav .jcarousel.gridnav .row-fluid li, .gridnav .gridframe .jcarousel.gridnav li, .gridnav .jcarousel.gridnav .gridframe li, .main .gridnav .jcarousel.gridnav li, .gridnav .jcarousel.gridnav .main li {
   width: 23.40426%;
   *width: 23.35106%;
 }
@@ -1593,7 +1593,7 @@ textarea.span4,
 input.span3,
 textarea.span3,
 .uneditable-input.span3,
-.gridnav .jcarousel li.uneditable-input {
+.gridnav .jcarousel.gridnav li.uneditable-input {
   width: 206px;
 }
 
@@ -6805,7 +6805,7 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
   background: #333;
 }
 /* line 20, sass/_layouts.scss */
-.gridnav .jcarousel {
+.gridnav .jcarousel.gridnav {
   width: 100%;
 }
 
