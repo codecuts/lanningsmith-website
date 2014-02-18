@@ -33,9 +33,6 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 			        	$(this).css('float', 'left');
 			        });
 					
-					//$gi.css('margin-right', '20px');
-					
-					
 			        element.find('.jcarousel-control-prev, .jcarousel-control-next').vAlignInViewport();
 		        }
 		        
