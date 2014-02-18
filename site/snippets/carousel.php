@@ -13,7 +13,11 @@
 						<div>
 				<?php endif; ?>		
 
-							<div class="grid-item">  <!-- test fort everz 4th element and switcnh to class="grid-item-rightmost" -->
+						<?php if(($i+1) % 4 == 0):?>
+							<div class="grid-item-rightmost">
+						<?php else :?>	
+							<div class="grid-item">  
+							<?php endif ?>
 								<img src="http://lorempixel.com/400/200" alt="dumdidum"/>
 								<div> 
 									<?php echo $item->title() ?>	

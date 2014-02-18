@@ -2,7 +2,7 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 
 	var init = function() {
 
-		/*// initizialize the gridnav carousel
+		// initizialize the gridnav carousel
 		$('.jcarousel')
 			.on('jcarousel:create jcarousel:reload', function() {
 		        var element = $(this),
@@ -30,7 +30,7 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 	            
 		    }).jcarousel({
 		        // Your configurations options
-		});*/
+		});
 
 		// initialize the projects carousel in the main-frame
 		$('.jcarousel.projects').on('jcarousel:create jcarousel:reload', function() {

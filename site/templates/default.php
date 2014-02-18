@@ -11,15 +11,15 @@
 	$found = $projects->filterBy('categories', $category);
 ?>
 
-<section class="gridnav" style="display:none;">
+<section class="gridnav" >
 	<div class="gridframe">
-		<?php //snippet('carousel', array('found' => $found, 'context'=>'gridnav')) ?>
+		<?php snippet('carousel', array('found' => $found, 'context'=>'gridnav')) ?>
 	</div>
 </section>
 
 <section class="main">
 	<div class="main-frame">
-		<?php snippet('carousel', array('found' => $found, 'context'=>'mainframe')) ?>
+		<?php //snippet('carousel', array('found' => $found, 'context'=>'mainframe')) ?>
 	</div>
 </section>
 
