@@ -16,13 +16,26 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 		        else if ( element.parent().attr('class') == 'gridframe' ) {
 		        	//element.jcarousel('items').css('width', width + 'px');
 			        //element.jcarousel('items').css('margin-right', '150px');
-			        element.find('.grid-item').each(function() {
+
+					$gi = element.find('.grid-item');
+					$gir = element.find('.grid-item-rightmost');
+					
+					$gi.each(function() {
 			        	$(this).parent().css('width',width);
 			        	$(this).css('width', (width-63)/4);
-			        	//console.log(width);
-			        	$(this).css('margin-right', '20px');
+			        	$(this).css('margin-right', '21px');
 			        	$(this).css('float', 'left');
 			        });
+					
+					$gir.each(function() {
+			        	$(this).parent().css('width',width);
+			        	$(this).css('width', (width-64)/4);
+			        	$(this).css('float', 'left');
+			        });
+					
+					//$gi.css('margin-right', '20px');
+					
+					
 			        element.find('.jcarousel-control-prev, .jcarousel-control-next').vAlignInViewport();
 		        }
 		        
