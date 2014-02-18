@@ -4,7 +4,7 @@ requirejs.config({
       "app": "../../app",
       "jquery": "jquery-2.1.0",
       "jcarousel": "jquery.jcarousel-core",
-      "jcarousel-control": "jquery.jcarousel-control.min"
+      "jcarousel-control": "jquery.jcarousel-control"
     },
     "shim": {
         "jcarousel": ["jquery"],

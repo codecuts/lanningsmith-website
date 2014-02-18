@@ -6808,32 +6808,67 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
 .gridnav .jcarousel {
   width: 100%;
 }
-/* line 28, sass/_layouts.scss */
-.gridnav .jcarousel .grid-item-rightmost {
-  margin-right: 0;
-}
 
-/* line 42, sass/_layouts.scss */
+/* line 41, sass/_layouts.scss */
 .main-frame {
   height: 70%;
 }
-/* line 47, sass/_layouts.scss */
-.main-frame .jcarousel {
-  width: 100%;
-  height: 100%;
-}
-/* line 51, sass/_layouts.scss */
+/* line 48, sass/_layouts.scss */
 .main-frame .jcarousel ul, .main-frame .jcarousel li {
   height: inherit;
 }
-/* line 53, sass/_layouts.scss */
+/* line 50, sass/_layouts.scss */
 .main-frame .jcarousel li {
   text-align: center;
 }
 /* line 54, sass/_layouts.scss */
-.main-frame .jcarousel li img {
+.main-frame .jcarousel.projects {
+  width: 100%;
+  height: 100%;
+}
+/* line 58, sass/_layouts.scss */
+.main-frame .jcarousel.projects ul, .main-frame .jcarousel.projects li {
+  height: inherit;
+}
+/* line 62, sass/_layouts.scss */
+.main-frame .jcarousel.projects > ul > li {
+  float: none;
+  margin-bottom: 300px;
+}
+/* line 68, sass/_layouts.scss */
+.main-frame .jcarousel.projects > .jcarousel-control-prev,
+.main-frame .jcarousel.projects > .jcarousel-control-next {
+  left: 50%;
+}
+/* line 72, sass/_layouts.scss */
+.main-frame .jcarousel.projects > .jcarousel-control-prev {
+  top: 20px;
+}
+/* line 74, sass/_layouts.scss */
+.main-frame .jcarousel.projects > .jcarousel-control-next {
+  bottom: 20px;
+}
+/* line 77, sass/_layouts.scss */
+.main-frame .jcarousel.project {
+  width: 100%;
+  height: 100%;
+}
+/* line 81, sass/_layouts.scss */
+.main-frame .jcarousel.project li {
+  margin-right: 300px;
+}
+/* line 84, sass/_layouts.scss */
+.main-frame .jcarousel.project li img {
   height: 100%;
   width: auto;
+}
+/* line 90, sass/_layouts.scss */
+.main-frame .jcarousel.project > .jcarousel-control-prev {
+  left: 0;
+}
+/* line 94, sass/_layouts.scss */
+.main-frame .jcarousel.project > .jcarousel-control-next {
+  right: 0;
 }
 
 /*
@@ -6891,40 +6926,15 @@ have a fixed width and height (but it's not required).
 .jcarousel-control-prev,
 .jcarousel-control-next {
   position: fixed;
-  top: 0;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  background: #4E443C;
-  color: #fff;
-  text-decoration: none;
-  text-shadow: 0 0 1px #000;
-  font: 24px/27px Arial, sans-serif;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-  -webkit-box-shadow: 0 0 2px #999;
-  -moz-box-shadow: 0 0 2px #999;
-  box-shadow: 0 0 2px #999;
 }
 
-/* line 70, sass/_jcarousel.scss */
-.jcarousel-control-prev {
-  left: 0;
-}
-
-/* line 74, sass/_jcarousel.scss */
-.jcarousel-control-next {
-  right: 0;
-}
-
-/* line 79, sass/_jcarousel.scss */
+/* line 64, sass/_jcarousel.scss */
 .jcarousel-control-prev:hover span,
 .jcarousel-control-next:hover span {
   display: block;
 }
 
-/* line 84, sass/_jcarousel.scss */
+/* line 69, sass/_jcarousel.scss */
 .jcarousel-control-prev.inactive,
 .jcarousel-control-next.inactive {
   opacity: .5;

@@ -44,15 +44,55 @@
 	height: 70%;
 	
 	.jcarousel {
-		width: 100%;
-		height: 100%;
 
 		ul, li { height: inherit; }
 
 		li { text-align: center; }
-		li img { 
-			height: 100%;
-			width: auto;
+
+	}
+
+	.jcarousel.projects {
+		width: 100%;
+	   	height: 100%;
+
+		ul, li { 
+			height: inherit;
+		}
+
+		> ul > li {
+			float: none;
+			margin-bottom: 300px;
+		}
+
+		> .jcarousel-control-prev,
+		> .jcarousel-control-next {
+			left: 50%;
+		}
+
+		> .jcarousel-control-prev { top: 20px; }
+
+		> .jcarousel-control-next { bottom: 20px; }
+	}
+
+	.jcarousel.project {
+		width: 100%;
+		height: 100%;
+
+		li {
+			margin-right: 300px; 
+
+			img { 
+				height: 100%;
+				width: auto;
+			}
+		}
+
+		> .jcarousel-control-prev {
+			left: 0;
+		}
+
+		> .jcarousel-control-next {
+			right: 0;
 		}
 	}
 }
