@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+
   <title><?php echo html($site->title()) ?> - <?php echo html($page->title()) ?></title>
 
   <meta charset="utf-8" />
@@ -13,6 +13,7 @@
 
   <?php //echo css('assets/styles/bootstrap-full.css') ?>
   <?php echo css('assets/styles/styles.css') ?>
+  <?php echo css('http://fonts.googleapis.com/css?family=Nunito:300,400') ?>
 
   <script src="<?php echo $site->url() ?>/assets/js/vendor/modernizr-full.js"></script>
 </head>
@@ -21,4 +22,6 @@
 
   <div class="container">
 
-    <header></header>
+      <header>
+        <div id="logo"><a href="">LANNINGSMITH</a></div>
+      </header>

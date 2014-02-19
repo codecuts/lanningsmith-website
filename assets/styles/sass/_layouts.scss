@@ -8,6 +8,11 @@
 		   things up behind the scenes, see assets/app/helpers.js */
 }
 
+#logo {
+	position: fixed;
+	margin: 53px 0 0 30px;
+	font: 20px bold 'Nunito', sans-serif;
+}
 
 .gridnav {
 	display:none;

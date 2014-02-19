@@ -6789,6 +6789,17 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
   /* Opera/IE 8+ */
 }
 
+/* line 7, sass/_site-wide.scss */
+a {
+  color: black;
+}
+
+/* line 11, sass/_site-wide.scss */
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
 /* line 1, sass/_layouts.scss */
 .container {
   width: 100%;
@@ -6800,113 +6811,120 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
      things up behind the scenes, see assets/app/helpers.js */
 }
 
-/* line 12, sass/_layouts.scss */
+/* line 11, sass/_layouts.scss */
+#logo {
+  position: fixed;
+  margin: 53px 0 0 30px;
+  font: 20px bold 'Nunito', sans-serif;
+}
+
+/* line 17, sass/_layouts.scss */
 .gridnav {
   display: none;
 }
-/* line 14, sass/_layouts.scss */
+/* line 19, sass/_layouts.scss */
 .gridnav .gridframe {
   height: 1000px;
   background: #333;
 }
-/* line 20, sass/_layouts.scss */
+/* line 25, sass/_layouts.scss */
 .gridnav .jcarousel.gridnav {
   width: 100%;
 }
 
-/* line 39, sass/_layouts.scss */
+/* line 44, sass/_layouts.scss */
 .main nav.main-nav {
   position: fixed;
   top: 0;
   left: 0;
   cursor: pointer;
 }
-/* line 46, sass/_layouts.scss */
+/* line 51, sass/_layouts.scss */
 .main nav.main-nav .top,
 .main nav.main-nav .bottom {
   position: fixed;
   left: 50%;
 }
-/* line 51, sass/_layouts.scss */
+/* line 56, sass/_layouts.scss */
 .main nav.main-nav .top {
   top: 20px;
 }
-/* line 55, sass/_layouts.scss */
+/* line 60, sass/_layouts.scss */
 .main nav.main-nav .bottom {
   bottom: 20px;
 }
-/* line 60, sass/_layouts.scss */
+/* line 65, sass/_layouts.scss */
 .main nav.main-nav .right,
 .main nav.main-nav .left {
   position: fixed;
 }
-/* line 64, sass/_layouts.scss */
+/* line 69, sass/_layouts.scss */
 .main nav.main-nav .right {
   right: 20px;
 }
-/* line 68, sass/_layouts.scss */
+/* line 73, sass/_layouts.scss */
 .main nav.main-nav .left {
   left: 20px;
 }
 
-/* line 76, sass/_layouts.scss */
+/* line 81, sass/_layouts.scss */
 .main-frame {
   height: 70%;
 }
-/* line 83, sass/_layouts.scss */
+/* line 88, sass/_layouts.scss */
 .main-frame .jcarousel ul, .main-frame .jcarousel li {
   height: inherit;
 }
-/* line 85, sass/_layouts.scss */
+/* line 90, sass/_layouts.scss */
 .main-frame .jcarousel li {
   text-align: center;
 }
-/* line 89, sass/_layouts.scss */
+/* line 94, sass/_layouts.scss */
 .main-frame .jcarousel.projects {
   width: 100%;
   height: 100%;
 }
-/* line 93, sass/_layouts.scss */
+/* line 98, sass/_layouts.scss */
 .main-frame .jcarousel.projects ul, .main-frame .jcarousel.projects li {
   height: inherit;
 }
-/* line 97, sass/_layouts.scss */
+/* line 102, sass/_layouts.scss */
 .main-frame .jcarousel.projects > ul > li {
   float: none;
   margin-bottom: 300px;
 }
-/* line 103, sass/_layouts.scss */
+/* line 108, sass/_layouts.scss */
 .main-frame .jcarousel.projects > .jcarousel-control-prev,
 .main-frame .jcarousel.projects > .jcarousel-control-next {
   left: 50%;
 }
-/* line 107, sass/_layouts.scss */
+/* line 112, sass/_layouts.scss */
 .main-frame .jcarousel.projects > .jcarousel-control-prev {
   top: 20px;
 }
-/* line 109, sass/_layouts.scss */
+/* line 114, sass/_layouts.scss */
 .main-frame .jcarousel.projects > .jcarousel-control-next {
   bottom: 20px;
 }
-/* line 112, sass/_layouts.scss */
+/* line 117, sass/_layouts.scss */
 .main-frame .jcarousel.project {
   width: 100%;
   height: 100%;
 }
-/* line 116, sass/_layouts.scss */
+/* line 121, sass/_layouts.scss */
 .main-frame .jcarousel.project li {
   margin-right: 300px;
 }
-/* line 119, sass/_layouts.scss */
+/* line 124, sass/_layouts.scss */
 .main-frame .jcarousel.project li img {
   height: 100%;
   width: auto;
 }
-/* line 125, sass/_layouts.scss */
+/* line 130, sass/_layouts.scss */
 .main-frame .jcarousel.project > .jcarousel-control-prev {
   left: 0;
 }
-/* line 129, sass/_layouts.scss */
+/* line 134, sass/_layouts.scss */
 .main-frame .jcarousel.project > .jcarousel-control-next {
   right: 0;
 }

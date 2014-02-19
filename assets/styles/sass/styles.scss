@@ -13,6 +13,10 @@ style.scss - Sass Styles for lanningsmith.com
 /*    Variables
 /*==================================================================================*/
 
+$default_font_color: black;
+
+
+
 @import 'site-wide';
 @import 'modules';
 @import 'layouts';

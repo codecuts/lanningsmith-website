@@ -3,3 +3,12 @@
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
 }
+
+a {
+	color: $default_font_color;
+}
+
+a:hover {
+	color: $default_font_color;
+	text-decoration: none;
+}
