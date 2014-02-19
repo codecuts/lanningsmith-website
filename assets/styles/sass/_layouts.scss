@@ -1,5 +1,5 @@
 .container {
-	//width: 98%;
+	width: 100%;
 	min-width: 960px;
 	margin: 0 auto;
 	overflow: hidden;
@@ -10,7 +10,7 @@
 
 
 .gridnav {
-
+	display:none;
 	.gridframe {
 		@extend .row-fluid;
 		height: 1000px;
@@ -35,6 +35,41 @@
 
 .main {
 	@extend .row-fluid;
+
+	nav.main-nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		cursor: pointer;
+
+		.top,
+		.bottom {
+			position: fixed;
+			left: 50%;
+		}
+
+		.top {
+			top: 20px;
+		}
+
+		.bottom {
+			bottom: 20px;
+		}
+
+		.right,
+		.left {
+			position: fixed;
+		}
+
+		.right {
+			right: 20px;
+		}
+
+		.left {
+			left: 20px;
+		}
+
+	}
 }
 
 

@@ -47,8 +47,6 @@
 				</li>
 			<?php endforeach; ?>
 		</ul>
-		<a class="jcarousel-control-prev" href="#">Prev</a>
-	    <a class="jcarousel-control-next" href="#">Next</a>
 	</div>
 <?php elseif ($context == 'project') : ?>
 	<div class="jcarousel project">
@@ -59,7 +57,5 @@
 				<?php endforeach; ?>
 			<?php endforeach; ?>
 		</ul>
-		<a class="jcarousel-control-prev" href="#" >Prev</a>
-	    <a class="jcarousel-control-next" href="#" >Next</a>
 	</div>
 <?php endif; ?>

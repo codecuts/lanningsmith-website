@@ -3,7 +3,7 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 	var init = function() {
 
 		// initizialize the gridnav carousel
-		$('.jcarousel')
+		/*$('.jcarousel.gridnav')
 			.on('jcarousel:create jcarousel:reload', function() {
 		        var element = $(this),
 		            width = element.innerWidth(),
@@ -30,7 +30,7 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 	            
 		    }).jcarousel({
 		        // Your configurations options
-		});
+		});*/
 
 		// initialize the projects carousel in the main-frame
 		$('.jcarousel.projects').on('jcarousel:create jcarousel:reload', function() {
@@ -55,12 +55,32 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 
 		}).jcarousel();
 
-		$('.jcarousel-control-prev').jcarouselControl({
+		/*$('.jcarousel-control-prev').jcarouselControl({
 		    target: '-=1'
 		});
 
 		$('.jcarousel-control-next').jcarouselControl({
 		    target: '+=1'
+		});*/
+
+		$('.main .main-nav div').each(function() {
+			var ctrl = $(this),
+				elemClass = ctrl.attr('class'),
+				projectsCarousel = $('.jcarousel.projects'),
+				activeProjectCarousel = projectsCarousel.find('.jcarousel.project');
+
+			if ( elemClass == 'top' || elemClass == 'bottom' ) {
+				ctrl.jcarouselControl({ 
+					carousel: projectsCarousel, 
+					target: ( elemClass == 'top' ) ? '-=1' : '+=1'
+				});
+			}
+			else {
+				ctrl.jcarouselControl({
+					carousel: activeProjectCarousel,
+					target: ( elemClass == 'left' ) ? '-=1' : '+=1'
+				});
+			}
 		});
 
 	};

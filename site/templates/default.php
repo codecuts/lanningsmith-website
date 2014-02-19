@@ -13,14 +13,20 @@
 
 <section class="gridnav" >
 	<div class="gridframe">
-		<?php snippet('carousel', array('found' => $found, 'context'=>'gridnav')) ?>
+		<?php //snippet('carousel', array('found' => $found, 'context'=>'gridnav')) ?>
 	</div>
 </section>
 
 <section class="main">
 	<div class="main-frame">
-		<?php //snippet('carousel', array('found' => $found, 'context'=>'mainframe')) ?>
+		<?php snippet('carousel', array('found' => $found, 'context'=>'mainframe')) ?>
 	</div>
+	<nav class="main-nav">
+		<div class="left" title="Previous Image">Prev</div>
+		<div class="right" title="Next Image">Next</div>
+		<div class="top" title="Previous Project">Prev</div>
+		<div class="bottom" title="Next Project">Ne</div>
+	</nav>
 </section>
 
 <?php snippet('footer') ?>

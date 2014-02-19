@@ -10,7 +10,7 @@ define(["jquery", "app/helpers", "app/ourCarousel"], function($,helpers,ourCarou
 	});
 
 	$(window).resize(function() {
-		//helpers.managePageLoad();
+		helpers.managePageLoad();
 
 		/*console.log('viewport:'+$(window).height());
 		console.log('.main:'+$('.main').height());

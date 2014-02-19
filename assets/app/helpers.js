@@ -24,6 +24,8 @@ define(["jquery"], function() {
 
 		$('.main-frame').vAlignInViewport();
 
+		$('.main-nav .left, .main-nav .right').vAlignInViewport();
+
 		//$('.container').animate({opacity:1},80);
 
 	};

@@ -50,6 +50,8 @@ have a fixed width and height (but it's not required).
 .jcarousel-control-prev,
 .jcarousel-control-next {
     position: fixed;
+    width: 30px;
+    height: 30px;
 }
 
 .jcarousel-control-prev {
