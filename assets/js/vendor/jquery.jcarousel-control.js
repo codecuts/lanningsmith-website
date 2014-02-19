@@ -19,15 +19,15 @@
             }, this);
             this.onReload = $.proxy(this._reload, this);
             this.onEvent = $.proxy(function(e) {
-                e.preventDefault(); console.log('click on',e.target);
+                e.preventDefault();
 
-                var method = this.options('method'); console.log('method',this.options('method'));
+                var method = this.options('method');
 
                 if ($.isFunction(method)) {
                     method.call(this);
                 } else {
                     this.carousel()
-                        .jcarousel(this.options('method'), this.options('target')); console.log(this.carousel());
+                        .jcarousel(this.options('method'), this.options('target'));
                 }
             }, this);
         },
