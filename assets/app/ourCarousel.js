@@ -14,7 +14,7 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 
 				gi = element.find('.grid-item, .grid-item-rightmost' );
 
-				aspectRatio = 16/9;
+				aspectRatio = 3/2;
 				itemWidth = (width-63)/4;
 				itemHeight = itemWidth*(1/aspectRatio);
 				gi.each(function() {
