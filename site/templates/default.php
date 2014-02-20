@@ -25,7 +25,7 @@
 		<div class="left" title="Previous Image">Prev</div>
 		<div class="right" title="Next Image">Next</div>
 		<div class="top" title="Previous Project">Prev</div>
-		<div class="bottom" title="Next Project">Ne</div>
+		<div class="bottom" title="Next Project">Next</div>
 	</nav>
 </section>
 

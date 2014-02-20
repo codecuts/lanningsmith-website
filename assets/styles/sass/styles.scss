@@ -7,17 +7,26 @@ style.scss - Sass Styles for lanningsmith.com
 /*==================================================================================*/
 
 /* Dependencies */
-@import "compass_twitter_bootstrap";
+@import "compass/css3";
+//@import 'compass_twitter_bootstrap';
+@import 'our-bootstrap';
 
 /*==================================================================================*/
 /*    Variables
 /*==================================================================================*/
 
-$default_font_color: black;
+$defaultFontSize: 16px;
+$defaultLineHeight: 1.5em;  /* 22px */
+$defaultVerticalRhythmUnit: 2.2em;
+
+$defaultFontColor: black;
+
+$headerFontStack: 'Nunito', sans-serif;
 
 
-
+@import 'mixins';
 @import 'site-wide';
+@import 'typography';
 @import 'modules';
 @import 'layouts';
 

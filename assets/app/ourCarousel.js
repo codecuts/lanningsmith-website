@@ -85,6 +85,7 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 
 	};
 
+	// reveal module functions
 	return {
 		init: init
 	};

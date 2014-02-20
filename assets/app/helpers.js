@@ -18,6 +18,15 @@ define(["jquery"], function() {
 		});
 	};
 
+	var setupEvents = function() {
+
+		$('#logo').on('click', function(e) {
+			e.preventDefault();
+			$('.about').toggle('slide');
+		});
+
+	}
+
 	var managePageLoad = function() {
 
 		$('.main').css('height', $(window).height());
@@ -29,7 +38,9 @@ define(["jquery"], function() {
 		//$('.container').animate({opacity:1},80);
 
 	};
+	//reveal module functions
 	return {
+		setupEvents: setupEvents,
 		managePageLoad: managePageLoad
 	};
 

@@ -1,0 +1,13 @@
+
+
+@mixin setFontSize($fontSizeInEms, $thisVerticalRhythmUnit: $defaultVerticalRhythmUnit) {
+	font: {
+		weight: normal;
+		size: $fontSizeInEms;
+	}
+	margin: {
+		top: ($thisVerticalRhythmUnit / $fontSizeInEms) * 1em;
+		bottom: ($thisVerticalRhythmUnit / $fontSizeInEms) * 1em;
+	}
+	line-height: ($thisVerticalRhythmUnit / $fontSizeInEms) * 1em;
+}

@@ -25,3 +25,8 @@
       <header>
         <div id="logo"><a href="">LANNINGSMITH</a></div>
       </header>
+
+      <section class="about">
+        <h2 class="site-description"><?php echo $site->description() ?></h2>
+        <?php echo kirbytext($pages->find('/about-us')->text()) ?>
+      </section>

@@ -11,7 +11,30 @@
 #logo {
 	position: fixed;
 	margin: 53px 0 0 30px;
-	font: 20px bold 'Nunito', sans-serif;
+	font: 20px bold $headerFontStack;
+	letter-spacing: 1.15px;
+	z-index: 20;
+}
+
+.about {
+	display: none; /* starts out hidden; jQuery-UI changes this to slide out */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 42%;
+	height: 100%;
+	padding: 58px 31px;
+	background: #fff;
+	@include opacity(.9);
+	overflow: hidden;
+	z-index: 10;
+
+	.site-description {
+		font-size: 13px;
+		font-family: $headerFontStack;
+		text-transform: uppercase;
+	}
+
 }
 
 .gridnav {

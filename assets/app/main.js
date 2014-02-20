@@ -1,8 +1,10 @@
-define(["jquery", "app/helpers", "app/ourCarousel"], function($,helpers,ourCarousel) {
+define(["jquery", "jquery-ui", "app/helpers", "app/ourCarousel"], function($,ui,helpers,ourCarousel) {
 
 	$(document).ready(function() {
+		helpers.setupEvents();
 		helpers.managePageLoad();
 		ourCarousel.init();
+
 
 		/*console.log('viewport:'+$(window).height());
 		console.log('.main:'+$('.main').height());
