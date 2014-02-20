@@ -17,11 +17,10 @@
 							<div class="grid-item-rightmost">
 						<?php else :?>	
 							<div class="grid-item">  
-							<?php endif ?>
-								<img src="http://lorempixel.com/400/200" alt="dumdidum"/>
-								<div> 
-									<?php echo $item->title() ?>	
-								</div>	
+						<?php endif ?>
+								<a href="<?php echo $item->url()?>">
+									<img src="http://lorempixel.com/600/600" alt="dumdidum"/>
+								</a>
 							</div>
 
 				<?php $i++;	?>
@@ -34,7 +33,7 @@
 			<?php endforeach; ?>
 
 		</ul>
-
+		
 		<a class="jcarousel-control-prev" href="#">Prev</a>
 	    <a class="jcarousel-control-next" href="#">Next</a>
 	</div>

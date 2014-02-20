@@ -3,7 +3,7 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 	var init = function() {
 
 		// initizialize the gridnav carousel
-		/*$('.jcarousel.gridnav')
+		$('.jcarousel')
 			.on('jcarousel:create jcarousel:reload', function() {
 		        var element = $(this),
 		            width = element.innerWidth(),
@@ -12,25 +12,20 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 	        	//element.jcarousel('items').css('width', width + 'px');
 		        //element.jcarousel('items').css('margin-right', '150px');
 
-				$gi = element.find('.grid-item');
-				$gir = element.find('.grid-item-rightmost');
-				
-				$gi.each(function() {
-		        	$(this).parent().css('width',width);
-		        	$(this).css('width', (width-63)/4);
-		        	$(this).css('margin-right', '21px');
-		        	$(this).css('float', 'left');
+				gi = element.find('.grid-item, .grid-item-rightmost' );
+
+				aspectRatio = 16/9;
+				itemWidth = (width-63)/4;
+				itemHeight = itemWidth*(1/aspectRatio);
+				gi.each(function() {
+		        	$(this).css('width', itemWidth);
+					$(this).css('height', itemHeight);
 		        });
-				
-				$gir.each(function() {
-		        	$(this).parent().css('width',width);
-		        	$(this).css('width', (width-64)/4);
-		        	$(this).css('float', 'left');
-		        });
+
 	            
 		    }).jcarousel({
 		        // Your configurations options
-		});*/
+		});
 
 		// initialize the projects carousel in the main-frame
 		$('.jcarousel.projects').on('jcarousel:create jcarousel:reload', function() {

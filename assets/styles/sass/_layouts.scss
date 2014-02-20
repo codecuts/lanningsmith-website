@@ -38,11 +38,15 @@
 }
 
 .gridnav {
-	display:none;
+	
 	.gridframe {
 		@extend .row-fluid;
 		height: 1000px;
-		background: #333;
+		margin-left : 15.13671875%; // 155px
+//		margin-right: 15.13671875%;
+		width: 69.7265625%; // 100%
+		
+		background: #987;
 	}
 
 	.jcarousel.gridnav {
@@ -53,9 +57,15 @@
 			@extend .span3;
 		}
 		
-		.grid-item-rightmost{
-
+		.grid-item-rightmost, .grid-item{
+			overflow: hidden;
+			margin-bottom:21px;
 		}	
+		
+		.grid-item{
+			margin-right:21px;
+			float: left;
+		}
 	}
 
 }
