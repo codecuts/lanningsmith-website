@@ -4,5 +4,7 @@ content
 site/cache
 thumbs
 
+.ht*
+
 # for compass
 .sass-cache
