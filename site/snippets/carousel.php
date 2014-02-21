@@ -6,7 +6,7 @@
 			<?php $i=0;?>	
 			<?php $gridcount = 12; ?>
 		
-			<?php foreach ($found->visible() as $item) : ?>
+			<?php foreach ($found->visible() as $item) : ?> 
 		
 				<?php if ($i % $gridcount == 0) : ?>
 					<li>
@@ -19,7 +19,9 @@
 							<div class="grid-item">  
 						<?php endif ?>
 								<a href="<?php echo $item->url()?>">
-									<img src="http://lorempixel.com/600/600" alt="dumdidum"/>
+									<?php 
+										$thumb = $item->children()->first()->images()->first();
+										echo thumb($thumb, array('width'=>300)); ?>
 								</a>
 							</div>
 
