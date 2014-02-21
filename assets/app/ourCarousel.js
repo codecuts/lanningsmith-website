@@ -3,7 +3,7 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 	var init = function() {
 
 		// initizialize the gridnav carousel
-		$('.jcarousel')
+		$('.jcarousel.thumbs')
 			.on('jcarousel:create jcarousel:reload', function() {
 		        var element = $(this),
 		            width = element.innerWidth(),

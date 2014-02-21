@@ -1,5 +1,5 @@
 <?php if ($context == 'gridnav') : ?>
-	<div class='jcarousel gridnav'>
+	<div class='jcarousel thumbs'>
 		
 		<ul>
 			
