@@ -38,13 +38,28 @@
 }
 
 .gridnav {
+	position: absolute;
+	top: 0;
 	width: 100%;
+	background: rgba(255,255,255,0.5);
+	overflow:hidden;
+
+	.shutter {
+		position: absolute;
+		left: 50%;
+		margin-top: 10px;
+		font-family: $headerFontStack;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
 	
 	.gridframe {
 		@extend .row-fluid;
 		width: initial;
 		height: 1000px;
-		margin: 138px 130px 0px 130px;
+		padding: 138px 130px 0px 130px;
+		z-index: 30;
+
 
 		//margin-left : 15.13671875%; // 
 

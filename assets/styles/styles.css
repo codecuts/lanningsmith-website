@@ -1388,122 +1388,136 @@ a:hover {
 
 /* line 40, sass/_layouts.scss */
 .gridnav {
+  position: absolute;
+  top: 0;
   width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
 }
-/* line 43, sass/_layouts.scss */
+/* line 47, sass/_layouts.scss */
+.gridnav .shutter {
+  position: absolute;
+  left: 50%;
+  margin-top: 10px;
+  font-family: "Nunito", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+/* line 56, sass/_layouts.scss */
 .gridnav .gridframe {
   width: initial;
   height: 1000px;
-  margin: 138px 130px 0px 130px;
+  padding: 138px 130px 0px 130px;
+  z-index: 30;
 }
-/* line 55, sass/_layouts.scss */
+/* line 70, sass/_layouts.scss */
 .gridnav .jcarousel.gridnav {
   width: 100%;
 }
-/* line 63, sass/_layouts.scss */
+/* line 78, sass/_layouts.scss */
 .gridnav .jcarousel.gridnav .grid-item-rightmost, .gridnav .jcarousel.gridnav .grid-item {
   overflow: hidden;
   margin-bottom: 21px;
 }
-/* line 68, sass/_layouts.scss */
+/* line 83, sass/_layouts.scss */
 .gridnav .jcarousel.gridnav .grid-item {
   margin-right: 21px;
   float: left;
 }
 
-/* line 80, sass/_layouts.scss */
+/* line 95, sass/_layouts.scss */
 .main nav.main-nav {
   position: fixed;
   top: 0;
   left: 0;
   cursor: pointer;
 }
-/* line 87, sass/_layouts.scss */
+/* line 102, sass/_layouts.scss */
 .main nav.main-nav .top,
 .main nav.main-nav .bottom {
   position: fixed;
   left: 50%;
 }
-/* line 92, sass/_layouts.scss */
+/* line 107, sass/_layouts.scss */
 .main nav.main-nav .top {
   top: 20px;
 }
-/* line 96, sass/_layouts.scss */
+/* line 111, sass/_layouts.scss */
 .main nav.main-nav .bottom {
   bottom: 20px;
 }
-/* line 101, sass/_layouts.scss */
+/* line 116, sass/_layouts.scss */
 .main nav.main-nav .right,
 .main nav.main-nav .left {
   position: fixed;
 }
-/* line 105, sass/_layouts.scss */
+/* line 120, sass/_layouts.scss */
 .main nav.main-nav .right {
   right: 20px;
 }
-/* line 109, sass/_layouts.scss */
+/* line 124, sass/_layouts.scss */
 .main nav.main-nav .left {
   left: 20px;
 }
 
-/* line 117, sass/_layouts.scss */
+/* line 132, sass/_layouts.scss */
 .main-frame {
   height: 70%;
 }
-/* line 124, sass/_layouts.scss */
+/* line 139, sass/_layouts.scss */
 .main-frame .jcarousel ul, .main-frame .jcarousel li {
   height: inherit;
 }
-/* line 126, sass/_layouts.scss */
+/* line 141, sass/_layouts.scss */
 .main-frame .jcarousel li {
   text-align: center;
 }
-/* line 130, sass/_layouts.scss */
+/* line 145, sass/_layouts.scss */
 .main-frame .jcarousel.projects {
   width: 100%;
   height: 100%;
 }
-/* line 134, sass/_layouts.scss */
+/* line 149, sass/_layouts.scss */
 .main-frame .jcarousel.projects ul, .main-frame .jcarousel.projects li {
   height: inherit;
 }
-/* line 138, sass/_layouts.scss */
+/* line 153, sass/_layouts.scss */
 .main-frame .jcarousel.projects > ul > li {
   float: none;
   margin-bottom: 300px;
 }
-/* line 144, sass/_layouts.scss */
+/* line 159, sass/_layouts.scss */
 .main-frame .jcarousel.projects > .jcarousel-control-prev,
 .main-frame .jcarousel.projects > .jcarousel-control-next {
   left: 50%;
 }
-/* line 148, sass/_layouts.scss */
+/* line 163, sass/_layouts.scss */
 .main-frame .jcarousel.projects > .jcarousel-control-prev {
   top: 20px;
 }
-/* line 150, sass/_layouts.scss */
+/* line 165, sass/_layouts.scss */
 .main-frame .jcarousel.projects > .jcarousel-control-next {
   bottom: 20px;
 }
-/* line 153, sass/_layouts.scss */
+/* line 168, sass/_layouts.scss */
 .main-frame .jcarousel.project {
   width: 100%;
   height: 100%;
 }
-/* line 157, sass/_layouts.scss */
+/* line 172, sass/_layouts.scss */
 .main-frame .jcarousel.project li {
   margin-right: 300px;
 }
-/* line 160, sass/_layouts.scss */
+/* line 175, sass/_layouts.scss */
 .main-frame .jcarousel.project li img {
   height: 100%;
   width: auto;
 }
-/* line 166, sass/_layouts.scss */
+/* line 181, sass/_layouts.scss */
 .main-frame .jcarousel.project > .jcarousel-control-prev {
   left: 0;
 }
-/* line 170, sass/_layouts.scss */
+/* line 185, sass/_layouts.scss */
 .main-frame .jcarousel.project > .jcarousel-control-next {
   right: 0;
 }

@@ -24,6 +24,10 @@ define(["jquery"], function() {
 			e.preventDefault();
 			$('.about').toggle('slide');
 		});
+		$('.shutter').on('click', function(e) {
+			e.preventDefault();
+			$('.gridnav').toggle('slide', { direction: 'up'} );
+		});
 
 	}
 

@@ -21,7 +21,6 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 		        	$(this).css('width', itemWidth);
 					$(this).css('height', itemHeight);
 		        });
-
 	            
 		    }).jcarousel({
 		        // Your configurations options
@@ -77,6 +76,8 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 				});
 			}
 		});
+
+		$('.gridnav').hide();
 
 	};
 
