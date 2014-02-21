@@ -9,6 +9,7 @@ requirejs.config({
     },
     "shim": {
         "jcarousel": ["jquery"],
+        "jquery-ui": ["jquery"],
         "jcarousel-control": ["jquery", "jcarousel"]
     }
 });
