@@ -56,11 +56,8 @@
 	}
 	
 	.gridframe {
-		@extend .row-fluid;
-		width: initial;
-		padding: 138px 130px 0px 130px;
-		z-index: 30;
-
+		margin: 0 auto;
+		overflow: hidden;
 
 		//margin-left : 15.13671875%; // 
 
@@ -73,18 +70,22 @@
 		width: 100%;
 		
 		li {
-			@extend .span3;
-		}
-		
-		.grid-item-rightmost, .grid-item{
-			overflow: hidden;
-			margin-bottom:21px;
-		}	
-		
-		.grid-item{
-			margin-right:21px;
 			float: left;
+			margin-right: 300px;
 		}
+		
+		.grid-item {
+			float: left;
+			width: 210px;
+			height: 140px;
+			overflow: hidden;
+			background: #333;
+		}
+
+		.griditem.rightmost {
+			margin-right: 0;
+		}
+		
 	}
 
 }

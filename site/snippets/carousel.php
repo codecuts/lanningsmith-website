@@ -1,41 +1,6 @@
 <?php if ($context == 'gridnav') : ?>
 	<div class='jcarousel thumbs'>
-		
-		<ul>
-			
-			<?php $i=0;?>	
-			<?php $gridcount = 12; ?>
-		
-			<?php foreach ($found->visible() as $item) : ?> 
-		
-				<?php if ($i % $gridcount == 0) : ?>
-					<li>
-						<div>
-				<?php endif; ?>		
-
-						<?php if(($i+1) % 4 == 0):?>
-							<div class="grid-item-rightmost">
-						<?php else :?>	
-							<div class="grid-item">  
-						<?php endif ?>
-								<a href="<?php echo $item->url()?>">
-									<?php 
-										$thumb = $item->children()->first()->images()->first();
-										echo thumb($thumb, array('width'=>300)); ?>
-								</a>
-							</div>
-
-				<?php $i++;	?>
-		
-				<?php if ($i % $gridcount == 0) :?>
-						</div>
-					</li>
-				<?php endif;?>
-		
-			<?php endforeach; ?>
-
-		</ul>
-		
+		<ul></ul>
 		<a class="jcarousel-control-prev" href="#">Prev</a>
 	    <a class="jcarousel-control-next" href="#">Next</a>
 	</div>

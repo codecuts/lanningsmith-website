@@ -18,34 +18,15 @@ define(["jquery"], function() {
 		});
 	};
 
-	var setupEvents = function() {
-
-		$('#logo').on('click', function(e) {
-			e.preventDefault();
-			$('.about').toggle('slide');
+	$.fn.hAlignInViewport = function() {
+		return this.each(function() {
+			var ah = $(this).width();
+	    	var ph = $(window).width();
+	    	var mh = (ph - ah) / 2;
+	    	$(this).css('margin-left', mh);
 		});
-		$('.shutter').on('click', function(e) {
-			e.preventDefault();
-			$('.gridnav').toggle('slide', { direction: 'up'} );
-		});
-
-	}
-
-	var managePageLoad = function() {
-
-		$('.main').css('height', $(window).height());
-
-		$('.main-frame').vAlignInViewport();
-
-		$('.main-nav .left, .main-nav .right').vAlignInViewport();
-
-		//$('.container').animate({opacity:1},80);
-
 	};
-	//reveal module functions
-	return {
-		setupEvents: setupEvents,
-		managePageLoad: managePageLoad
-	};
+
+
 
 });

@@ -404,7 +404,7 @@ a:focus {
 }
 
 /* line 293, sass/_our-bootstrap.scss */
-.span3, .gridnav .jcarousel.thumbs li {
+.span3 {
   width: 220px;
 }
 
@@ -479,15 +479,14 @@ a:focus {
 }
 
 /* line 338, sass/_our-bootstrap.scss */
-.row-fluid, .gridnav .gridframe, .main {
+.row-fluid, .main {
   width: 100%;
   *zoom: 1;
 }
 
 /* line 343, sass/_our-bootstrap.scss */
-.row-fluid:before, .gridnav .gridframe:before, .main:before,
+.row-fluid:before, .main:before,
 .row-fluid:after,
-.gridnav .gridframe:after,
 .main:after {
   display: table;
   content: "";
@@ -495,12 +494,12 @@ a:focus {
 }
 
 /* line 348, sass/_our-bootstrap.scss */
-.row-fluid:after, .gridnav .gridframe:after, .main:after {
+.row-fluid:after, .main:after {
   clear: both;
 }
 
 /* line 351, sass/_our-bootstrap.scss */
-.row-fluid [class*="span"], .gridnav .gridframe [class*="span"], .main [class*="span"] {
+.row-fluid [class*="span"], .main [class*="span"] {
   display: block;
   width: 100%;
   min-height: 30px;
@@ -513,227 +512,227 @@ a:focus {
 }
 
 /* line 362, sass/_our-bootstrap.scss */
-.row-fluid [class*="span"]:first-child, .gridnav .gridframe [class*="span"]:first-child, .main [class*="span"]:first-child {
+.row-fluid [class*="span"]:first-child, .main [class*="span"]:first-child {
   margin-left: 0;
 }
 
 /* line 365, sass/_our-bootstrap.scss */
-.row-fluid .controls-row [class*="span"] + [class*="span"], .gridnav .gridframe .controls-row [class*="span"] + [class*="span"], .main .controls-row [class*="span"] + [class*="span"] {
+.row-fluid .controls-row [class*="span"] + [class*="span"], .main .controls-row [class*="span"] + [class*="span"] {
   margin-left: 2.127659574468085%;
 }
 
 /* line 368, sass/_our-bootstrap.scss */
-.row-fluid .span12, .gridnav .gridframe .span12, .main .span12 {
+.row-fluid .span12, .main .span12 {
   width: 100%;
   *width: 99.94680851063829%;
 }
 
 /* line 372, sass/_our-bootstrap.scss */
-.row-fluid .span11, .gridnav .gridframe .span11, .main .span11 {
+.row-fluid .span11, .main .span11 {
   width: 91.48936170212765%;
   *width: 91.43617021276594%;
 }
 
 /* line 376, sass/_our-bootstrap.scss */
-.row-fluid .span10, .gridnav .gridframe .span10, .main .span10 {
+.row-fluid .span10, .main .span10 {
   width: 82.97872340425532%;
   *width: 82.92553191489361%;
 }
 
 /* line 380, sass/_our-bootstrap.scss */
-.row-fluid .span9, .gridnav .gridframe .span9, .main .span9 {
+.row-fluid .span9, .main .span9 {
   width: 74.46808510638297%;
   *width: 74.41489361702126%;
 }
 
 /* line 384, sass/_our-bootstrap.scss */
-.row-fluid .span8, .gridnav .gridframe .span8, .main .span8, .row-fluid .main-frame, .gridnav .gridframe .main-frame, .main .main-frame {
+.row-fluid .span8, .main .span8, .row-fluid .main-frame, .main .main-frame {
   width: 65.95744680851064%;
   *width: 65.90425531914893%;
 }
 
 /* line 388, sass/_our-bootstrap.scss */
-.row-fluid .span7, .gridnav .gridframe .span7, .main .span7 {
+.row-fluid .span7, .main .span7 {
   width: 57.44680851063829%;
   *width: 57.39361702127659%;
 }
 
 /* line 392, sass/_our-bootstrap.scss */
-.row-fluid .span6, .gridnav .gridframe .span6, .main .span6 {
+.row-fluid .span6, .main .span6 {
   width: 48.93617021276595%;
   *width: 48.88297872340425%;
 }
 
 /* line 396, sass/_our-bootstrap.scss */
-.row-fluid .span5, .gridnav .gridframe .span5, .main .span5 {
+.row-fluid .span5, .main .span5 {
   width: 40.42553191489362%;
   *width: 40.37234042553192%;
 }
 
 /* line 400, sass/_our-bootstrap.scss */
-.row-fluid .span4, .gridnav .gridframe .span4, .main .span4 {
+.row-fluid .span4, .main .span4 {
   width: 31.914893617021278%;
   *width: 31.861702127659576%;
 }
 
 /* line 404, sass/_our-bootstrap.scss */
-.row-fluid .span3, .gridnav .gridframe .span3, .main .span3, .row-fluid .gridnav .jcarousel.thumbs li, .gridnav .jcarousel.thumbs .row-fluid li, .gridnav .gridframe .jcarousel.thumbs li, .gridnav .jcarousel.thumbs .gridframe li, .main .gridnav .jcarousel.thumbs li, .gridnav .jcarousel.thumbs .main li {
+.row-fluid .span3, .main .span3 {
   width: 23.404255319148934%;
   *width: 23.351063829787233%;
 }
 
 /* line 408, sass/_our-bootstrap.scss */
-.row-fluid .span2, .gridnav .gridframe .span2, .main .span2 {
+.row-fluid .span2, .main .span2 {
   width: 14.893617021276595%;
   *width: 14.840425531914894%;
 }
 
 /* line 412, sass/_our-bootstrap.scss */
-.row-fluid .span1, .gridnav .gridframe .span1, .main .span1 {
+.row-fluid .span1, .main .span1 {
   width: 6.382978723404255%;
   *width: 6.329787234042553%;
 }
 
 /* line 416, sass/_our-bootstrap.scss */
-.row-fluid .offset12, .gridnav .gridframe .offset12, .main .offset12 {
+.row-fluid .offset12, .main .offset12 {
   margin-left: 104.25531914893617%;
   *margin-left: 104.14893617021275%;
 }
 
 /* line 420, sass/_our-bootstrap.scss */
-.row-fluid .offset12:first-child, .gridnav .gridframe .offset12:first-child, .main .offset12:first-child {
+.row-fluid .offset12:first-child, .main .offset12:first-child {
   margin-left: 102.12765957446808%;
   *margin-left: 102.02127659574467%;
 }
 
 /* line 424, sass/_our-bootstrap.scss */
-.row-fluid .offset11, .gridnav .gridframe .offset11, .main .offset11 {
+.row-fluid .offset11, .main .offset11 {
   margin-left: 95.74468085106382%;
   *margin-left: 95.6382978723404%;
 }
 
 /* line 428, sass/_our-bootstrap.scss */
-.row-fluid .offset11:first-child, .gridnav .gridframe .offset11:first-child, .main .offset11:first-child {
+.row-fluid .offset11:first-child, .main .offset11:first-child {
   margin-left: 93.61702127659574%;
   *margin-left: 93.51063829787232%;
 }
 
 /* line 432, sass/_our-bootstrap.scss */
-.row-fluid .offset10, .gridnav .gridframe .offset10, .main .offset10 {
+.row-fluid .offset10, .main .offset10 {
   margin-left: 87.23404255319149%;
   *margin-left: 87.12765957446807%;
 }
 
 /* line 436, sass/_our-bootstrap.scss */
-.row-fluid .offset10:first-child, .gridnav .gridframe .offset10:first-child, .main .offset10:first-child {
+.row-fluid .offset10:first-child, .main .offset10:first-child {
   margin-left: 85.1063829787234%;
   *margin-left: 84.99999999999999%;
 }
 
 /* line 440, sass/_our-bootstrap.scss */
-.row-fluid .offset9, .gridnav .gridframe .offset9, .main .offset9 {
+.row-fluid .offset9, .main .offset9 {
   margin-left: 78.72340425531914%;
   *margin-left: 78.61702127659572%;
 }
 
 /* line 444, sass/_our-bootstrap.scss */
-.row-fluid .offset9:first-child, .gridnav .gridframe .offset9:first-child, .main .offset9:first-child {
+.row-fluid .offset9:first-child, .main .offset9:first-child {
   margin-left: 76.59574468085106%;
   *margin-left: 76.48936170212764%;
 }
 
 /* line 448, sass/_our-bootstrap.scss */
-.row-fluid .offset8, .gridnav .gridframe .offset8, .main .offset8 {
+.row-fluid .offset8, .main .offset8 {
   margin-left: 70.2127659574468%;
   *margin-left: 70.10638297872339%;
 }
 
 /* line 452, sass/_our-bootstrap.scss */
-.row-fluid .offset8:first-child, .gridnav .gridframe .offset8:first-child, .main .offset8:first-child {
+.row-fluid .offset8:first-child, .main .offset8:first-child {
   margin-left: 68.08510638297872%;
   *margin-left: 67.9787234042553%;
 }
 
 /* line 456, sass/_our-bootstrap.scss */
-.row-fluid .offset7, .gridnav .gridframe .offset7, .main .offset7 {
+.row-fluid .offset7, .main .offset7 {
   margin-left: 61.70212765957446%;
   *margin-left: 61.59574468085106%;
 }
 
 /* line 460, sass/_our-bootstrap.scss */
-.row-fluid .offset7:first-child, .gridnav .gridframe .offset7:first-child, .main .offset7:first-child {
+.row-fluid .offset7:first-child, .main .offset7:first-child {
   margin-left: 59.574468085106375%;
   *margin-left: 59.46808510638297%;
 }
 
 /* line 464, sass/_our-bootstrap.scss */
-.row-fluid .offset6, .gridnav .gridframe .offset6, .main .offset6 {
+.row-fluid .offset6, .main .offset6 {
   margin-left: 53.191489361702125%;
   *margin-left: 53.085106382978715%;
 }
 
 /* line 468, sass/_our-bootstrap.scss */
-.row-fluid .offset6:first-child, .gridnav .gridframe .offset6:first-child, .main .offset6:first-child {
+.row-fluid .offset6:first-child, .main .offset6:first-child {
   margin-left: 51.063829787234035%;
   *margin-left: 50.95744680851063%;
 }
 
 /* line 472, sass/_our-bootstrap.scss */
-.row-fluid .offset5, .gridnav .gridframe .offset5, .main .offset5 {
+.row-fluid .offset5, .main .offset5 {
   margin-left: 44.68085106382979%;
   *margin-left: 44.57446808510638%;
 }
 
 /* line 476, sass/_our-bootstrap.scss */
-.row-fluid .offset5:first-child, .gridnav .gridframe .offset5:first-child, .main .offset5:first-child {
+.row-fluid .offset5:first-child, .main .offset5:first-child {
   margin-left: 42.5531914893617%;
   *margin-left: 42.4468085106383%;
 }
 
 /* line 480, sass/_our-bootstrap.scss */
-.row-fluid .offset4, .gridnav .gridframe .offset4, .main .offset4 {
+.row-fluid .offset4, .main .offset4 {
   margin-left: 36.170212765957444%;
   *margin-left: 36.06382978723405%;
 }
 
 /* line 484, sass/_our-bootstrap.scss */
-.row-fluid .offset4:first-child, .gridnav .gridframe .offset4:first-child, .main .offset4:first-child {
+.row-fluid .offset4:first-child, .main .offset4:first-child {
   margin-left: 34.04255319148936%;
   *margin-left: 33.93617021276596%;
 }
 
 /* line 488, sass/_our-bootstrap.scss */
-.row-fluid .offset3, .gridnav .gridframe .offset3, .main .offset3 {
+.row-fluid .offset3, .main .offset3 {
   margin-left: 27.659574468085104%;
   *margin-left: 27.5531914893617%;
 }
 
 /* line 492, sass/_our-bootstrap.scss */
-.row-fluid .offset3:first-child, .gridnav .gridframe .offset3:first-child, .main .offset3:first-child {
+.row-fluid .offset3:first-child, .main .offset3:first-child {
   margin-left: 25.53191489361702%;
   *margin-left: 25.425531914893618%;
 }
 
 /* line 496, sass/_our-bootstrap.scss */
-.row-fluid .offset2, .gridnav .gridframe .offset2, .main .offset2, .row-fluid .main-frame, .gridnav .gridframe .main-frame, .main .main-frame {
+.row-fluid .offset2, .main .offset2, .row-fluid .main-frame, .main .main-frame {
   margin-left: 19.148936170212764%;
   *margin-left: 19.04255319148936%;
 }
 
 /* line 500, sass/_our-bootstrap.scss */
-.row-fluid .offset2:first-child, .gridnav .gridframe .offset2:first-child, .main .offset2:first-child, .row-fluid .main-frame:first-child, .gridnav .gridframe .main-frame:first-child, .main .main-frame:first-child {
+.row-fluid .offset2:first-child, .main .offset2:first-child, .row-fluid .main-frame:first-child, .main .main-frame:first-child {
   margin-left: 17.02127659574468%;
   *margin-left: 16.914893617021278%;
 }
 
 /* line 504, sass/_our-bootstrap.scss */
-.row-fluid .offset1, .gridnav .gridframe .offset1, .main .offset1 {
+.row-fluid .offset1, .main .offset1 {
   margin-left: 10.638297872340425%;
   *margin-left: 10.53191489361702%;
 }
 
 /* line 508, sass/_our-bootstrap.scss */
-.row-fluid .offset1:first-child, .gridnav .gridframe .offset1:first-child, .main .offset1:first-child {
+.row-fluid .offset1:first-child, .main .offset1:first-child {
   margin-left: 8.51063829787234%;
   *margin-left: 8.404255319148938%;
 }
@@ -741,7 +740,6 @@ a:focus {
 /* line 513, sass/_our-bootstrap.scss */
 [class*="span"].hide,
 .row-fluid [class*="span"].hide,
-.gridnav .gridframe [class*="span"].hide,
 .main [class*="span"].hide {
   display: none;
 }
@@ -749,7 +747,6 @@ a:focus {
 /* line 517, sass/_our-bootstrap.scss */
 [class*="span"].pull-right,
 .row-fluid [class*="span"].pull-right,
-.gridnav .gridframe [class*="span"].pull-right,
 .main [class*="span"].pull-right {
   float: right;
 }
@@ -1409,118 +1406,124 @@ a:hover {
 }
 /* line 58, sass/_layouts.scss */
 .gridnav .gridframe {
-  width: initial;
-  padding: 138px 130px 0px 130px;
-  z-index: 30;
+  margin: 0 auto;
+  overflow: hidden;
 }
-/* line 71, sass/_layouts.scss */
+/* line 68, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs {
   width: 100%;
 }
-/* line 79, sass/_layouts.scss */
-.gridnav .jcarousel.thumbs .grid-item-rightmost, .gridnav .jcarousel.thumbs .grid-item {
-  overflow: hidden;
-  margin-bottom: 21px;
-}
-/* line 84, sass/_layouts.scss */
-.gridnav .jcarousel.thumbs .grid-item {
-  margin-right: 21px;
+/* line 72, sass/_layouts.scss */
+.gridnav .jcarousel.thumbs li {
   float: left;
+  margin-right: 300px;
+}
+/* line 77, sass/_layouts.scss */
+.gridnav .jcarousel.thumbs .grid-item {
+  float: left;
+  width: 210px;
+  height: 140px;
+  overflow: hidden;
+  background: #333;
+}
+/* line 85, sass/_layouts.scss */
+.gridnav .jcarousel.thumbs .griditem.rightmost {
+  margin-right: 0;
 }
 
-/* line 96, sass/_layouts.scss */
+/* line 97, sass/_layouts.scss */
 .main nav.main-nav {
   position: fixed;
   top: 0;
   left: 0;
   cursor: pointer;
 }
-/* line 103, sass/_layouts.scss */
+/* line 104, sass/_layouts.scss */
 .main nav.main-nav .top,
 .main nav.main-nav .bottom {
   position: fixed;
   left: 50%;
 }
-/* line 108, sass/_layouts.scss */
+/* line 109, sass/_layouts.scss */
 .main nav.main-nav .top {
   top: 20px;
 }
-/* line 112, sass/_layouts.scss */
+/* line 113, sass/_layouts.scss */
 .main nav.main-nav .bottom {
   bottom: 20px;
 }
-/* line 117, sass/_layouts.scss */
+/* line 118, sass/_layouts.scss */
 .main nav.main-nav .right,
 .main nav.main-nav .left {
   position: fixed;
 }
-/* line 121, sass/_layouts.scss */
+/* line 122, sass/_layouts.scss */
 .main nav.main-nav .right {
   right: 20px;
 }
-/* line 125, sass/_layouts.scss */
+/* line 126, sass/_layouts.scss */
 .main nav.main-nav .left {
   left: 20px;
 }
 
-/* line 133, sass/_layouts.scss */
+/* line 134, sass/_layouts.scss */
 .main-frame {
   height: 70%;
 }
-/* line 140, sass/_layouts.scss */
+/* line 141, sass/_layouts.scss */
 .main-frame .jcarousel ul, .main-frame .jcarousel li {
   height: inherit;
 }
-/* line 142, sass/_layouts.scss */
+/* line 143, sass/_layouts.scss */
 .main-frame .jcarousel li {
   text-align: center;
 }
-/* line 146, sass/_layouts.scss */
+/* line 147, sass/_layouts.scss */
 .main-frame .jcarousel.projects {
   width: 100%;
   height: 100%;
 }
-/* line 150, sass/_layouts.scss */
+/* line 151, sass/_layouts.scss */
 .main-frame .jcarousel.projects ul, .main-frame .jcarousel.projects li {
   height: inherit;
 }
-/* line 154, sass/_layouts.scss */
+/* line 155, sass/_layouts.scss */
 .main-frame .jcarousel.projects > ul > li {
   float: none;
   margin-bottom: 300px;
 }
-/* line 160, sass/_layouts.scss */
+/* line 161, sass/_layouts.scss */
 .main-frame .jcarousel.projects > .jcarousel-control-prev,
 .main-frame .jcarousel.projects > .jcarousel-control-next {
   left: 50%;
 }
-/* line 164, sass/_layouts.scss */
+/* line 165, sass/_layouts.scss */
 .main-frame .jcarousel.projects > .jcarousel-control-prev {
   top: 20px;
 }
-/* line 166, sass/_layouts.scss */
+/* line 167, sass/_layouts.scss */
 .main-frame .jcarousel.projects > .jcarousel-control-next {
   bottom: 20px;
 }
-/* line 169, sass/_layouts.scss */
+/* line 170, sass/_layouts.scss */
 .main-frame .jcarousel.project {
   width: 100%;
   height: 100%;
 }
-/* line 173, sass/_layouts.scss */
+/* line 174, sass/_layouts.scss */
 .main-frame .jcarousel.project li {
   margin-right: 300px;
 }
-/* line 176, sass/_layouts.scss */
+/* line 177, sass/_layouts.scss */
 .main-frame .jcarousel.project li img {
   height: 100%;
   width: auto;
 }
-/* line 182, sass/_layouts.scss */
+/* line 183, sass/_layouts.scss */
 .main-frame .jcarousel.project > .jcarousel-control-prev {
   left: 0;
 }
-/* line 186, sass/_layouts.scss */
+/* line 187, sass/_layouts.scss */
 .main-frame .jcarousel.project > .jcarousel-control-next {
   right: 0;
 }

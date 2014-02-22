@@ -1,23 +1,24 @@
-define(["jquery", "jquery-ui", "app/helpers", "app/ourCarousel"], function($,ui,helpers,ourCarousel) {
+define(["jquery", 
+		"app/helpers",
+		"app/projects", 
+		"app/page",
+		"app/thumbMenu", 
+		"app/ourCarousel",
+		"jquery-ui",
+		"debounced-resize"], // see https://github.com/louisremi/jquery-smartresize, 
+	    function($,helpers,projects,page,thumbMenu,ourCarousel) {
 
 	$(document).ready(function() {
-		helpers.setupEvents();
-		helpers.managePageLoad();
-		ourCarousel.init();
-
-
-		/*console.log('viewport:'+$(window).height());
-		console.log('.main:'+$('.main').height());
-		console.log('.main-frame:'+$('.main-frame').height());*/
+		page.load();
+		thumbMenu.init();
 	});
 
-	$(window).resize(function() {
-		helpers.managePageLoad();
-
-		/*console.log('viewport:'+$(window).height());
-		console.log('.main:'+$('.main').height());
-		console.log('.main-frame:'+$('.main-frame').height());*/
-
+	$(window).on('debouncedresize', function(e) {
+		console.log('resize event');
+		page.load();
+		thumbMenu.clearGrid();
+		thumbMenu.init();
+		console.log($('.jcarousel.thumbs ul'));
 	});
 
 });
