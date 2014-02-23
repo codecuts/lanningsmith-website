@@ -8,11 +8,16 @@
 		$transfer = array();
 		$i=0;
 		foreach ($allprojects as $p) {
+			$media = array();
+			foreach ( $p->children() as $c ) {
+				$media[] = $c->images()->first()->url();
+			}
 			$transfer[] = array(
 				'i' => $i,
 				'title' => $p->title()->value,
 				'url' => $p->url(),
-				'thumb' => thumb($p->children()->first()->images()->first(), array('width'=>210))
+				'thumb' => thumb($p->children()->first()->images()->first(), array('width'=>210)),
+				'media' => $media
 			);
 			$i++;
 		}

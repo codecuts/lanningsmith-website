@@ -37,8 +37,6 @@ define(["jquery", "app/page", "app/projects"], function($,page,projects) {
 		rows = ( rows*c.thumbs.hight + (rows-1)*c.gutter <= page.height() - 2*c.margin.y ) ?
 		       rows : (rows) ? rows : 0;
 
-		console.log('col/row:'+cols+','+rows);
-
 		// calculate items per page
 		var itemsPerPage = cols * rows;
 
@@ -79,6 +77,10 @@ define(["jquery", "app/page", "app/projects"], function($,page,projects) {
 			'height': ( (rows*c.thumbs.height) + ((rows-1)*c.gutter) )+'px'
 		});
 		$('.gridframe').vAlignInViewport();
+
+//		$('.info').remove();
+//		$('<div class="info" style="position:fixed;top:0;left:30px;"></div').html('gridnav.h:'+$('.gridnav').height()+',gf.h:'+$('.gridframe').height()+'m-top:'+$('.gridframe').css('margin-top')).prependTo('body');
+
 
 	},
 

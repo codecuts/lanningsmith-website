@@ -1409,16 +1409,16 @@ a:hover {
   margin: 0 auto;
   overflow: hidden;
 }
-/* line 68, sass/_layouts.scss */
+/* line 64, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs {
   width: 100%;
 }
-/* line 72, sass/_layouts.scss */
+/* line 68, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs li {
   float: left;
   margin-right: 300px;
 }
-/* line 77, sass/_layouts.scss */
+/* line 73, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item {
   float: left;
   width: 210px;
@@ -1426,104 +1426,104 @@ a:hover {
   overflow: hidden;
   background: #333;
 }
-/* line 85, sass/_layouts.scss */
+/* line 81, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .griditem.rightmost {
   margin-right: 0;
 }
 
-/* line 97, sass/_layouts.scss */
+/* line 93, sass/_layouts.scss */
 .main nav.main-nav {
   position: fixed;
   top: 0;
   left: 0;
   cursor: pointer;
 }
-/* line 104, sass/_layouts.scss */
+/* line 100, sass/_layouts.scss */
 .main nav.main-nav .top,
 .main nav.main-nav .bottom {
   position: fixed;
   left: 50%;
 }
-/* line 109, sass/_layouts.scss */
+/* line 105, sass/_layouts.scss */
 .main nav.main-nav .top {
   top: 20px;
 }
-/* line 113, sass/_layouts.scss */
+/* line 109, sass/_layouts.scss */
 .main nav.main-nav .bottom {
   bottom: 20px;
 }
-/* line 118, sass/_layouts.scss */
+/* line 114, sass/_layouts.scss */
 .main nav.main-nav .right,
 .main nav.main-nav .left {
   position: fixed;
 }
-/* line 122, sass/_layouts.scss */
+/* line 118, sass/_layouts.scss */
 .main nav.main-nav .right {
   right: 20px;
 }
-/* line 126, sass/_layouts.scss */
+/* line 122, sass/_layouts.scss */
 .main nav.main-nav .left {
   left: 20px;
 }
 
-/* line 134, sass/_layouts.scss */
+/* line 130, sass/_layouts.scss */
 .main-frame {
   height: 70%;
 }
-/* line 141, sass/_layouts.scss */
+/* line 137, sass/_layouts.scss */
 .main-frame .jcarousel ul, .main-frame .jcarousel li {
   height: inherit;
 }
-/* line 143, sass/_layouts.scss */
+/* line 139, sass/_layouts.scss */
 .main-frame .jcarousel li {
   text-align: center;
 }
-/* line 147, sass/_layouts.scss */
+/* line 143, sass/_layouts.scss */
 .main-frame .jcarousel.projects {
   width: 100%;
   height: 100%;
 }
-/* line 151, sass/_layouts.scss */
+/* line 147, sass/_layouts.scss */
 .main-frame .jcarousel.projects ul, .main-frame .jcarousel.projects li {
   height: inherit;
 }
-/* line 155, sass/_layouts.scss */
+/* line 151, sass/_layouts.scss */
 .main-frame .jcarousel.projects > ul > li {
   float: none;
   margin-bottom: 300px;
 }
-/* line 161, sass/_layouts.scss */
+/* line 157, sass/_layouts.scss */
 .main-frame .jcarousel.projects > .jcarousel-control-prev,
 .main-frame .jcarousel.projects > .jcarousel-control-next {
   left: 50%;
 }
-/* line 165, sass/_layouts.scss */
+/* line 161, sass/_layouts.scss */
 .main-frame .jcarousel.projects > .jcarousel-control-prev {
   top: 20px;
 }
-/* line 167, sass/_layouts.scss */
+/* line 163, sass/_layouts.scss */
 .main-frame .jcarousel.projects > .jcarousel-control-next {
   bottom: 20px;
 }
-/* line 170, sass/_layouts.scss */
+/* line 166, sass/_layouts.scss */
 .main-frame .jcarousel.project {
   width: 100%;
   height: 100%;
 }
-/* line 174, sass/_layouts.scss */
+/* line 170, sass/_layouts.scss */
 .main-frame .jcarousel.project li {
   margin-right: 300px;
 }
-/* line 177, sass/_layouts.scss */
+/* line 173, sass/_layouts.scss */
 .main-frame .jcarousel.project li img {
   height: 100%;
   width: auto;
 }
-/* line 183, sass/_layouts.scss */
+/* line 179, sass/_layouts.scss */
 .main-frame .jcarousel.project > .jcarousel-control-prev {
   left: 0;
 }
-/* line 187, sass/_layouts.scss */
+/* line 183, sass/_layouts.scss */
 .main-frame .jcarousel.project > .jcarousel-control-next {
   right: 0;
 }

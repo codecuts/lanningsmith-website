@@ -7,6 +7,8 @@ define(["jquery", "app/helpers"], function($,helpers) {
 		var _projects = projects;
 	}
 
+	console.log(_projects instanceof Array);
+
 	var count = function() {
 		return _projects.length;
 	},

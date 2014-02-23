@@ -12,14 +12,15 @@ define(["jquery", "app/helpers"], function($,helpers) {
 
 	load = function() {
 
-		this.setupInfo();
+		this.setPageInfo();
 		this.setupMain();
+		this.setupEvents();
 
 		// mark the page as loaded
 		this.info.loaded = true;
 	},
 
-	setupInfo = function() {
+	setPageInfo = function() {
 
 		this.info.viewport.width = $(window).width();
 		this.info.viewport.height = $(window).height();
@@ -78,7 +79,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	return {
 		info: info,
 		load: load,
-		setupInfo: setupInfo,
+		setPageInfo: setPageInfo,
 		setupMain: setupMain,
 		setupEvents: setupEvents,
 		height: height,
