@@ -96,17 +96,17 @@
 		left: 0;
 		cursor: pointer;
 
-		.top,
-		.bottom {
+		.up,
+		.down {
 			position: fixed;
 			left: 50%;
 		}
 
-		.top {
+		.up {
 			top: 20px;
 		}
 
-		.bottom {
+		.down {
 			bottom: 20px;
 		}
 
@@ -128,11 +128,42 @@
 
 
 .main-frame {
+	position: relative;
 	@extend .span8;
 	@extend .offset2;
 	height: 70%;
+	text-align: center;
 	
-	.jcarousel {
+	.option {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+
+		img {
+			height: 100%;
+			width: auto;
+		}
+
+	}
+
+	.option.left{
+		top: 0;
+		left: -1500px;
+	}
+	.option.right{
+		top: 0;
+		left: 2500px;
+	}
+	.option.up{
+		top: -500px;
+		left: 0;
+	}
+	.option.down{
+		top: 1000px;
+		left: 0;
+	}
+
+	/* .jcarousel {
 
 		ul, li { height: inherit; }
 
@@ -183,6 +214,6 @@
 		> .jcarousel-control-next {
 			right: 0;
 		}
-	}
+	} */
 }
 

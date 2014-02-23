@@ -1,10 +1,4 @@
-<?php if ($context == 'gridnav') : ?>
-	<div class='jcarousel thumbs'>
-		<ul></ul>
-		<a class="jcarousel-control-prev" href="#">Prev</a>
-	    <a class="jcarousel-control-next" href="#">Next</a>
-	</div>
-<?php elseif ($context == 'mainframe') : ?>
+<?php if ($context == 'mainframe') : ?>
 	<div class="jcarousel projects">
 		<ul>
 			<?php foreach ($found->visible() as $item) : ?>

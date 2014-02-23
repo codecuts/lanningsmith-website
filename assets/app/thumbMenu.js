@@ -3,6 +3,10 @@ define(["jquery", "app/page", "app/projects"], function($,page,projects) {
 	console.log('loading up thumbMenu.js');
 
 	var config = {
+//		state: {
+//			showByDefault: false,
+//			visibile: false
+//		},
 		thumbs: {
 			width: 210,
 			height: 133
@@ -71,18 +75,30 @@ define(["jquery", "app/page", "app/projects"], function($,page,projects) {
 		// but: remove right margin on rightmost
 		$('.grid-item.rightmost').css('margin-right','');
 
-		// finally: place the gridframe
+		// place the gridframe
 		$('.gridframe, .grid-page').css({
 			'width': ( (cols*c.thumbs.width) + ((cols-1)*c.gutter) )+'px',
 			'height': ( (rows*c.thumbs.height) + ((rows-1)*c.gutter) )+'px'
 		});
 		$('.gridframe').vAlignInViewport();
 
+//		// finally, if it is default for the thumbMenu to be hidden hide it
+//		if ( !c.state.showByDefault ) $('.gridnav').hide();
+		$('.gridnav').hide();
+
 //		$('.info').remove();
 //		$('<div class="info" style="position:fixed;top:0;left:30px;"></div').html('gridnav.h:'+$('.gridnav').height()+',gf.h:'+$('.gridframe').height()+'m-top:'+$('.gridframe').css('margin-top')).prependTo('body');
 
 
 	},
+
+//	isVisible = function(visibile) {
+//		if ( typeof(visibile) == 'undefined' ) {
+//			return this.config.state.visible;
+//		} else {
+//			this.config.state.visible == visible;
+//		}
+//	},
 
 	clearGrid = function() {
 		this.config.carousel.find('ul').empty();
@@ -91,6 +107,7 @@ define(["jquery", "app/page", "app/projects"], function($,page,projects) {
 	return {
 		config: config,
 		init: init,
+//		isVisible: isVisible,
 		clearGrid: clearGrid
 	}
 	

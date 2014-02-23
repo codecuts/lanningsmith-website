@@ -11,17 +11,15 @@ define(["jquery",
 	$(document).ready(function() {
 		page.load();
 		thumbMenu.init();
-		projects.init();//setCategory('all');
-
 
 //		ourCarousel.init();
 	});
 
 	$(window).on('debouncedresize', function(e) {
 //		console.log('resize event');
-		page.load();
-		thumbMenu.clearGrid();
-		thumbMenu.init();
+		//page.load();
+		//thumbMenu.clearGrid();
+		//thumbMenu.init();
 	});
 
 });

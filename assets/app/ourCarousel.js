@@ -57,7 +57,7 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 		    target: '+=1'
 		});*/
 
-		$('.main .main-nav div').each(function() {
+		/*$('.main .main-nav div').each(function() {
 			var ctrl = $(this),
 				elemClass = ctrl.attr('class'),
 				projectsCarousel = $('.jcarousel.projects'),
@@ -75,9 +75,7 @@ define(["jquery", "jcarousel", "jcarousel-control"], function() {
 					target: ( elemClass == 'left' ) ? '-=1' : '+=1'
 				});
 			}
-		});
-
-		$('.gridnav').hide();
+		});*/
 
 	};
 

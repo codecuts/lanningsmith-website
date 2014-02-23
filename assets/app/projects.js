@@ -55,22 +55,26 @@ define(["jquery", "app/helpers"], function($,helpers) {
 		
 		switch(dir){
 			case "left":
+				if(indexX == 0)
+					return null;
 				indexX--;
-				if(indexX < 0)
-					indexX=0;
 				break;	
 			case 'right':
+				if(projects[indexY].media.length<=indexX+1)
+					return null;
 				indexX++;
 				break;
 			case "up":
+				if(indexY == 0)
+					return null;
 				indexY--;
-				if(indexY < 0)
-				indexY = 0;
+				indexX=0;
 				break;
 			case "down":
-				indexY++;
 				if(indexY >= this.count())
-				index--;
+					return null;
+				indexY++;
+				indexX=0;
 		}	
 		return this.getOptionsForCurrentPosition();
 	};
@@ -118,8 +122,8 @@ define(["jquery", "app/helpers"], function($,helpers) {
 			center: this.getStepForXY(x, y),
 			left: this.getStepForXY(x-1, y),
 			right: this.getStepForXY(x+1, y),
-			top: this.getStepForXY(x, y-1),
-			bottom: this.getStepForXY(x, y+1)
+			up: this.getStepForXY(0, y-1),
+			down: this.getStepForXY(0, y+1)
 		};
 		return options;
 	};
