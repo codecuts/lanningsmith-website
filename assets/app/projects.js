@@ -27,7 +27,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 
 		this.resetToXY(0,0);
 		this.setCategory('all');
-		this.relocateToY(0);
+		return this.relocateToY(0);
 	};
 
 	var setCategory = function (categoryName){	// sets a new categpry and recomputes the subset of projects
@@ -56,15 +56,21 @@ define(["jquery", "app/helpers"], function($,helpers) {
 		switch(dir){
 			case "left":
 				indexX--;
+				if(indexX < 0)
+					indexX=0;
 				break;	
 			case 'right':
 				indexX++;
 				break;
 			case "up":
 				indexY--;
+				if(indexY < 0)
+				indexY = 0;
 				break;
 			case "down":
 				indexY++;
+				if(indexY >= this.count())
+				index--;
 		}	
 		return this.getOptionsForCurrentPosition();
 	};
