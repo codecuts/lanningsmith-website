@@ -18,8 +18,8 @@
 				'url' => $p->url(),
 				'thumb' => thumb($p->children()->first()->images()->first(), array('width'=>210)),
 				'media' => $media,
-				'description' => $p->text(),	
-				'categories' => $p->categories()
+				'description' => $p->text()->value,	
+				'categories' => $p->categories()->value
 			);
 			$i++;
 		}
