@@ -91,7 +91,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 			if(name == this.slug(projects[i].url))
 				return this.relocateToY(i);
 		}
-		return nil; // only if we didn't find that project
+		return null; // only if we didn't find that project
 	};
 	
 	var resetToXY = function(x,y){					// resets internal indexes
@@ -123,7 +123,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	var getStepForXY = function(x, y){
 		
 		if(y>=activeProjects.length || y<0)
-			return nil;
+			return null;
 			
 		project = projects[y];
 		return this.createStep(project.title, project.description, this.getProjectMedia(x, y));
@@ -131,10 +131,10 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	
 	var getProjectMedia = function(x, y){
 		
-		m = projects[y].media;
+		ma = projects[y].media;
 		if(x>=media.length || x<0)
-			return nil;
-		return m[x];
+			return null;
+		return ma[x];
 	};
 	
 	
