@@ -11,7 +11,10 @@ define(["jquery",
 	$(document).ready(function() {
 		page.load();
 		thumbMenu.init();
-		ourCarousel.init();
+		projects.init();//setCategory('all');
+
+
+//		ourCarousel.init();
 	});
 
 	$(window).on('debouncedresize', function(e) {

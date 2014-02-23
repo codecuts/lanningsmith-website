@@ -6,8 +6,6 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	} else {
 		var _projects = projects;
 	}
-
-	console.log(_projects instanceof Array);	
 	
 	var count = function() {
 		return _projects.length;
@@ -19,8 +17,19 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	var category = "all", activeProjects, indexX=0, indexY=0; // Y is projects, X is media for the current project	
+	var category = "all"; 
+	var activeProjects = new Array(); 
+	var indexX;
+	var indexY; // Y is projects, X is media for the current project	
 	
+
+	var init = function (){
+
+		this.resetToXY(0,0);
+		this.setCategory('all');
+		this.relocateToY(0);
+	};
+
 	var setCategory = function (categoryName){	// sets a new categpry and recomputes the subset of projects
 		category = categoryName;
 		this.reactivateProjects();
@@ -28,10 +37,10 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	
 	var	reactivateProjects = function(){		// recomputes subset of projects based on current category
 
-		activeProjects = new array();
+		activeProjects = new Array();
 
 		if(category == "all"){
-			activeProjects.concat(projects);
+			activeProjects = projects; console.log(activeProjects);
 			return;
 		}
 		
@@ -44,39 +53,27 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	
 	var move = function(dir){					// switches into appropiate method calls
 		
-		this.createDummyContent();
-		return;
-		
 		switch(dir){
 			case "left":
 				indexX--;
 				break;	
-			case "right":
+			case 'right':
 				indexX++;
 				break;
 			case "up":
-				indexY++;
+				indexY--;
 				break;
 			case "down":
-				indexY--;
+				indexY++;
 		}	
 		return this.getOptionsForCurrentPosition();
 	};
 	
-	var createDummyContent = function (){
-	
-		var left	= 	this.createStep("DummyProjectName"+Math.random(), "some caption", "http://lorempixel.com/800/600");
-		var right	= 	this.createStep("DummyProjectName"+Math.random(), "some caption", "http://lorempixel.com/800/600");
-		var center	=	this.createStep("DummyProjectName"+Math.random(), "some caption", "http://lorempixel.com/800/600");
-		var top		=	this.createStep("DummyProjectName"+Math.random(), "some caption", "http://lorempixel.com/800/600");
-		var bottom	=	this.createStep("DummyProjectName"+Math.random(), "some caption", "http://lorempixel.com/800/600");		
-	};
-	
 	var createStep = function (n, c, u){
 		var step = {
-			projectName = n,
-			caption = c,
-			url = u
+			projectName: n,
+			caption: c,
+			url: u
 		};
 		return step;
 	};
@@ -101,6 +98,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	
 	var relocateToY = function (y){	
 		this.resetToXY(0,y);
+		console.log(this.getOptionsForCurrentPosition());
 		return this.getOptionsForCurrentPosition();
 	};
 	
@@ -111,29 +109,29 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	var getOptionsForXY = function(x,y){
 		
 		var options = {
-			center = this.getStepForXY(x, y),
-			left = this.getStepForXY(x-1, y),
-			right = this.getStepForXY(x+1, y),
-			top = this.getStepForXY(x, y+1);
-			bottom = this.getStepForXY(x, y-1);
+			center: this.getStepForXY(x, y),
+			left: this.getStepForXY(x-1, y),
+			right: this.getStepForXY(x+1, y),
+			top: this.getStepForXY(x, y-1),
+			bottom: this.getStepForXY(x, y+1)
 		};
 		return options;
 	};
 	
 	var getStepForXY = function(x, y){
-		
-		if(y>=activeProjects.length || y<0)
+		console.log(x+','+y);
+		if(y>=activeProjects.length || y<0 || x>=projects[y].media.length || x<0)
 			return null;
-			
+
 		project = projects[y];
 		return this.createStep(project.title, project.description, this.getProjectMedia(x, y));
 	};
 	
 	var getProjectMedia = function(x, y){
-		
+		console.log('getProjectMedia x: ' + x + ', y: ' + y);
 		ma = projects[y].media;
-		if(x>=media.length || x<0)
-			return null;
+		//if(x>=ma.length || x<0)
+		//	return null;
 		return ma[x];
 	};
 	
@@ -146,8 +144,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 		count: count,
 		move: move,
 		relocate: relocate,
-		ceateStep: createStep,
-		createDummyContent: createDummyContent,
+		createStep: createStep,
 		reactivateProjects: reactivateProjects,
 		setCategory: setCategory,
 		slug: slug,
@@ -156,7 +153,8 @@ define(["jquery", "app/helpers"], function($,helpers) {
 		getStepForXY: getStepForXY,
 		relocateToY: relocateToY,
 		getOptionsForCurrentPosition: getOptionsForCurrentPosition,
-		resetToXY: resetToXY
+		resetToXY: resetToXY, 
+		init: init
 	};
 });
 
@@ -187,26 +185,3 @@ move('direction');
 relocate('name')
 
 */
-
-
-var fun = sort;
-
-
- private function sort(cat){
-	
-	
-	
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
