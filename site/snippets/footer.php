@@ -17,7 +17,9 @@
 				'title' => $p->title()->value,
 				'url' => $p->url(),
 				'thumb' => thumb($p->children()->first()->images()->first(), array('width'=>210)),
-				'media' => $media
+				'media' => $media,
+				'description' => $p->text(),	
+				'categories' => $p->categories()
 			);
 			$i++;
 		}
