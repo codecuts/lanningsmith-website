@@ -82,14 +82,6 @@ define(["jquery", "app/page", "app/projects"], function($,page,projects) {
 		});
 		$('.gridframe').vAlignInViewport();
 
-//		// finally, if it is default for the thumbMenu to be hidden hide it
-//		if ( !c.state.showByDefault ) $('.gridnav').hide();
-		$('.gridnav').hide();
-
-//		$('.info').remove();
-//		$('<div class="info" style="position:fixed;top:0;left:30px;"></div').html('gridnav.h:'+$('.gridnav').height()+',gf.h:'+$('.gridframe').height()+'m-top:'+$('.gridframe').css('margin-top')).prependTo('body');
-
-
 	},
 
 //	isVisible = function(visibile) {

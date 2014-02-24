@@ -19,6 +19,13 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		this.info.loaded = true;
 	},
 
+	reload = function() {
+
+		this.setPageInfo();
+		this.positionMainFrame();
+
+	},
+
 	setPageInfo = function() {
 
 		this.info.viewport.width = $(window).width();
@@ -28,14 +35,7 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 	
 	setupMainFrame = function(options) { 
 
-		// set height of .main <section> to viewport height
-		$('.main').css('height', this.info.viewport.height);
-
-		// vertically align .main-frame (div containing projets carousel) in viewport
-		$('.main-frame').vAlignInViewport();
-
-		// vertically align the left/right navs for projects carousel in in viewport
-		$('.main-nav .left, .main-nav .right').vAlignInViewport();
+		this.positionMainFrame();
 
 		var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
 			r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
@@ -44,6 +44,14 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 			c = options.center != null ? this.createOptionContent(options.center, 'center') : null;
 
 		$('.main-frame').append(c).append(l).append(r).append(u).append(d);
+	},
+
+	positionMainFrame = function() {
+
+		$('.main').css('height', this.info.viewport.height);
+		$('.main-frame').vAlignInViewport();
+		$('.main-nav .left, .main-nav .right').vAlignInViewport();
+
 	},
 
 	repopulateMainFrame = function (options, dir) {
@@ -169,16 +177,18 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 	return {
 		info: info,
 		load: load,
+		reload: reload,
 		setPageInfo: setPageInfo,
 		setupMainFrame: setupMainFrame,
+		positionMainFrame: positionMainFrame,
+		repopulateMainFrame: repopulateMainFrame,
+		createOptionContent: createOptionContent,
 		setupNavEvents: setupNavEvents,
 		animate: animate,
 		toggleThumbMenu: toggleThumbMenu,
 		loaded: loaded,
 		height: height,
-		width: width,
-		repopulateMainFrame: repopulateMainFrame,
-		createOptionContent: createOptionContent
+		width: width
 	};
 
 });

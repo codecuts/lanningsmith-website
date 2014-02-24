@@ -11,15 +11,16 @@ define(["jquery",
 	$(document).ready(function() {
 		page.load();
 		thumbMenu.init();
+		$('.gridnav').hide();
 
 //		ourCarousel.init();
 	});
 
 	$(window).on('debouncedresize', function(e) {
 //		console.log('resize event');
-		//page.load();
-		//thumbMenu.clearGrid();
-		//thumbMenu.init();
+		page.reload();
+		thumbMenu.clearGrid();
+		thumbMenu.init();
 	});
 
 });
