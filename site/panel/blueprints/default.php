@@ -7,12 +7,10 @@ pages: true
 files: false
 fields:
   title: 
-    label: Category Title
+    label: Page Title
     type:  text
   text: 
-    label: Category Description
+    label: Page Description
     type:  textarea
-    size:  medium
-  tags:
-   	label: Category Tags
-   	type: text
+    size:  large
+ 
