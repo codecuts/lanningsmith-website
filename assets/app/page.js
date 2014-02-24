@@ -7,13 +7,15 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		viewport: {
 			width: 0,
 			height: 0
-		}
+		},
+		url: null,
+		path: null  // will ultimately hold window.location.pathname.split('/');
 	},
 
 	load = function() {
 
-		this.setPageInfo();		
-		this.setupMainFrame( projects.init() );
+		this.setPageInfo();
+		this.handleRequest();
 		this.setupNavEvents();
 
 		this.info.loaded = true;
@@ -26,24 +28,39 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 	},
 
+	handleRequest = function() {
+
+		if ( this.info.path[1] == '' ) {  // showing all projects
+			console.log('handleRequest: url is / , showing all projects');
+			this.setupMainFrame( projects.init() );
+		}
+		else {
+			
+			if ( this.info.path[1] == 'category' ) { // showing specific category
+				// do stuff to select category
+			} 
+			else {
+				console.log('handleRequest: url is seeking specific project, relocating to that project');
+				var success = projects.init( 'single', this.info.path[1] );
+				
+				if ( success !== null ) {
+					console.log('handleRequest: suceesfully initialized projects, returned options:',success);
+					this.setupMainFrame( success );
+				} else {
+					console.error("Failed to initialize projects with slug: "+this.info.path[1]);
+				}
+			}
+
+		}
+
+	},
 	setPageInfo = function() {
 
 		this.info.viewport.width = $(window).width();
 		this.info.viewport.height = $(window).height();
+		this.info.url = window.location.href;
+		this.info.path = window.location.pathname.split('/');  // return array of path elements 
 
-	},
-	
-	setupMainFrame = function(options) { 
-
-		this.positionMainFrame();
-
-		var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
-			r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
-			u = options.up != null ? this.createOptionContent(options.top, 'up') : null,
-			d = options.down != null ? this.createOptionContent(options.down, 'down') : null,
-			c = options.center != null ? this.createOptionContent(options.center, 'center') : null;
-
-		$('.main-frame').append(c).append(l).append(r).append(u).append(d);
 	},
 
 	positionMainFrame = function() {
@@ -53,9 +70,24 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		$('.main-nav .left, .main-nav .right').vAlignInViewport();
 
 	},
+	
+	setupMainFrame = function(options) { 
+
+		this.positionMainFrame();
+
+//		console.log('setupMainFrame: options:',options);
+
+		var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
+			r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
+			u = options.up != null ? this.createOptionContent(options.up, 'up') : null,
+			d = options.down != null ? this.createOptionContent(options.down, 'down') : null,
+			c = options.center != null ? this.createOptionContent(options.center, 'center') : null;
+
+		$('.main-frame').append(c).append(l).append(r).append(u).append(d);
+	},
 
 	repopulateMainFrame = function (options, dir) {
-		console.log('REPOOPUYLKATE: '+dir);
+
 		var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
 			r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
 			u = options.up != null ? this.createOptionContent(options.up, 'up') : null,
@@ -63,16 +95,14 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 		$('.option:not(.'+dir+')').remove();
 		var newCenter = $('.option.'+dir).removeClass(dir).addClass('center');
-		
-		//$('.option.right, option.left, option.top, option.bottom').remove();
-		/*$('.options.left').remove();
-		$('.options.top').remove();*/
-
+	
 		$('.main-frame').append(l).append(r).append(u).append(d);
 
 	},
 
 	createOptionContent = function(o, dir){
+
+//		console.log('createOptionContent: for direction '+dir,o);
 
 		var url = o.url,
 			caption = o.caption,
@@ -103,8 +133,6 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		});
 
 		$('.left, .right, .up, .down').each(function() {
-
-			console.log(page);
 			
 			$(this).on('click', function() {
 				var dir = $(this).attr('class').slice(5);
@@ -178,6 +206,7 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		info: info,
 		load: load,
 		reload: reload,
+		handleRequest: handleRequest,
 		setPageInfo: setPageInfo,
 		setupMainFrame: setupMainFrame,
 		positionMainFrame: positionMainFrame,

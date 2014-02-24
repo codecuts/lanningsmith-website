@@ -23,11 +23,19 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	var indexY; // Y is projects, X is media for the current project	
 	
 
-	var init = function (){
-
+	var init = function (mode,target){
 		this.resetToXY(0,0);
-		this.setCategory('all');
-		return this.relocateToY(0);
+		if ( mode == 'category' ){
+			this.setCategory( target );
+			return this.relocateToY(0);
+		} 
+		else if ( mode == 'single' ){
+			this.setCategory( 'all' );
+			return this.relocate( target );
+		}
+		else {
+			return null;
+		}
 	};
 
 	var setCategory = function (categoryName){	// sets a new categpry and recomputes the subset of projects
@@ -40,7 +48,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 		activeProjects = new Array();
 
 		if(category == "all"){
-			activeProjects = projects; console.log(activeProjects);
+			activeProjects = projects;
 			return;
 		}
 		
@@ -108,7 +116,6 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	
 	var relocateToY = function (y){	
 		this.resetToXY(0,y);
-		console.log(this.getOptionsForCurrentPosition());
 		return this.getOptionsForCurrentPosition();
 	};
 	
@@ -129,7 +136,6 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	};
 	
 	var getStepForXY = function(x, y){
-		console.log(x+','+y);
 		if(y>=activeProjects.length || y<0 || x>=projects[y].media.length || x<0)
 			return null;
 
@@ -138,7 +144,6 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	};
 	
 	var getProjectMedia = function(x, y){
-		console.log('getProjectMedia x: ' + x + ', y: ' + y);
 		ma = projects[y].media;
 		//if(x>=ma.length || x<0)
 		//	return null;
