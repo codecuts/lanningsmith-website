@@ -12,14 +12,10 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 	load = function() {
 
-		this.setPageInfo();
-		
-		var options = projects.init();
-		this.populateMainFrame(options);
-		this.setupMain();
+		this.setPageInfo();		
+		this.setupMainFrame( projects.init() );
 		this.setupNavEvents();
 
-		// mark the page as loaded
 		this.info.loaded = true;
 	},
 
@@ -30,7 +26,7 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 	},
 	
-	setupMain = function() {
+	setupMainFrame = function(options) { 
 
 		// set height of .main <section> to viewport height
 		$('.main').css('height', this.info.viewport.height);
@@ -40,10 +36,6 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 		// vertically align the left/right navs for projects carousel in in viewport
 		$('.main-nav .left, .main-nav .right').vAlignInViewport();
-
-	},
-
-	populateMainFrame = function(options) {
 
 		var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
 			r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
@@ -112,7 +104,7 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 				var options = projects.move( dir ); 
 				if(options == null) return;
 				//console.log('new options:',options);
-				page.animate( dir , function() { page.repopulateMainFrame(options, dir); } );
+				page.animate( dir , function() { page.repopulateMainFrame(options, dir); } );  // repopulate function passed as callback
 			});
 
 		});
@@ -123,19 +115,19 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 		switch(dir){
 			case "left":
-				$('.option.center').animate({left:'1000px'},500);
+				$('.option.center').animate({left:'1500px'},500);
 				$('.option.left').animate({left:0},500,'swing',callback);
 				break;	
 			case 'right':
-				$('.option.center').animate({left:'-1000px'},500);
+				$('.option.center').animate({left:'-1500px'},500);
 				$('.option.right').animate({left:0},500,'swing',callback);
 				break;
 			case "up":
-				$('.option.center').animate({top:'1000px'},500);
+				$('.option.center').animate({top:'1500px'},500);
 				$('.option.up').animate({top:0},500,'swing',callback);
 				break;
 			case "down":
-				$('.option.center').animate({top:'-1000px'},500);
+				$('.option.center').animate({top:'-1500px'},500);
 				$('.option.down').animate({top:0},500,'swing',callback);
 		}	
 
@@ -178,14 +170,13 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		info: info,
 		load: load,
 		setPageInfo: setPageInfo,
-		setupMain: setupMain,
+		setupMainFrame: setupMainFrame,
 		setupNavEvents: setupNavEvents,
 		animate: animate,
 		toggleThumbMenu: toggleThumbMenu,
+		loaded: loaded,
 		height: height,
 		width: width,
-		loaded: loaded,
-		populateMainFrame: populateMainFrame,
 		repopulateMainFrame: repopulateMainFrame,
 		createOptionContent: createOptionContent
 	};

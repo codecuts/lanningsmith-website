@@ -1547,12 +1547,12 @@ a:hover {
 }
 /* line 157, sass/_layouts.scss */
 .main-frame .option.up {
-  top: -500px;
+  top: -1500px;
   left: 0;
 }
 /* line 161, sass/_layouts.scss */
 .main-frame .option.down {
-  top: 1000px;
+  top: 1500px;
   left: 0;
 }
 
