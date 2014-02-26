@@ -47,9 +47,13 @@
 	overflow:hidden;
 	z-index: $middleLayer;
 
-	.shutter {
+	.jcarousel-pagination {
+		width: 25%;
+		margin: 0 auto;
+		padding-top: 45px;
+		text-align: center;
 	}
-	
+
 	.gridframe {
 		margin: 0 auto;
 		overflow: hidden;

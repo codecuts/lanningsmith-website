@@ -1,4 +1,9 @@
-define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
+define(["jquery",
+	    "app/helpers", 
+	    "app/projects",
+	    "jcarousel", 
+	    "jcarousel-control", 
+	    "jcarousel-pagination"], function($,helpers,projects) {
 
 	console.log('loading up page.js');
 
@@ -10,13 +15,30 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 			height: 0
 		},
 		url: null,
-		path: null  // will ultimately hold window.location.pathname.split('/');
+		path: null,  // will ultimately hold window.location.pathname.split('/');
+		thumbMenu: {
+//			state: {
+//				showByDefault: false,
+//				visibile: false
+//			},
+			thumbs: {
+				width: 210,
+				height: 133
+			},
+			gutter: 20,
+			margin: {
+				x: 0.069,
+				y: 0.10
+			},
+			carousel: null
+		}
 	},
 
 	load = function() {
 
 		this.setPageInfo();
 		this.change( this.info.url );
+		this.initThumbMenu();
 		this.setupNavEvents();
 
 		this.info.loaded = true;
@@ -26,6 +48,8 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 		this.setPageInfo();
 		this.positionMainFrame();
+		this.clearThumbMenu();
+		this.initThumbMenu();
 
 	},
 
@@ -35,6 +59,7 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		this.info.viewport.height = $(window).height();
 		this.info.url = window.location.href;
 		this.info.path = window.location.pathname.split('/');  // return array of path elements 
+		this.info.thumbMenu.carousel = $('.jcarousel.thumbs');
 
 	},
 	
@@ -49,7 +74,9 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 	populateMainFrame = function (options, dir) {
 
 		if ( dir == 'relocate' ) {
+
 			console.log('populateMainFrame: relocating to: ',options);
+
 			var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
 			r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
 			u = options.up != null ? this.createOptionContent(options.up, 'up') : null,
@@ -69,7 +96,6 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 			$('.option:not(.'+dir+')').remove();
 			var newCenter = $('.option.'+dir).removeClass(dir).addClass('center');
-		
 			$('.main-frame').append(l).append(r).append(u).append(d);
 
 		}
@@ -79,7 +105,7 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 	createOptionContent = function(o, dir){
 
-		console.log('createOptionContent: for direction '+dir,o);
+//		console.log('createOptionContent: for direction '+dir,o);
 
 		var media = o.media,
 			caption = o.caption,
@@ -194,6 +220,96 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 	},
 
+	initThumbMenu = function() {
+
+		this.setupThumbMenu();
+
+		$('.jcarousel.thumbs').on('jcarousel:create jcarousel:reload', function() {
+			// do some setup stuff...
+		}).jcarousel({
+			//config			
+		});
+
+		$('.jcarousel-pagination')
+			.on('jcarouselpagination:active', 'a', function() {
+				$(this).addClass('active');
+			})
+			.on('jcarouselpagination:inactive', 'a', function() {
+				$(this).removeClass('active');
+			})
+			.on('click', function(e) {
+				e.preventDefault();
+			})
+			.jcarouselPagination({
+				item: function(page) {
+		    		return '<a href="#' + page + '">' + page + '</a>';
+				}
+			});
+    
+
+	},
+
+	setupThumbMenu = function() {
+
+		// short variable for config object
+		var c = this.info.thumbMenu;
+		
+		// check to see if carousel object is set
+		if ( c.carousel.length == 0 ) {
+			console.error("The thumb menu's carousel object is not set.", c.carousel);
+		}
+		
+		// calculate rows, cols, and items per carousel page
+
+		//first attempt to calculate cols and rows
+		var cols = Math.floor( ( this.width() - 2*c.margin.x*this.width() )  / c.thumbs.width );
+		var rows = Math.floor( ( this.height() - 2*c.margin.y*this.width() ) / c.thumbs.height );
+
+		//ok, now account for gutter space and if necessary remove one column or row
+		cols = ( cols*c.thumbs.width + (cols-1)*c.gutter <= this.width() - 2*c.margin.x ) ? 
+		       cols : (cols) ? cols-1 : 0;
+		rows = ( rows*c.thumbs.hight + (rows-1)*c.gutter <= this.height() - 2*c.margin.y ) ?
+		       rows : (rows) ? rows : 0;
+
+		// calculate items per page
+		var itemsPerPage = cols * rows;
+
+		// there should always at least be 1 
+		cols = ( cols ) ? cols : 1;
+		rows = ( rows ) ? rows : 1;
+		itemsPerPage = ( itemsPerPage ) ? itemsPerPage : 1;
+
+//		console.log('vw:'+page.width(),'cols:'+cols);
+//		console.log('vh:'+page.height(),'rows:'+rows);
+//		console.log('itemsPerPage'+itemsPerPage);
+
+		// add pages of thumbs
+		$.each(projects.get(), function() {
+
+			// add new carousel <li> where necessary
+			var e;
+			if ( this.i % itemsPerPage == 0 ) {
+				c.carousel.find('ul').append('<li class="grid-page"><div></div></li>');
+			}
+
+			// add project thumb
+			var classes = ( (this.i+1) % cols  == 0 ) ? 'grid-item rightmost' : 'grid-item';
+			
+			$('.grid-page > div').last().append('<div class="'+classes+'"><a href="'+this.url+'">'+this.thumb+'</a></div>');
+
+		});
+
+		// layouts thumb grid and pages
+		$('.grid-item').css({'width':c.thumbs.width+'px', 'height':c.thumbs.height+'px','margin-right': c.gutter+'px','margin-bottom': c.gutter+'px' });
+		$('.grid-item.rightmost').css('margin-right','');
+		$('.gridframe, .grid-page').css({
+			'width': ( (cols*c.thumbs.width) + ((cols-1)*c.gutter) )+'px',
+			'height': ( (rows*c.thumbs.height) + ((rows-1)*c.gutter) )+'px'
+		});
+		$('.gridframe').vAlignInViewport();
+
+	},
+
 	toggleThumbMenu = function() {
 		$('.gridnav').toggle('slide', { direction: 'up'} );
 		if ( $('.main-nav').css('visibility') == 'hidden' ) {
@@ -203,22 +319,16 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		}
 	},
 
+	clearThumbMenu = function() {
+		this.info.thumbMenu.carousel.find('ul').empty();
+	},
+
 	height = function() {
-		if ( this.loaded() ) {
-			return this.info.viewport.height;
-		} else {
-			console.error("Page is not yet loaded");
-			return null;
-		}
+		return this.info.viewport.height;
 	},
 
 	width = function() {
-		if ( this.loaded() ) {
-			return this.info.viewport.width;
-		} else {
-			console.error("Page is not yet loaded");
-			return null;
-		}
+		return this.info.viewport.width;
 	},
 
 	loaded = function() {
@@ -238,7 +348,10 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		setupNavEvents: setupNavEvents,
 		animate: animate,
 		change: change,
+		initThumbMenu: initThumbMenu,
+		setupThumbMenu: setupThumbMenu,
 		toggleThumbMenu: toggleThumbMenu,
+		clearThumbMenu: clearThumbMenu,
 		loaded: loaded,
 		height: height,
 		width: width

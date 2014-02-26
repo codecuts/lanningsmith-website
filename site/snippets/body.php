@@ -23,13 +23,13 @@
 	</section>
 
 	<section class="gridnav" >
+		<nav class="thumbmenu-nav"></nav>
 		<div class="gridframe">
 			<div class='jcarousel thumbs'>
 				<ul></ul>
 			</div>
 		</div>
-		<nav class="thumbmenu-nav">
-		</nav>
+		<div class="jcarousel-pagination"></div>
 	</section>
 
 	<footer></footer>
