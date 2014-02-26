@@ -11,11 +11,13 @@
     <meta name="keywords" content="<?php echo html($site->keywords()) ?>" />
     <meta name="robots" content="index, follow" />
 
+    <link rel="icon" type="image/png" href="<?php echo url('favicon.ico') ?>">
+
     <?php //echo css('assets/styles/bootstrap-full.css') ?>
     <?php echo css('assets/styles/styles.css') ?>
     <?php echo css('http://fonts.googleapis.com/css?family=Nunito:300,400') ?>
 
-<script src="<?php echo $site->url() ?>/assets/js/vendor/modernizr-full.js"></script>
+    <script src="<?php echo $site->url() ?>/assets/js/vendor/modernizr-full.js"></script>
 </head>
 
 <body>
