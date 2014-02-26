@@ -8,7 +8,11 @@
 			if ( $p->countChildren() > 0 ) {
 				$thumb = thumb($p->children()->first()->images()->first(), array('width'=>210));
 				foreach ( $p->children() as $c ) {
-					$media[] = $c->images()->first()->url();
+					$media[] = array(
+						'url' => $c->images()->first()->url(),
+						'width' => $c->images()->first()->width(),
+						'height' => $c->images()->first()->height()
+					);
 				}
 			}			
 			$transfer[] = array(
@@ -26,7 +30,6 @@
 	<script>
 	var projects = <?php print json_encode($transfer); ?>
 	</script>
-
 
 	<!-- RequireJS: Loads jQuery and Other Modules -->
 	<script data-main="<?php echo $site->url() ?>/assets/js/app" src="<?php echo $site->url() ?>/assets/js/vendor/require.js"></script>

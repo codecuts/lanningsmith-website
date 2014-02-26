@@ -79,14 +79,17 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 	createOptionContent = function(o, dir){
 
-//		console.log('createOptionContent: for direction '+dir,o);
+		console.log('createOptionContent: for direction '+dir,o);
 
-		var url = o.url,
+		var media = o.media,
 			caption = o.caption,
 			pName = o.projectName;
 
+		var orientation = ( media.width > media.height) ? 'landscape' : 'portrait';
+		console.log(orientation);
+
 		var elem = $('<article class="option '+dir+'"></article>');
-		elem.append('<img src="'+url+'" alt="'+caption+'"/>');
+		elem.append('<img class="'+orientation+'" src="'+media.url+'" alt="'+caption+'"/>');
 		elem.append('<div class="caption"><span class="project-title">'+pName+'</span><span class="description">'+caption+'</span></div>');
 		return elem;
 	},
@@ -163,7 +166,7 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		var html = document.getElementsByClassName('main-frame')[0].innerHTML;
 		history.pushState({'html':html, 'pageTitle':document.title}, '', url);
  		this.setPageInfo();
- 		
+
 	},
 
 	handleRequest = function(path) {

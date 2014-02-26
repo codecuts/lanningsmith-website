@@ -1529,28 +1529,37 @@ a:hover {
   position: absolute;
   width: 100%;
   height: 100%;
+  /*img {
+  	height: 100%;
+  	width: auto;
+  }*/
 }
-/* line 142, sass/_layouts.scss */
-.main-frame .option img {
+/* line 147, sass/_layouts.scss */
+.main-frame .option img.portrait {
+  width: 100%;
+  height: auto;
+}
+/* line 152, sass/_layouts.scss */
+.main-frame .option img.landscape {
   height: 100%;
   width: auto;
 }
-/* line 149, sass/_layouts.scss */
+/* line 159, sass/_layouts.scss */
 .main-frame .option.left {
   top: 0;
   left: -1500px;
 }
-/* line 153, sass/_layouts.scss */
+/* line 163, sass/_layouts.scss */
 .main-frame .option.right {
   top: 0;
   left: 2500px;
 }
-/* line 157, sass/_layouts.scss */
+/* line 167, sass/_layouts.scss */
 .main-frame .option.up {
   top: -1500px;
   left: 0;
 }
-/* line 161, sass/_layouts.scss */
+/* line 171, sass/_layouts.scss */
 .main-frame .option.down {
   top: 1500px;
   left: 0;

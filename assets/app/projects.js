@@ -87,11 +87,11 @@ define(["jquery", "app/helpers"], function($,helpers) {
 		return this.getOptionsForCurrentPosition();
 	};
 	
-	var createStep = function (n, c, u){
+	var createStep = function (n, c, m){
 		var step = {
 			projectName: n,
 			caption: c,
-			url: u
+			media: m
 		};
 		return step;
 	};
