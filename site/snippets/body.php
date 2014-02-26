@@ -10,16 +10,16 @@
 	</section>
 
 	<section class="main">
+		<nav class="main-nav">
+			<div class="ctrl shutter" title="Open Thumb Menu"></div>
+			<div class="ctrl left" title="Previous Image"></div>
+			<div class="ctrl right" title="Next Image"></div>
+			<div class="ctrl up" title="Previous Project"></div>
+			<div class="ctrl down" title="Next Project"></div>
+		</nav>
 		<div class="main-frame">
 			<?php //snippet('carousel', array('found' => $found, 'context'=>'mainframe')) ?>
 		</div>
-		<nav class="main-nav">
-			<div class="ctrl shutter" title="Open Thumb Menu">Shutter</div>
-			<div class="ctrl left" title="Previous Image">Prev</div>
-			<div class="ctrl right" title="Next Image">Next</div>
-			<div class="ctrl up" title="Previous Project">Prev</div>
-			<div class="ctrl down" title="Next Project">Next</div>
-		</nav>
 	</section>
 
 	<section class="gridnav" >
@@ -29,7 +29,6 @@
 			</div>
 		</div>
 		<nav class="thumbmenu-nav">
-			<div class="ctrl shutter">Close</div>
 		</nav>
 	</section>
 

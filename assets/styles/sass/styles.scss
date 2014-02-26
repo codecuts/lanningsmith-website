@@ -18,10 +18,14 @@ style.scss - Sass Styles for lanningsmith.com
 $defaultFontSize: 16px;
 $defaultLineHeight: 1.5em;  /* 22px */
 $defaultVerticalRhythmUnit: 2.2em;
-
 $defaultFontColor: black;
-
 $headerFontStack: 'Nunito', sans-serif;
+$upDownNav: 'arrow_updown.png';
+$rightLeftNav: 'arrow_rightleft.png';
+
+$topLayer: 9999;
+$middleLayer: 5555;
+$bottomLayer: 10;
 
 
 @import 'mixins';

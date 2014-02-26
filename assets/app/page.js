@@ -194,9 +194,13 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 	},
 
-
 	toggleThumbMenu = function() {
 		$('.gridnav').toggle('slide', { direction: 'up'} );
+		if ( $('.main-nav').css('visibility') == 'hidden' ) {
+			$('.main-nav').css('visibility', 'visible');
+		} else {
+			$('.main-nav').css('visibility', 'hidden');
+		}
 	},
 
 	height = function() {
