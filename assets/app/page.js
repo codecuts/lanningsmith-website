@@ -159,17 +159,11 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 	change = function(url) {
 
 		var path = url.replace(/^http:\/\/[^/]*/,'').split('/');
-
 		this.handleRequest( path );
-
 		var html = document.getElementsByClassName('main-frame')[0].innerHTML;
-		
-		var state = {'html':html, 'pageTitle':document.title};
-		console.log('pushing stateObj:',state);
-		history.pushState(state, '', url);
- 		
+		history.pushState({'html':html, 'pageTitle':document.title}, '', url);
  		this.setPageInfo();
-
+ 		
 	},
 
 	handleRequest = function(path) {
