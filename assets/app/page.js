@@ -85,11 +85,10 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 			caption = o.caption,
 			pName = o.projectName;
 
-		var orientation = ( media.width > media.height) ? 'landscape' : 'portrait';
-		console.log(orientation);
+		
 
 		var elem = $('<article class="option '+dir+'"></article>');
-		elem.append('<img class="'+orientation+'" src="'+media.url+'" alt="'+caption+'"/>');
+		elem.append('<img src="'+media.url+'" alt="'+caption+'"/>');
 		elem.append('<div class="caption"><span class="project-title">'+pName+'</span><span class="description">'+caption+'</span></div>');
 		return elem;
 	},

@@ -1469,7 +1469,7 @@ a:hover {
 /* line 130, sass/_layouts.scss */
 .main-frame {
   position: relative;
-  height: 70%;
+  height: 60%;
   text-align: center;
   	/* .jcarousel {
   
@@ -1529,37 +1529,35 @@ a:hover {
   position: absolute;
   width: 100%;
   height: 100%;
-  /*img {
-  	height: 100%;
-  	width: auto;
-  }*/
 }
-/* line 147, sass/_layouts.scss */
-.main-frame .option img.portrait {
-  width: 100%;
-  height: auto;
+/* line 142, sass/_layouts.scss */
+.main-frame .option img {
+  position: absolute;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }
-/* line 152, sass/_layouts.scss */
-.main-frame .option img.landscape {
-  height: 100%;
-  width: auto;
-}
-/* line 159, sass/_layouts.scss */
+/* line 156, sass/_layouts.scss */
 .main-frame .option.left {
   top: 0;
   left: -1500px;
 }
-/* line 163, sass/_layouts.scss */
+/* line 160, sass/_layouts.scss */
 .main-frame .option.right {
   top: 0;
   left: 2500px;
 }
-/* line 167, sass/_layouts.scss */
+/* line 164, sass/_layouts.scss */
 .main-frame .option.up {
   top: -1500px;
   left: 0;
 }
-/* line 171, sass/_layouts.scss */
+/* line 168, sass/_layouts.scss */
 .main-frame .option.down {
   top: 1500px;
   left: 0;
