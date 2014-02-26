@@ -162,16 +162,6 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 		this.handleRequest( path );
 
-		/*var getDocTypeAsString = function () { 
-		    var node = document.doctype;
-		    return node ? "<!DOCTYPE "
-		         + node.name
-		         + (node.publicId ? ' PUBLIC "' + node.publicId + '"' : '')
-		         + (!node.publicId && node.systemId ? ' SYSTEM' : '') 
-		         + (node.systemId ? ' "' + node.systemId + '"' : '')
-		         + '>\n' : '';
-		};
-		var html = getDocTypeAsString() + document.documentElement.outerHTML;*/
 		var html = document.getElementsByClassName('main-frame')[0].innerHTML;
 		
 		var state = {'html':html, 'pageTitle':document.title};
