@@ -65,7 +65,7 @@ define(["jquery", "app/page", "app/projects"], function($,page,projects) {
 			// add project thumb
 			var classes = ( (this.i+1) % cols  == 0 ) ? 'grid-item rightmost' : 'grid-item';
 			
-			$('.grid-page > div').last().append('<div class="'+classes+'">'+this.thumb+'</div>');
+			$('.grid-page > div').last().append('<div class="'+classes+'"><a href="'+this.url+'">'+this.thumb+'</a></div>');
 
 		});
 

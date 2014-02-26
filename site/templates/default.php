@@ -9,6 +9,7 @@
 	}
 	$projects = $pages->find('projects')->children();
 	$found = $projects->filterBy('categories', $category);*/
+
 ?>
 
 <?php snippet('body') ?>

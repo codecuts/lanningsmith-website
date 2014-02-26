@@ -3,6 +3,7 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 	console.log('loading up page.js');
 
 	var info = {
+		title: '',
 		loaded: false,
 		viewport: {
 			width: 0,
@@ -15,7 +16,7 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 	load = function() {
 
 		this.setPageInfo();
-		this.handleRequest();
+		this.change( this.info.url );
 		this.setupNavEvents();
 
 		this.info.loaded = true;
@@ -28,32 +29,6 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 	},
 
-	handleRequest = function() {
-
-		if ( this.info.path[1] == '' ) {  // showing all projects
-			console.log('handleRequest: url is / , showing all projects');
-			this.setupMainFrame( projects.init() );
-		}
-		else {
-			
-			if ( this.info.path[1] == 'category' ) { // showing specific category
-				// do stuff to select category
-			} 
-			else {
-				console.log('handleRequest: url is seeking specific project, relocating to that project');
-				var success = projects.init( 'single', this.info.path[1] );
-				
-				if ( success !== null ) {
-					console.log('handleRequest: suceesfully initialized projects, returned options:',success);
-					this.setupMainFrame( success );
-				} else {
-					console.error("Failed to initialize projects with slug: "+this.info.path[1]);
-				}
-			}
-
-		}
-
-	},
 	setPageInfo = function() {
 
 		this.info.viewport.width = $(window).width();
@@ -62,7 +37,7 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		this.info.path = window.location.pathname.split('/');  // return array of path elements 
 
 	},
-
+	
 	positionMainFrame = function() {
 
 		$('.main').css('height', this.info.viewport.height);
@@ -70,34 +45,36 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		$('.main-nav .left, .main-nav .right').vAlignInViewport();
 
 	},
-	
-	setupMainFrame = function(options) { 
 
-		this.positionMainFrame();
+	populateMainFrame = function (options, dir) {
 
-//		console.log('setupMainFrame: options:',options);
-
-		var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
+		if ( dir == 'relocate' ) {
+			console.log('populateMainFrame: relocating to: ',options);
+			var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
 			r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
 			u = options.up != null ? this.createOptionContent(options.up, 'up') : null,
 			d = options.down != null ? this.createOptionContent(options.down, 'down') : null,
 			c = options.center != null ? this.createOptionContent(options.center, 'center') : null;
 
-		$('.main-frame').append(c).append(l).append(r).append(u).append(d);
-	},
+			$('.option').remove();
+			$('.main-frame').append(c).append(l).append(r).append(u).append(d);	
 
-	repopulateMainFrame = function (options, dir) {
+		} 
+		else {
 
-		var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
-			r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
-			u = options.up != null ? this.createOptionContent(options.up, 'up') : null,
-			d = options.down != null ? this.createOptionContent(options.down, 'down') : null;
+			var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
+				r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
+				u = options.up != null ? this.createOptionContent(options.up, 'up') : null,
+				d = options.down != null ? this.createOptionContent(options.down, 'down') : null;
 
-		$('.option:not(.'+dir+')').remove();
-		var newCenter = $('.option.'+dir).removeClass(dir).addClass('center');
-	
-		$('.main-frame').append(l).append(r).append(u).append(d);
+			$('.option:not(.'+dir+')').remove();
+			var newCenter = $('.option.'+dir).removeClass(dir).addClass('center');
+		
+			$('.main-frame').append(l).append(r).append(u).append(d);
 
+		}
+
+		this.positionMainFrame();
 	},
 
 	createOptionContent = function(o, dir){
@@ -132,18 +109,28 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 			}
 		});
 
-		$('.left, .right, .up, .down').each(function() {
-			
-			$(this).on('click', function() {
-				var dir = $(this).attr('class').slice(5);
-				console.log( 'moving...'+dir);
-				var options = projects.move( dir ); 
-				if(options == null) return;
-				//console.log('new options:',options);
-				page.animate( dir , function() { page.repopulateMainFrame(options, dir); } );  // repopulate function passed as callback
-			});
-
+		$('.left, .right, .up, .down').on('click', function() {
+			var dir = $(this).attr('class').slice(5);
+			console.log( 'moving...'+dir);
+			var options = projects.move( dir ); 
+			if(options == null) return;
+			page.animate( dir , function() { page.populateMainFrame(options, dir); } );  // repopulate function passed as callback
 		});
+
+		$(document).on('click', '.grid-item a', function(e) {
+			e.preventDefault();
+			page.change( $(this).attr('href').replace('/projects','') );
+     		page.toggleThumbMenu();
+		});
+
+		window.onpopstate = function(e){
+			console.log('onpopstate event',e);
+		    
+		    if(e.state){
+		        document.getElementsByClassName('main-frame')[0].innerHTML = e.state.html;
+		        document.title = e.state.pageTitle;
+		    }
+		};
 
 	}, 
 
@@ -169,14 +156,61 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 
 	},
 
-	toggleThumbMenu = function() {
-		if ( $('.gridnav').css('display') == 'none' ) {
-			$('.gridnav').toggle('slide', { direction: 'up'} );
-//			thumbMenu.isVisible(false);
-		} else {
-			$('.gridnav').toggle('slide', { direction: 'up'} );
-//			thumbMenu.isVisible(true);
+	change = function(url) {
+
+		var path = url.replace(/^http:\/\/[^/]*/,'').split('/');
+
+		this.handleRequest( path );
+
+		/*var getDocTypeAsString = function () { 
+		    var node = document.doctype;
+		    return node ? "<!DOCTYPE "
+		         + node.name
+		         + (node.publicId ? ' PUBLIC "' + node.publicId + '"' : '')
+		         + (!node.publicId && node.systemId ? ' SYSTEM' : '') 
+		         + (node.systemId ? ' "' + node.systemId + '"' : '')
+		         + '>\n' : '';
+		};
+		var html = getDocTypeAsString() + document.documentElement.outerHTML;*/
+		var html = document.getElementsByClassName('main-frame')[0].innerHTML;
+		
+		var state = {'html':html, 'pageTitle':document.title};
+		console.log('pushing stateObj:',state);
+		history.pushState(state, '', url);
+ 		
+ 		this.setPageInfo();
+
+	},
+
+	handleRequest = function(path) {
+
+		if ( path[1] == '' ) {  // showing all projects
+			console.log('handleRequest: url is / , showing all projects');
+			document.title = '(dev)LANNINGSMITH - Home';
+			this.populateMainFrame( projects.init('category', 'all'), 'relocate' );
+		} 
+		else if ( path[1] == 'category' ) {
+			// do stuff to handle category
 		}
+		else {		
+			console.log('handleRequest: url is seeking specific project '+path[1]+', relocating to that project');
+
+			var success = projects.init( 'single', path[1] );
+			
+			if ( success !== null ) {
+				console.log('handleRequest: suceesfully initialized projects, returned options:',success);
+				document.title = '(dev)LANNINGSMITH - '+success.center.projectName;
+				this.populateMainFrame( success, 'relocate' );
+			} else {
+				console.error("Failed to initialize projects with slug: "+path[1]);
+			}
+		}
+
+	},
+
+
+	toggleThumbMenu = function() {
+		$('.gridnav').toggle('slide', { direction: 'up'} );
 	},
 
 	height = function() {
@@ -208,12 +242,12 @@ define(["jquery", "app/helpers", "app/projects"], function($,helpers,projects) {
 		reload: reload,
 		handleRequest: handleRequest,
 		setPageInfo: setPageInfo,
-		setupMainFrame: setupMainFrame,
 		positionMainFrame: positionMainFrame,
-		repopulateMainFrame: repopulateMainFrame,
+		populateMainFrame: populateMainFrame,
 		createOptionContent: createOptionContent,
 		setupNavEvents: setupNavEvents,
 		animate: animate,
+		change: change,
 		toggleThumbMenu: toggleThumbMenu,
 		loaded: loaded,
 		height: height,
