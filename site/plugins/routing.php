@@ -8,11 +8,20 @@
 	*      1. Check to see if the REQUEST_URI contains the slug 'category'
 	*      2. If it does not, then it preprends /projects/ to the path.
 	*/
+	$uri = &$_SERVER['REQUEST_URI'];  // passing as reference
+	$base = 'http://'.$_SERVER['HTTP_HOST'];
+	$path = $uri.split('/');
 
-	if ( !str::contains($_SERVER['REQUEST_URI'],'category') ||
-		 !str::contains($_SERVER['REQUEST_URI'],'.') ) {
-		$path = str::split($_SERVER['REQUEST_URI'],'/');
-		$_SERVER['REQUEST_URI'] = '/projects/'.$path[0];
+	
+	if ( $uri == '/projects') {
+
+		go( $base );
+		
+	}
+	if ( !str::contains($uri,'category') || !str::contains($uri,'.') ) {
+
+		$uri = '/projects/'.$path[0];
+
 	}
 	 
 ?>
