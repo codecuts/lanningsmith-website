@@ -1,5 +1,6 @@
 	<?php
-		$allprojects = $pages->find('projects')->children();
+		// dump all projets into array to be transferred to javascript via json
+		$allprojects = $pages->find('projects')->children()->visible();
 		$transfer = array();
 		$i=0;
 		foreach ($allprojects as $p) {
