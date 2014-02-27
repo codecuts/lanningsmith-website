@@ -10,8 +10,7 @@
 	*/
 	$uri = &$_SERVER['REQUEST_URI'];  // passing as reference
 	$base = 'http://'.$_SERVER['HTTP_HOST'];
-	$path = $uri.split('/');
-
+	$path = str::split($uri, '/');
 	
 	if ( $uri == '/projects') {
 
