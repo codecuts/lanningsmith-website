@@ -27,7 +27,7 @@ define(["jquery",
 			},
 			gutter: 20,
 			margin: {
-				x: 0.069,
+				x: 0.075,
 				y: 0.10
 			},
 			carousel: null
@@ -258,14 +258,12 @@ define(["jquery",
 		if ( c.carousel.length == 0 ) {
 			console.error("The thumb menu's carousel object is not set.", c.carousel);
 		}
-		
-		// calculate rows, cols, and items per carousel page
 
-		//first attempt to calculate cols and rows
+		// first attempt to calculate cols and rows
 		var cols = Math.floor( ( this.width() - 2*c.margin.x*this.width() )  / c.thumbs.width );
 		var rows = Math.floor( ( this.height() - 2*c.margin.y*this.width() ) / c.thumbs.height );
 
-		//ok, now account for gutter space and if necessary remove one column or row
+		// now account for gutter space and if necessary remove one column or row
 		cols = ( cols*c.thumbs.width + (cols-1)*c.gutter <= this.width() - 2*c.margin.x ) ? 
 		       cols : (cols) ? cols-1 : 0;
 		rows = ( rows*c.thumbs.hight + (rows-1)*c.gutter <= this.height() - 2*c.margin.y ) ?
