@@ -18,7 +18,7 @@
 			$transfer[] = array(
 				'i' => $i,
 				'title' => $p->title()->value,
-				'url' => $p->url(),
+				'url' => str_replace('/projects','',$p->url()),
 				'thumb' => $thumb,
 				'media' => $media,
 				'description' => $p->text()->value,	
@@ -28,6 +28,7 @@
 		}
 	?>
 	<script>
+	var siteTitle = <?php echo $site->title(); ?>
 	var projects = <?php print json_encode($transfer); ?>
 	</script>
 
