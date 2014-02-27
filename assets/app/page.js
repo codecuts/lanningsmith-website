@@ -27,7 +27,7 @@ define(["jquery",
 			},
 			gutter: 20,
 			margin: {
-				x: 0.069,
+				x: 0.075,
 				y: 0.10
 			},
 			carousel: null
@@ -37,9 +37,9 @@ define(["jquery",
 	load = function() {
 
 		this.setPageInfo();
-		this.change( this.info.url );
+		this.relocate( this.info.url );
 		this.initThumbMenu();
-		this.setupNavEvents();
+		this.setupEvents();
 
 		this.info.loaded = true;
 	},
@@ -62,6 +62,56 @@ define(["jquery",
 		this.info.thumbMenu.carousel = $('.jcarousel.thumbs');
 
 	},
+
+	setupEvents = function() {
+
+		var page = this;  // makes it possible to refer to page module's function inside jQuery event functions
+
+		$('#logo').on('click', function(e) {
+			e.preventDefault();
+			$('.about').toggle('slide');
+		});
+
+		$('.ctrl').each(function() {
+			if ( $(this).attr('class').indexOf('shutter') != -1 ) {
+				$(this).on('click', function(e) {
+					e.preventDefault;
+					page.toggleThumbMenu();
+				});
+			}
+		});
+
+		$('.left, .right, .up, .down').on('click', function() {
+			var dir = $(this).attr('class').slice(5);
+			
+			if ( $(this).parent().attr('class') == 'main-nav' ) {
+				console.log( 'main-frame moving: '+dir);
+				var options = projects.move( dir ); 
+				if(options == null) return;
+				page.animate( dir , function() { page.populateMainFrame(options, dir); } );  // repopulate function passed as callback
+			} else if ( $(this).parent().attr('class') == 'thumbmenu-nav' ) {
+				$(this).jcarouselControl({
+					target: ( dir == 'right' ) ? '+=1' : '-=1'
+				});
+			}
+		});
+
+		$(document).on('click', '.grid-item a', function(e) {
+			e.preventDefault();
+			page.relocate( $(this).attr('href').replace('/projects','') );
+     		page.toggleThumbMenu();
+		});
+
+		window.onpopstate = function(e){
+			console.log('onpopstate event',e);
+		    
+		    if(e.state){
+		        document.getElementsByClassName('main-frame')[0].innerHTML = e.state.html;
+		        document.title = e.state.pageTitle;
+		    }
+		};
+
+	}, 
 	
 	positionMainFrame = function() {
 
@@ -119,49 +169,6 @@ define(["jquery",
 		return elem;
 	},
 
-	setupNavEvents = function() {
-
-		var page = this;
-
-		$('#logo').on('click', function(e) {
-			e.preventDefault();
-			$('.about').toggle('slide');
-		});
-
-		$('.ctrl').each(function() {
-			if ( $(this).attr('class').indexOf('shutter') != -1 ) {
-				$(this).on('click', function(e) {
-					e.preventDefault;
-					page.toggleThumbMenu();
-				});
-			}
-		});
-
-		$('.left, .right, .up, .down').on('click', function() {
-			var dir = $(this).attr('class').slice(5);
-			console.log( 'moving...'+dir);
-			var options = projects.move( dir ); 
-			if(options == null) return;
-			page.animate( dir , function() { page.populateMainFrame(options, dir); } );  // repopulate function passed as callback
-		});
-
-		$(document).on('click', '.grid-item a', function(e) {
-			e.preventDefault();
-			page.change( $(this).attr('href').replace('/projects','') );
-     		page.toggleThumbMenu();
-		});
-
-		window.onpopstate = function(e){
-			console.log('onpopstate event',e);
-		    
-		    if(e.state){
-		        document.getElementsByClassName('main-frame')[0].innerHTML = e.state.html;
-		        document.title = e.state.pageTitle;
-		    }
-		};
-
-	}, 
-
 	animate = function(dir, callback) {
 
 		switch(dir){
@@ -184,7 +191,7 @@ define(["jquery",
 
 	},
 
-	change = function(url) {
+	relocate = function(url) {
 
 		var path = url.replace(/^http:\/\/[^/]*/,'').split('/');
 		this.handleRequest( path );
@@ -258,14 +265,12 @@ define(["jquery",
 		if ( c.carousel.length == 0 ) {
 			console.error("The thumb menu's carousel object is not set.", c.carousel);
 		}
-		
-		// calculate rows, cols, and items per carousel page
 
-		//first attempt to calculate cols and rows
+		// first attempt to calculate cols and rows
 		var cols = Math.floor( ( this.width() - 2*c.margin.x*this.width() )  / c.thumbs.width );
 		var rows = Math.floor( ( this.height() - 2*c.margin.y*this.width() ) / c.thumbs.height );
 
-		//ok, now account for gutter space and if necessary remove one column or row
+		// now account for gutter space and if necessary remove one column or row
 		cols = ( cols*c.thumbs.width + (cols-1)*c.gutter <= this.width() - 2*c.margin.x ) ? 
 		       cols : (cols) ? cols-1 : 0;
 		rows = ( rows*c.thumbs.hight + (rows-1)*c.gutter <= this.height() - 2*c.margin.y ) ?
@@ -345,9 +350,9 @@ define(["jquery",
 		positionMainFrame: positionMainFrame,
 		populateMainFrame: populateMainFrame,
 		createOptionContent: createOptionContent,
-		setupNavEvents: setupNavEvents,
+		setupEvents: setupEvents,
 		animate: animate,
-		change: change,
+		relocate: relocate,
 		initThumbMenu: initThumbMenu,
 		setupThumbMenu: setupThumbMenu,
 		toggleThumbMenu: toggleThumbMenu,
