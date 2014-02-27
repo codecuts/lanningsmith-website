@@ -87,8 +87,9 @@ define(["jquery", "app/helpers"], function($,helpers) {
 		return this.getOptionsForCurrentPosition();
 	};
 	
-	var createStep = function (n, c, m){
+	var createStep = function (u, n, c, m){
 		var step = {
+			url: u,
 			projectName: n,
 			caption: c,
 			media: m
@@ -140,7 +141,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 			return null;
 
 		project = projects[y];
-		return this.createStep(project.title, project.description, this.getProjectMedia(x, y));
+		return this.createStep(project.url, project.title, project.description, this.getProjectMedia(x, y));
 	};
 	
 	var getProjectMedia = function(x, y){
