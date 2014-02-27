@@ -28,8 +28,8 @@
 		}
 	?>
 	<script>
-	var siteTitle = <?php echo $site->title(); ?>
-	var projects = <?php print json_encode($transfer); ?>
+	var siteTitle = <?php echo "'".$site->title()."';" ?>
+	var projects = <?php print json_encode($transfer).';'; ?>
 	</script>
 
 	<!-- RequireJS: Loads jQuery and Other Modules -->

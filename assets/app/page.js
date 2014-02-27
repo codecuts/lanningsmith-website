@@ -8,7 +8,7 @@ define(["jquery",
 	console.log('loading up page.js');
 
 	var info = {
-		title: '',
+		title: siteTitle,
 		loaded: false,
 		viewport: {
 			width: 0,
@@ -63,6 +63,74 @@ define(["jquery",
 
 	},
 
+	animate = function(dir, callback) {
+
+		switch(dir){
+			case "left":
+				$('.option.center').animate({left:'1500px'},500);
+				$('.option.left').animate({left:0},500,'swing',callback);
+				break;	
+			case 'right':
+				$('.option.center').animate({left:'-1500px'},500);
+				$('.option.right').animate({left:0},500,'swing',callback);
+				break;
+			case "up":
+				$('.option.center').animate({top:'1500px'},500);
+				$('.option.up').animate({top:0},500,'swing',callback);
+				break;
+			case "down":
+				$('.option.center').animate({top:'-1500px'},500);
+				$('.option.down').animate({top:0},500,'swing',callback);
+		}
+
+	},
+
+	relocate = function(url) {
+		var pageTitle,
+			html,
+			path = url.replace(/^http:\/\/[^/]*/,'').split('/');
+
+		this.handleRequest( path );
+		
+		html = document.getElementsByClassName('main-frame')[0].innerHTML
+		pageTitle = document.title;
+		this.pushToHistory( url, pageTitle, html);
+	},
+
+	handleRequest = function(path) {
+
+		if ( path[1] == '' ) {  // showing all projects
+			console.log('handleRequest: url is / , showing all projects');
+			document.title = this.info.title+' - Home';
+			this.populateMainFrame( projects.init('category', 'all'), 'relocate' );
+		} 
+		else if ( path[1] == 'category' ) {
+			// do stuff to handle category
+		}
+		else {		
+			console.log('handleRequest: url is seeking specific project '+path[1]+', relocating to that project');
+
+			var success = projects.init( 'single', path[1] );
+			
+			if ( success !== null ) {
+				console.log('handleRequest: suceesfully initialized projects, returned options:',success);
+				document.title = this.info.title+' - '+success.center.projectName;
+				this.populateMainFrame( success, 'relocate' );
+			} else {
+				console.error("Failed to get projects with slug: "+path[1]);
+			}
+		}
+
+	},
+
+	pushToHistory = function(url, pageTitle, html) {
+		console.log('pushToHistory: url:',url);
+		console.log('pushToHistory: pageTitle:',pageTitle);
+//		console.log('pushToHistory: html:',html);
+		history.pushState({'html':html, 'pageTitle':pageTitle}, pageTitle, url);
+ 		this.setPageInfo();
+	},
+
 	setupEvents = function() {
 
 		var page = this;  // makes it possible to refer to page module's function inside jQuery event functions
@@ -81,14 +149,26 @@ define(["jquery",
 			}
 		});
 
-		$('.left, .right, .up, .down').on('click', function() {
+		$('.left, .right, .up, .down').on('click', function(e) {
+			e.preventDefault();
 			var dir = $(this).attr('class').slice(5);
 			
 			if ( $(this).parent().attr('class') == 'main-nav' ) {
 				console.log( 'main-frame moving: '+dir);
 				var options = projects.move( dir ); 
 				if(options == null) return;
-				page.animate( dir , function() { page.populateMainFrame(options, dir); } );  // repopulate function passed as callback
+				page.animate(dir , function() {
+					document.title = page.info.title+' - '+options.center.projectName;
+					page.populateMainFrame(options, dir);
+					
+					if ( dir == 'up' || 'down' ) {
+						var url = options.center.url,
+							pageTitle = document.title,
+							html = document.getElementsByClassName('main-frame')[0].innerHTML;
+						page.pushToHistory(url, pageTitle, html);	
+					}
+					
+				});  
 			} else if ( $(this).parent().attr('class') == 'thumbmenu-nav' ) {
 				$(this).jcarouselControl({
 					target: ( dir == 'right' ) ? '+=1' : '-=1'
@@ -98,7 +178,7 @@ define(["jquery",
 
 		$(document).on('click', '.grid-item a', function(e) {
 			e.preventDefault();
-			page.relocate( $(this).attr('href').replace('/projects','') );
+			page.relocate( $(this).attr('href').replace('/projects','') );  // strip /projects if there, might not have been removed earlier
      		page.toggleThumbMenu();
 		});
 
@@ -123,9 +203,11 @@ define(["jquery",
 
 	populateMainFrame = function (options, dir) {
 
+		console.log('populateMainFrame: options:',options);
+
 		if ( dir == 'relocate' ) {
 
-			console.log('populateMainFrame: relocating to: ',options);
+			console.log('populateMainFrame: relocating to this project: ',options);
 
 			var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
 			r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
@@ -138,6 +220,8 @@ define(["jquery",
 
 		} 
 		else {
+
+			console.log('populateMainFrame: animating to this project or project image: ', options);
 
 			var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
 				r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
@@ -157,75 +241,16 @@ define(["jquery",
 
 //		console.log('createOptionContent: for direction '+dir,o);
 
-		var media = o.media,
+		var url = o.url,
+			media = o.media,
 			caption = o.caption,
 			pName = o.projectName;
 
-		
-
-		var elem = $('<article class="option '+dir+'"></article>');
+		var elem = $('<article class="option '+dir+'" data-url="'+url+'"></article>');
 		elem.append('<img src="'+media.url+'" alt="'+caption+'"/>');
 		elem.append('<div class="caption"><span class="project-title">'+pName+'</span><span class="description">'+caption+'</span></div>');
 		return elem;
-	},
-
-	animate = function(dir, callback) {
-
-		switch(dir){
-			case "left":
-				$('.option.center').animate({left:'1500px'},500);
-				$('.option.left').animate({left:0},500,'swing',callback);
-				break;	
-			case 'right':
-				$('.option.center').animate({left:'-1500px'},500);
-				$('.option.right').animate({left:0},500,'swing',callback);
-				break;
-			case "up":
-				$('.option.center').animate({top:'1500px'},500);
-				$('.option.up').animate({top:0},500,'swing',callback);
-				break;
-			case "down":
-				$('.option.center').animate({top:'-1500px'},500);
-				$('.option.down').animate({top:0},500,'swing',callback);
-		}	
-
-	},
-
-	relocate = function(url) {
-
-		var path = url.replace(/^http:\/\/[^/]*/,'').split('/');
-		this.handleRequest( path );
-		var html = document.getElementsByClassName('main-frame')[0].innerHTML;
-		history.pushState({'html':html, 'pageTitle':document.title}, '', url);
- 		this.setPageInfo();
-
-	},
-
-	handleRequest = function(path) {
-
-		if ( path[1] == '' ) {  // showing all projects
-			console.log('handleRequest: url is / , showing all projects');
-			document.title = '(dev)LANNINGSMITH - Home';
-			this.populateMainFrame( projects.init('category', 'all'), 'relocate' );
-		} 
-		else if ( path[1] == 'category' ) {
-			// do stuff to handle category
-		}
-		else {		
-			console.log('handleRequest: url is seeking specific project '+path[1]+', relocating to that project');
-
-			var success = projects.init( 'single', path[1] );
-			
-			if ( success !== null ) {
-				console.log('handleRequest: suceesfully initialized projects, returned options:',success);
-				document.title = '(dev)LANNINGSMITH - '+success.center.projectName;
-				this.populateMainFrame( success, 'relocate' );
-			} else {
-				console.error("Failed to initialize projects with slug: "+path[1]);
-			}
-		}
-
-	},
+	},	
 
 	initThumbMenu = function() {
 
@@ -353,6 +378,7 @@ define(["jquery",
 		setupEvents: setupEvents,
 		animate: animate,
 		relocate: relocate,
+		pushToHistory: pushToHistory,
 		initThumbMenu: initThumbMenu,
 		setupThumbMenu: setupThumbMenu,
 		toggleThumbMenu: toggleThumbMenu,
