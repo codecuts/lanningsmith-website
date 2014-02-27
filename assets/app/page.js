@@ -291,6 +291,43 @@ define(["jquery",
 			console.error("The thumb menu's carousel object is not set.", c.carousel);
 		}
 
+		var grid = this.calculateThumbGrid()
+
+		// add pages of thumbs
+		$.each(projects.get(), function() {
+
+			// add new carousel <li> where necessary
+			var e;
+			if ( this.i % grid.itemsPerPage == 0 ) {
+				c.carousel.find('ul').append('<li class="grid-page"><div></div></li>');
+			}
+
+			// add project thumb
+			var classes = ( (this.i+1) % grid.cols  == 0 ) ? 'grid-item rightmost' : 'grid-item';
+			
+			var elem = $('<div class="'+classes+'"></div>');
+			elem.append('<div class="overlay"><h1 class="project-title">'+this.title+'</h1><h2 class="project-description">'+this.description+'</h2></div>')
+			elem.append('<a href="'+this.url+'">'+this.thumb+'</a>');
+
+			$('.grid-page > div').last().append(elem);
+
+		});
+
+		// layouts thumb grid and pages
+		$('.grid-item').css({'width':c.thumbs.width+'px', 'height':c.thumbs.height+'px','margin-right': c.gutter+'px','margin-bottom': c.gutter+'px' });
+		$('.grid-item.rightmost').css('margin-right','');
+		$('.gridframe, .grid-page').css({
+			'width': ( (grid.cols*c.thumbs.width) + ((grid.cols-1)*c.gutter) )+'px',
+			'height': ( (grid.rows*c.thumbs.height) + ((grid.rows-1)*c.gutter) )+'px'
+		});
+		$('.gridframe').vAlignInViewport();
+
+	}
+
+	calculateThumbGrid = function() {
+
+		c = this.info.thumbMenu;
+
 		// first attempt to calculate cols and rows
 		var cols = Math.floor( ( this.width() - 2*c.margin.x*this.width() )  / c.thumbs.width );
 		var rows = Math.floor( ( this.height() - 2*c.margin.y*this.width() ) / c.thumbs.height );
@@ -313,32 +350,9 @@ define(["jquery",
 //		console.log('vh:'+page.height(),'rows:'+rows);
 //		console.log('itemsPerPage'+itemsPerPage);
 
-		// add pages of thumbs
-		$.each(projects.get(), function() {
+		return { rows: rows, cols: cols, itemsPerPage: itemsPerPage };
 
-			// add new carousel <li> where necessary
-			var e;
-			if ( this.i % itemsPerPage == 0 ) {
-				c.carousel.find('ul').append('<li class="grid-page"><div></div></li>');
-			}
-
-			// add project thumb
-			var classes = ( (this.i+1) % cols  == 0 ) ? 'grid-item rightmost' : 'grid-item';
-			
-			$('.grid-page > div').last().append('<div class="'+classes+'"><a href="'+this.url+'">'+this.thumb+'</a></div>');
-
-		});
-
-		// layouts thumb grid and pages
-		$('.grid-item').css({'width':c.thumbs.width+'px', 'height':c.thumbs.height+'px','margin-right': c.gutter+'px','margin-bottom': c.gutter+'px' });
-		$('.grid-item.rightmost').css('margin-right','');
-		$('.gridframe, .grid-page').css({
-			'width': ( (cols*c.thumbs.width) + ((cols-1)*c.gutter) )+'px',
-			'height': ( (rows*c.thumbs.height) + ((rows-1)*c.gutter) )+'px'
-		});
-		$('.gridframe').vAlignInViewport();
-
-	},
+	}
 
 	toggleThumbMenu = function() {
 		$('.gridnav').toggle('slide', { direction: 'up'} );
@@ -381,6 +395,7 @@ define(["jquery",
 		pushToHistory: pushToHistory,
 		initThumbMenu: initThumbMenu,
 		setupThumbMenu: setupThumbMenu,
+		calculateThumbGrid: calculateThumbGrid,
 		toggleThumbMenu: toggleThumbMenu,
 		clearThumbMenu: clearThumbMenu,
 		loaded: loaded,

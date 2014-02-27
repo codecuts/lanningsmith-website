@@ -22,7 +22,6 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	var indexX;
 	var indexY; // Y is projects, X is media for the current project	
 	
-
 	var init = function (mode,target){
 		this.resetToXY(0,0);
 		if ( mode == 'category' ){
