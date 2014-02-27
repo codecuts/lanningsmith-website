@@ -37,7 +37,7 @@ define(["jquery",
 	load = function() {
 
 		this.setPageInfo();
-		this.change( this.info.url );
+		this.relocate( this.info.url );
 		this.initThumbMenu();
 		this.setupEvents();
 
@@ -98,7 +98,7 @@ define(["jquery",
 
 		$(document).on('click', '.grid-item a', function(e) {
 			e.preventDefault();
-			page.change( $(this).attr('href').replace('/projects','') );
+			page.relocate( $(this).attr('href').replace('/projects','') );
      		page.toggleThumbMenu();
 		});
 
@@ -191,7 +191,7 @@ define(["jquery",
 
 	},
 
-	change = function(url) {
+	relocate = function(url) {
 
 		var path = url.replace(/^http:\/\/[^/]*/,'').split('/');
 		this.handleRequest( path );
@@ -352,7 +352,7 @@ define(["jquery",
 		createOptionContent: createOptionContent,
 		setupEvents: setupEvents,
 		animate: animate,
-		change: change,
+		relocate: relocate,
 		initThumbMenu: initThumbMenu,
 		setupThumbMenu: setupThumbMenu,
 		toggleThumbMenu: toggleThumbMenu,
