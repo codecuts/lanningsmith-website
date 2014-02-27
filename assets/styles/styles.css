@@ -816,7 +816,7 @@ nav .shutter {
   height: 15px;
   margin: 0 auto;
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMxJREFUeNpiZMAClOUVDICUAxALAPEHID5w9+GDC+jqGNE0gTTM5+PjUzC3sGDQ1NJiePrkCcPuXbsYPn369AAolwg05AA22xIMdfX+z5879z82ABIHyYPUoWt0AElcu3r1Pz4Akoca4ICseT8uG7G5AKj+PjxwQKaRAuytbUAGGDAB9RuAAocUAFXvANKsAApVUoC0jAyIEgBpfnD92jWSNIOiDxT/IM0XTp44QZJmqPoDlIU2xfFMbgojmLZBgQnyI7a0zUhJrgIIMACRx00UHEa93wAAAABJRU5ErkJggg==') no-repeat;
-  z-index: 9999;
+  z-index: 10000;
 }
 /* line 41, sass/_site-wide.scss */
 nav .up,
@@ -870,7 +870,7 @@ nav .left {
   margin: 53px 0 0 30px;
   font: 20px bold "Nunito", sans-serif;
   letter-spacing: 1.15px;
-  z-index: 9999;
+  z-index: 10000;
 }
 
 /* line 19, sass/_layouts.scss */
@@ -887,7 +887,7 @@ nav .left {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
   opacity: 0.9;
   overflow: hidden;
-  z-index: 5555;
+  z-index: 9999;
 }
 /* line 32, sass/_layouts.scss */
 .about .site-description {
@@ -1134,6 +1134,7 @@ have a fixed width and height (but it's not required).
 /*** for pagination ***/
 /* line 78, sass/_jcarousel.scss */
 .jcarousel-pagination a {
+  position: relative;
   text-decoration: none;
   display: inline-block;
   font-size: 11px;
@@ -1145,12 +1146,13 @@ have a fixed width and height (but it's not required).
   border-radius: 10px;
   text-indent: -9999px;
   margin-right: 7px;
+  z-index: 10000;
   -webkit-box-shadow: 0 0 2px #4E443C;
   -moz-box-shadow: 0 0 2px #4E443C;
   box-shadow: 0 0 2px #4E443C;
 }
 
-/* line 100, sass/_jcarousel.scss */
+/* line 102, sass/_jcarousel.scss */
 .jcarousel-pagination a.active {
   background: #4E443C;
   color: #fff;

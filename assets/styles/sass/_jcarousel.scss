@@ -76,6 +76,7 @@ have a fixed width and height (but it's not required).
 /*** for pagination ***/
 
 .jcarousel-pagination a {
+    position: relative;
     text-decoration: none;
     display: inline-block;
 
@@ -91,6 +92,7 @@ have a fixed width and height (but it's not required).
 
     margin-right: 7px;
 
+    z-index: $aboveItAll;
 
     -webkit-box-shadow: 0 0 2px #4E443C;
     -moz-box-shadow: 0 0 2px #4E443C;

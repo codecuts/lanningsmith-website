@@ -34,7 +34,7 @@ nav {
 		height: 15px;
 		margin: 0 auto;
 		background: inline-image('circle.png') no-repeat;
-		z-index: $topLayer;
+		z-index: $aboveItAll;
 	}
 
 	.up,
