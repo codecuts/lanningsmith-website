@@ -15,16 +15,16 @@
 						'height' => $c->images()->first()->height()
 					);
 				}
+				$transfer[] = array(
+					'i' => $i,
+					'title' => $p->title()->value,
+					'url' => str_replace('/projects','',$p->url()),
+					'thumb' => $thumb,
+					'media' => $media,
+					'description' => $p->text()->value,	
+					'categories' => $p->categories()->value
+				);
 			}			
-			$transfer[] = array(
-				'i' => $i,
-				'title' => $p->title()->value,
-				'url' => str_replace('/projects','',$p->url()),
-				'thumb' => $thumb,
-				'media' => $media,
-				'description' => $p->text()->value,	
-				'categories' => $p->categories()->value
-			);
 			$i++;
 		}
 	?>
