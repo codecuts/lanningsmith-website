@@ -39,7 +39,7 @@ define(["jquery",
 		this.setPageInfo();
 		this.change( this.info.url );
 		this.initThumbMenu();
-		this.setupNavEvents();
+		this.setupEvents();
 
 		this.info.loaded = true;
 	},
@@ -62,6 +62,56 @@ define(["jquery",
 		this.info.thumbMenu.carousel = $('.jcarousel.thumbs');
 
 	},
+
+	setupEvents = function() {
+
+		var page = this;  // makes it possible to refer to page module's function inside jQuery event functions
+
+		$('#logo').on('click', function(e) {
+			e.preventDefault();
+			$('.about').toggle('slide');
+		});
+
+		$('.ctrl').each(function() {
+			if ( $(this).attr('class').indexOf('shutter') != -1 ) {
+				$(this).on('click', function(e) {
+					e.preventDefault;
+					page.toggleThumbMenu();
+				});
+			}
+		});
+
+		$('.left, .right, .up, .down').on('click', function() {
+			var dir = $(this).attr('class').slice(5);
+			
+			if ( $(this).parent().attr('class') == 'main-nav' ) {
+				console.log( 'main-frame moving: '+dir);
+				var options = projects.move( dir ); 
+				if(options == null) return;
+				page.animate( dir , function() { page.populateMainFrame(options, dir); } );  // repopulate function passed as callback
+			} else if ( $(this).parent().attr('class') == 'thumbmenu-nav' ) {
+				$(this).jcarouselControl({
+					target: ( dir == 'right' ) ? '+=1' : '-=1'
+				});
+			}
+		});
+
+		$(document).on('click', '.grid-item a', function(e) {
+			e.preventDefault();
+			page.change( $(this).attr('href').replace('/projects','') );
+     		page.toggleThumbMenu();
+		});
+
+		window.onpopstate = function(e){
+			console.log('onpopstate event',e);
+		    
+		    if(e.state){
+		        document.getElementsByClassName('main-frame')[0].innerHTML = e.state.html;
+		        document.title = e.state.pageTitle;
+		    }
+		};
+
+	}, 
 	
 	positionMainFrame = function() {
 
@@ -118,49 +168,6 @@ define(["jquery",
 		elem.append('<div class="caption"><span class="project-title">'+pName+'</span><span class="description">'+caption+'</span></div>');
 		return elem;
 	},
-
-	setupNavEvents = function() {
-
-		var page = this;
-
-		$('#logo').on('click', function(e) {
-			e.preventDefault();
-			$('.about').toggle('slide');
-		});
-
-		$('.ctrl').each(function() {
-			if ( $(this).attr('class').indexOf('shutter') != -1 ) {
-				$(this).on('click', function(e) {
-					e.preventDefault;
-					page.toggleThumbMenu();
-				});
-			}
-		});
-
-		$('.left, .right, .up, .down').on('click', function() {
-			var dir = $(this).attr('class').slice(5);
-			console.log( 'moving...'+dir);
-			var options = projects.move( dir ); 
-			if(options == null) return;
-			page.animate( dir , function() { page.populateMainFrame(options, dir); } );  // repopulate function passed as callback
-		});
-
-		$(document).on('click', '.grid-item a', function(e) {
-			e.preventDefault();
-			page.change( $(this).attr('href').replace('/projects','') );
-     		page.toggleThumbMenu();
-		});
-
-		window.onpopstate = function(e){
-			console.log('onpopstate event',e);
-		    
-		    if(e.state){
-		        document.getElementsByClassName('main-frame')[0].innerHTML = e.state.html;
-		        document.title = e.state.pageTitle;
-		    }
-		};
-
-	}, 
 
 	animate = function(dir, callback) {
 
@@ -343,7 +350,7 @@ define(["jquery",
 		positionMainFrame: positionMainFrame,
 		populateMainFrame: populateMainFrame,
 		createOptionContent: createOptionContent,
-		setupNavEvents: setupNavEvents,
+		setupEvents: setupEvents,
 		animate: animate,
 		change: change,
 		initThumbMenu: initThumbMenu,
