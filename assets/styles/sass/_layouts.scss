@@ -88,6 +88,9 @@
 
 .main {
 	width: 100%;
+	height: 100%;
+	padding-top: 1px;
+	margin-top: -1px; /* necessary to prevent .main-frame margin-top from pushing this down */
 
 	nav.main-nav {
 		position: fixed;
@@ -157,8 +160,6 @@
 .main-frame {
 	position: relative;
 	width: 66.67%;
-//	@extend .span8;
-//	@extend .offset2;
 	height: 60%;
 	margin: 0 auto;
 	text-align: center;
@@ -200,58 +201,5 @@
 		top: 1500px;
 		left: 0;
 	}
-
-	/* .jcarousel {
-
-		ul, li { height: inherit; }
-
-		li { text-align: center; }
-
-	}
-
-	.jcarousel.projects {
-		width: 100%;
-	   	height: 100%;
-
-		ul, li { 
-			height: inherit;
-		}
-
-		> ul > li {
-			float: none;
-			margin-bottom: 300px;
-		}
-
-		> .jcarousel-control-prev,
-		> .jcarousel-control-next {
-			left: 50%;
-		}
-
-		> .jcarousel-control-prev { top: 20px; }
-
-		> .jcarousel-control-next { bottom: 20px; }
-	}
-
-	.jcarousel.project {
-		width: 100%;
-		height: 100%;
-
-		li {
-			margin-right: 300px; 
-
-			img { 
-				height: 100%;
-				width: auto;
-			}
-		}
-
-		> .jcarousel-control-prev {
-			left: 0;
-		}
-
-		> .jcarousel-control-next {
-			right: 0;
-		}
-	} */
 }
 
