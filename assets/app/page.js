@@ -47,9 +47,12 @@ define(["jquery",
 	reload = function() {
 
 		this.setPageInfo();
-		this.positionMainFrame();
-		this.clearThumbMenu();
-		this.initThumbMenu();
+		if ( this.info.viewport.height >= 450 && this.info.viewport.width >= 960 ) {
+			console.log('resizing stuff');
+			this.positionMainFrame();
+			this.clearThumbMenu();
+			this.initThumbMenu();
+		} else { console.log('not resizing stuff'); }
 
 	},
 
