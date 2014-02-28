@@ -5,7 +5,14 @@
 <?php if($settings->files): ?>
 <div class="files">		
 
-  <h3><?php echo l::get('files.title') ?> <span class="options"><a class="upload" href="<?php echo dourl('files', 'upload-file') ?>"><?php echo l::get('files.upload') ?></a></span></h3>
+  <h3><?php echo l::get('files.title') ?> 
+    <span class="options">
+      <?php if(!$page->files()->images()->first()): ?>
+      <?php //dump($page->files()->images()->first());?>
+      <a class="upload" href="<?php echo dourl('files', 'upload-file') ?>"><?php echo l::get('files.upload') ?></a>
+    <?php endif;?>
+    </span>
+  </h3>
   
   <ul>
     <?php $n=0; foreach($page->files() as $file): ?>
