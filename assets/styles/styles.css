@@ -1060,18 +1060,19 @@ nav {
 /* line 171, sass/_layouts.scss */
 .main-frame .option .caption {
   position: relative;
-  top: 95%;
+  top: 100%;
+  width: 100%;
   margin: 0 auto;
   padding: 5px 0;
 }
-/* line 179, sass/_layouts.scss */
+/* line 180, sass/_layouts.scss */
 .main-frame .option .project-title {
   font-size: 14px;
   line-height: 24px;
   margin: 0;
   font-weight: normal;
 }
-/* line 186, sass/_layouts.scss */
+/* line 187, sass/_layouts.scss */
 .main-frame .option .description {
   font-size: 10px;
   line-height: 16px;
@@ -1079,22 +1080,22 @@ nav {
   text-align: justify;
   font-weight: normal;
 }
-/* line 195, sass/_layouts.scss */
+/* line 196, sass/_layouts.scss */
 .main-frame .option.left {
   top: 0;
   left: -1500px;
 }
-/* line 199, sass/_layouts.scss */
+/* line 200, sass/_layouts.scss */
 .main-frame .option.right {
   top: 0;
   left: 2500px;
 }
-/* line 203, sass/_layouts.scss */
+/* line 204, sass/_layouts.scss */
 .main-frame .option.up {
   top: -1500px;
   left: 0;
 }
-/* line 207, sass/_layouts.scss */
+/* line 208, sass/_layouts.scss */
 .main-frame .option.down {
   top: 1500px;
   left: 0;

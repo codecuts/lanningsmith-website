@@ -40,7 +40,6 @@ define(["jquery",
 		this.relocate( this.info.url );
 		this.initThumbMenu();
 		this.setupEvents();
-
 		this.info.loaded = true;
 	},
 
@@ -196,9 +195,9 @@ define(["jquery",
 
 		$('.main').css('height', this.info.viewport.height);
 		$('.main-frame').vAlignInViewport();
-		$('.option').find('img').load(function() {
+		/*$('.option').find('img').load(function() {
 			$(this).parent().find('.caption').css('width', $(this).css('width'));
-		});
+		});*/
 		$('.main-nav .left, .main-nav .right').vAlignInViewport();
 
 	},
