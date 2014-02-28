@@ -124,8 +124,8 @@ define(["jquery",
 	},
 
 	pushToHistory = function(url, pageTitle, html) {
-		console.log('pushToHistory: url:',url);
-		console.log('pushToHistory: pageTitle:',pageTitle);
+//		console.log('pushToHistory: url:',url);
+//		console.log('pushToHistory: pageTitle:',pageTitle);
 //		console.log('pushToHistory: html:',html);
 		history.pushState({'html':html, 'pageTitle':pageTitle}, pageTitle, url);
  		this.setPageInfo();
@@ -306,8 +306,8 @@ define(["jquery",
 			var classes = ( (this.i+1) % grid.cols  == 0 ) ? 'grid-item rightmost' : 'grid-item';
 			
 			var elem = $('<div class="'+classes+'"></div>');
-			elem.append('<div class="overlay"><h1 class="project-title">'+this.title+'</h1><h2 class="project-description">'+this.description+'</h2></div>')
-			elem.append('<a href="'+this.url+'">'+this.thumb+'</a>');
+			elem.append('<a href="'+this.url+'">'+this.thumb+'<div class="overlay"><div><h1 class="project-title">'+this.title+'</h1><h2 class="project-description">'+this.description+'</h2></div></div></a>');
+			
 
 			$('.grid-page > div').last().append(elem);
 
