@@ -1067,7 +1067,7 @@ nav {
 }
 /* line 185, sass/_layouts.scss */
 .main-frame .option .project-title {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 24px;
   margin: 0;
   font-weight: normal;
@@ -1078,7 +1078,7 @@ nav {
   margin: 0 auto;
   font-size: 10px;
   line-height: 16px;
-  text-align: justify;
+  text-align: center;
   font-weight: normal;
 }
 /* line 202, sass/_layouts.scss */
