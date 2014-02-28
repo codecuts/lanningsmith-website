@@ -47,7 +47,7 @@ define(["jquery",
 	reload = function() {
 
 		this.setPageInfo();
-		if ( this.info.viewport.height >= 450 && this.info.viewport.width >= 960 ) {
+		if ( this.info.viewport.height >= 660 && this.info.viewport.width >= 960 ) {
 			console.log('resizing stuff');
 			this.positionMainFrame();
 			this.clearThumbMenu();
@@ -196,6 +196,9 @@ define(["jquery",
 
 		$('.main').css('height', this.info.viewport.height);
 		$('.main-frame').vAlignInViewport();
+		$('.option').find('img').load(function() {
+			$(this).parent().find('.caption').css('width', $(this).css('width'));
+		});
 		$('.main-nav .left, .main-nav .right').vAlignInViewport();
 
 	},
@@ -247,7 +250,7 @@ define(["jquery",
 
 		var elem = $('<article class="option '+dir+'" data-url="'+url+'"></article>');
 		elem.append('<img src="'+media.url+'" alt="'+caption+'"/>');
-		elem.append('<div class="caption"><span class="project-title">'+pName+'<br></span><span class="description">'+caption+'</span></div>');
+		elem.append('<div class="caption"><h1 class="project-title">'+pName+'<br></span><h2 class="description">'+caption+'</span></div>');
 		return elem;
 	},	
 
