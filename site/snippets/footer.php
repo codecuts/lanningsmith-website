@@ -7,13 +7,18 @@
 			$media = array();
 			$thumb = null;
 			if ( $p->countChildren() > 0 ) {
+
 				$thumb = thumb($p->children()->first()->images()->first(), array('width'=>210));
+				
 				foreach ( $p->children() as $c ) {
-					$media[] = array(
-						'url' => $c->images()->first()->url(),
-						'width' => $c->images()->first()->width(),
-						'height' => $c->images()->first()->height()
-					);
+
+					if($c->images()->first()){
+						$media[] = array(
+							'url' => $c->images()->first()->url(),
+							'width' => $c->images()->first()->width(),
+							'height' => $c->images()->first()->height()
+						);
+					}
 				}
 				$transfer[] = array(
 					'i' => $i,
