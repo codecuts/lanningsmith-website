@@ -140,13 +140,9 @@ define(["jquery",
 			$('.about').toggle('slide');
 		});
 
-		$('.ctrl').each(function() {
-			if ( $(this).attr('class').indexOf('shutter') != -1 ) {
-				$(this).on('click', function(e) {
-					e.preventDefault;
-					page.toggleThumbMenu();
-				});
-			}
+		$('.shutter').on('click', function(e) {
+			e.preventDefault;
+			page.toggleThumbMenu();
 		});
 
 		$('.left, .right, .up, .down').on('click', function(e) {
@@ -355,12 +351,14 @@ define(["jquery",
 	}
 
 	toggleThumbMenu = function() {
-		$('.gridnav').toggle('slide', { direction: 'up'} );
 		if ( $('.main-nav').css('visibility') == 'hidden' ) {
 			$('.main-nav').css('visibility', 'visible');
+			$('.thumbmenu-nav').css('visibility','hidden');
 		} else {
 			$('.main-nav').css('visibility', 'hidden');
+			$('.thumbmenu-nav').css('visibility','visible');
 		}
+		$('.gridnav').toggle('slide', { direction: 'up'} );
 	},
 
 	clearThumbMenu = function() {

@@ -138,69 +138,6 @@
 	height: 100%;
 	padding-top: 1px;
 	margin-top: -1px; /* necessary to prevent .main-frame margin-top from pushing this down */
-
-	nav.main-nav {
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-
-		.ctrl {
-			display: block;
-			position: absolute;
-			z-index: auto;
-			cursor: pointer;
-//			@include opacity(0.9);
-		}
-
-		.shutter {
-			position: relative;
-			top: 12px;
-			width: 15px;
-			height: 15px;
-			margin: 0 auto;
-			background: inline-image('circle.png') no-repeat;
-			z-index: $topLayer;
-		}
-
-		.up,
-		.down {
-			width: 100%;
-			height: 18%;
-//			background: green;
-			background: inline-image('arrow_updown.png') no-repeat;
-		}
-
-		.up {
-			top: 0;
-			background-position: center top;
-		}
-
-		.down {
-			bottom: 0;
-			background-position: center bottom;
-		}
-
-		.right,
-		.left {
-			width: 20%;
-			height: 100%;
-//			background: red;
-			background: inline-image('arrow_rightleft.png') no-repeat;
-		}
-
-		.right {
-			right: 0;
-			background-position: right center;
-		}
-
-		.left {
-			left: 0;
-			background-position: left center;
-		}
-
-	}
 }
 
 
