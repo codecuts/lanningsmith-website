@@ -160,15 +160,14 @@
 		img {
 			position: absolute;
 			display: block;
-			max-width: 100%;
-			max-height: 100%;
+			max-width: 90%;
+			max-height: 90%;
 			left: 0;
 			right: 0;
 			top: 0;
 			bottom: 0;
 			margin: auto;
 		}
-
 	}
 
 	.option.left{
@@ -186,6 +185,14 @@
 	.option.down{
 		top: 1500px;
 		left: 0;
+	}
+
+	.caption{
+		position: relative;
+    	top: 95%;
+    	width: 80%;
+    	margin: 0 auto;
+    	
 	}
 }
 
