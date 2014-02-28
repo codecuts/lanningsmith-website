@@ -1044,8 +1044,9 @@ nav {
   position: absolute;
   width: 100%;
   height: 100%;
+  text-align: center;
 }
-/* line 159, sass/_layouts.scss */
+/* line 160, sass/_layouts.scss */
 .main-frame .option img {
   position: absolute;
   display: block;
@@ -1057,45 +1058,45 @@ nav {
   bottom: 0;
   margin: auto;
 }
-/* line 171, sass/_layouts.scss */
+/* line 172, sass/_layouts.scss */
 .main-frame .option .caption {
   position: relative;
   top: 100%;
-  width: 100%;
   margin: 0 auto;
   padding: 5px 0;
 }
-/* line 180, sass/_layouts.scss */
+/* line 185, sass/_layouts.scss */
 .main-frame .option .project-title {
   font-size: 14px;
   line-height: 24px;
   margin: 0;
   font-weight: normal;
 }
-/* line 187, sass/_layouts.scss */
+/* line 192, sass/_layouts.scss */
 .main-frame .option .description {
+  max-width: 600px;
+  margin: 0 auto;
   font-size: 10px;
   line-height: 16px;
-  margin: 0;
   text-align: justify;
   font-weight: normal;
 }
-/* line 196, sass/_layouts.scss */
+/* line 202, sass/_layouts.scss */
 .main-frame .option.left {
   top: 0;
   left: -1500px;
 }
-/* line 200, sass/_layouts.scss */
+/* line 206, sass/_layouts.scss */
 .main-frame .option.right {
   top: 0;
   left: 2500px;
 }
-/* line 204, sass/_layouts.scss */
+/* line 210, sass/_layouts.scss */
 .main-frame .option.up {
   top: -1500px;
   left: 0;
 }
-/* line 208, sass/_layouts.scss */
+/* line 214, sass/_layouts.scss */
 .main-frame .option.down {
   top: 1500px;
   left: 0;
