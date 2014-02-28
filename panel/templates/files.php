@@ -8,8 +8,7 @@
   <h3><?php echo l::get('files.title') ?> 
     <span class="options">
       <?php if(!$page->files()->images()->first()): ?>
-      <?php //dump($page->files()->images()->first());?>
-      <a class="upload" href="<?php echo dourl('files', 'upload-file') ?>"><?php echo l::get('files.upload') ?></a>
+        <a class="upload" href="<?php echo dourl('files', 'upload-file') ?>"><?php echo l::get('files.upload') ?></a>
     <?php endif;?>
     </span>
   </h3>
