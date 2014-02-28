@@ -20,7 +20,7 @@ l::set(array(
   'tabs.overview' => 'Overview',
   'tabs.info' => 'Edit Info',
   'tabs.content' => 'Content',
-  'tabs.files' => 'Files',
+  'tabs.files' => 'File',
   'tabs.options' => 'URL',
   'tabs.preview' => 'Preview',
   
@@ -28,7 +28,7 @@ l::set(array(
   'dashboard.edit' => 'Edit',
   'dashboard.content' => 'Content',
   'dashboard.content.empty' => 'This page has no content',
-  'dashboard.files' => 'Files',
+  'dashboard.files' => 'File',
   'dashboard.template' => 'Template',
   'dashboard.stats.images' => 'Images', 
   'dashboard.stats.videos' => 'Videos', 
@@ -134,12 +134,12 @@ l::set(array(
   'options.errors.move' => 'The content directory cannot be moved',
 
   // files
-  'files.title' => 'Files',
+  'files.title' => 'File',
   'files.upload' => 'Upload a new file',
   'files.edit' => 'Edit',
   'files.replace' => 'Replace',
   'files.delete' => 'Delete',
-  'files.empty' => 'No files so far',
+  'files.empty' => 'No file so far',
 
   'nofiles.title' => 'No Files',
   'nofiles.text' => 'This page is not supposed to have files',
