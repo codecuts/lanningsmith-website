@@ -124,8 +124,8 @@ define(["jquery",
 	},
 
 	pushToHistory = function(url, pageTitle, html) {
-		console.log('pushToHistory: url:',url);
-		console.log('pushToHistory: pageTitle:',pageTitle);
+//		console.log('pushToHistory: url:',url);
+//		console.log('pushToHistory: pageTitle:',pageTitle);
 //		console.log('pushToHistory: html:',html);
 		history.pushState({'html':html, 'pageTitle':pageTitle}, pageTitle, url);
  		this.setPageInfo();
@@ -140,13 +140,9 @@ define(["jquery",
 			$('.about').toggle('slide');
 		});
 
-		$('.ctrl').each(function() {
-			if ( $(this).attr('class').indexOf('shutter') != -1 ) {
-				$(this).on('click', function(e) {
-					e.preventDefault;
-					page.toggleThumbMenu();
-				});
-			}
+		$('.shutter').on('click', function(e) {
+			e.preventDefault;
+			page.toggleThumbMenu();
 		});
 
 		$('.left, .right, .up, .down').on('click', function(e) {
@@ -306,8 +302,8 @@ define(["jquery",
 			var classes = ( (this.i+1) % grid.cols  == 0 ) ? 'grid-item rightmost' : 'grid-item';
 			
 			var elem = $('<div class="'+classes+'"></div>');
-			elem.append('<div class="overlay"><h1 class="project-title">'+this.title+'</h1><h2 class="project-description">'+this.description+'</h2></div>')
-			elem.append('<a href="'+this.url+'">'+this.thumb+'</a>');
+			elem.append('<a href="'+this.url+'">'+this.thumb+'<div class="overlay"><div><h1 class="project-title">'+this.title+'</h1><h2 class="project-description">'+this.description+'</h2></div></div></a>');
+			
 
 			$('.grid-page > div').last().append(elem);
 
@@ -355,12 +351,14 @@ define(["jquery",
 	}
 
 	toggleThumbMenu = function() {
-		$('.gridnav').toggle('slide', { direction: 'up'} );
 		if ( $('.main-nav').css('visibility') == 'hidden' ) {
 			$('.main-nav').css('visibility', 'visible');
+			$('.thumbmenu-nav').css('visibility','hidden');
 		} else {
 			$('.main-nav').css('visibility', 'hidden');
+			$('.thumbmenu-nav').css('visibility','visible');
 		}
+		$('.gridnav').toggle('slide', { direction: 'up'} );
 	},
 
 	clearThumbMenu = function() {
