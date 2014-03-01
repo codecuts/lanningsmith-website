@@ -8,8 +8,7 @@ style.scss - Sass Styles for lanningsmith.com
 
 /* Dependencies */
 @import "compass/css3";
-//@import 'compass_twitter_bootstrap';
-@import 'our-bootstrap';
+
 
 /*==================================================================================*/
 /*    Variables
@@ -20,7 +19,7 @@ $defaultFontSize: 16px;
 $defaultLineHeight: 1.5em;  /* 22px */
 $defaultVerticalRhythmUnit: 2.2em;
 $defaultFontColor: black;
-$headerFontStack: 'Nunito', sans-serif;
+$headerFontStack: 'League Gothic', Helvetica, Arial, sans-serif;
 
 /* nav images */
 $upDownNav: 'arrow_updown.png';
@@ -39,6 +38,8 @@ $thumbOverlayBackground: #b4f2f1;
 /* sizing */
 $minViewportWidth: 960px;
 $minViewportHeight: 760px;
+
+@import 'our-bootstrap';
 
 @import 'mixins';
 @import 'site-wide';
