@@ -871,24 +871,28 @@ nav {
   width: 50%;
   height: 100%;
 }
+/* line 82, sass/_site-wide.scss */
+.right img,
+.left img {
+  position: fixed;
+}
 
-/* line 83, sass/_site-wide.scss */
+/* line 87, sass/_site-wide.scss */
 .right {
   right: 0;
 }
-/* line 85, sass/_site-wide.scss */
+/* line 90, sass/_site-wide.scss */
 .right img {
-  margin-left: 70%;
+  right: 13%;
 }
 
-/* line 91, sass/_site-wide.scss */
+/* line 96, sass/_site-wide.scss */
 .left {
   left: 0;
 }
-/* line 93, sass/_site-wide.scss */
+/* line 98, sass/_site-wide.scss */
 .left img {
-  float: right;
-  margin-right: 70%;
+  left: 13%;
 }
 
 /*@font-face {
@@ -904,7 +908,7 @@ nav {
 }*/
 @font-face {
   font-family: "League Gothic";
-  src: url('/assets/fonts/league_gothic/leaguegothic-regular-webfont.ttf') format('truetype'), url('/assets/fonts/league_gothic/leaguegothic-regular-webfont.svg') format('svg');
+  src: url('/assets/styles/fonts/league_gothic/leaguegothic-regular-webfont.ttf') format('truetype'), url('/assets/styles/fonts/league_gothic/leaguegothic-regular-webfont.svg') format('svg');
 }
 
 /* line 1, sass/_layouts.scss */
@@ -1094,10 +1098,10 @@ nav {
   -moz-transition-property: opacity;
   -o-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 /* line 187, sass/_layouts.scss */
 .main-frame .option .project-title {

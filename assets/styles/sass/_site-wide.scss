@@ -78,12 +78,17 @@ nav {
 	width: 50%;
 	height: 100%;
 //	background: inline-image('arrow_rightleft.png') no-repeat;
+
+	img{
+		position: fixed;
+	}
 }
 
 .right {
+
 	right: 0;
 	img { 
-		margin-left: 70%;
+		right: 13%;
 	}
 //	background-position: right center;
 }
@@ -91,8 +96,8 @@ nav {
 .left {
 	left: 0;
 	img {
-		float: right;
-		margin-right: 70%;
+		//float: right;
+		left: 13%;
 	}
 //	background-position: left center;
 }
