@@ -81,8 +81,10 @@ define(["jquery", "app/helpers"], function($,helpers) {
 						return null;
 				}
 				else{
-					if(indexX==projects[indexY].media.length-1)
+					if(indexX==projects[indexY].media.length-1){
 						indexX=0;
+						break;
+					}
 				}
 				indexX++;
 				break;
@@ -176,7 +178,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 				y = 0;
 			if(y == -1)
 				y = activeProjects.length-2;
-			if(x >= projects[y].media.length)
+			if(x == projects[y].media.length)
 				x = 0;
 			if(x == -1)
 				x = projects[y].media.length-1
