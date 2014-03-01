@@ -49,11 +49,10 @@ define(["jquery",
 		this.setPageInfo();
 		if ( this.info.viewport.height >= this.info.viewport.minHeight || 
 			 this.info.viewport.width >= this.info.viewport.minWidth ) {
-
 			this.positionMainFrame();
 			this.clearThumbMenu();
 			this.initThumbMenu();
-		} else { console.log('not resizing'); }
+		}
 
 	},
 
@@ -270,7 +269,10 @@ define(["jquery",
 		$('.main-frame').vAlignInViewport();
 		$('.option.center').find('img').load(function() {
 			$('.main-nav .left, .main-nav .right').css('width', (page.info.viewport.width - $(this).width()) /2);
+			$('.main-nav .up, .main-nav .down').css('height', (page.info.viewport.height - $(this).height()) /2);
 		});
+		$('.main-nav .left, .main-nav .right').css('width', (page.info.viewport.width - $('.option.center img').width()) /2);
+		$('.main-nav .up, .main-nav .down').css('height', (page.info.viewport.height - $('.option.center img').height()) /2);
 		$('.main-nav .left img, .main-nav .right img').vAlignInViewport();
 
 	},
@@ -307,7 +309,6 @@ define(["jquery",
 			$('.main-frame').append(l).append(r).append(u).append(d);
 
 		}
-		console.log( $('.option.center img').width() );
 		this.positionMainFrame();
 	},
 
