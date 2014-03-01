@@ -25,6 +25,7 @@ nav {
 	min-height: $minViewportHeight;
 	top: 0;
 	left: 0;
+	z-index: $topLayer;
 }
 
 .ctrl {
@@ -73,7 +74,7 @@ nav {
 
 .right,
 .left {
-	width: 20%;
+	width: 50%;
 	height: 100%;
 //	background: inline-image('arrow_rightleft.png') no-repeat;
 }
@@ -81,15 +82,16 @@ nav {
 .right {
 	right: 0;
 	img { 
-		float: right;
+		margin-left: 70%;
 	}
 //	background-position: right center;
 }
 
 .left {
 	left: 0;
-	img { 
-		float: left;
+	img {
+		float: right;
+		margin-right: 70%;
 	}
 //	background-position: left center;
 }

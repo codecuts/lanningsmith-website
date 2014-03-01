@@ -37,7 +37,6 @@ define(["jquery",
 	},
 
 	load = function() {
-
 		this.setPageInfo();
 		this.relocate( this.info.url );
 		this.initThumbMenu();
@@ -205,6 +204,10 @@ define(["jquery",
 
 		$('.main').css('height', this.info.viewport.height);
 		$('.main-frame').vAlignInViewport();
+		/*$('.option.center').find('img').load(function() {
+			$('.main-nav .left, .main-nav .right').css('width', $(this).css('width'));
+		});*/
+		$('.main-nav .left, .main-nav .right').css('width', this.info.viewport.width - $('.option.center img').css('width'));
 		$('.main-nav .left img, .main-nav .right img').vAlignInViewport();
 
 	},
@@ -241,7 +244,7 @@ define(["jquery",
 			$('.main-frame').append(l).append(r).append(u).append(d);
 
 		}
-
+		console.log( $('.option.center img').width() );
 		this.positionMainFrame();
 	},
 
