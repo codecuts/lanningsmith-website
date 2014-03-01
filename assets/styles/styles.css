@@ -805,47 +805,46 @@ a:hover {
 
 /* line 20, sass/_site-wide.scss */
 nav {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   min-width: 960px;
   min-height: 760px;
   top: 0;
   left: 0;
-  z-index: 9999;
 }
 
-/* line 31, sass/_site-wide.scss */
+/* line 30, sass/_site-wide.scss */
 .ctrl {
   display: block;
   position: absolute;
-  z-index: 9999;
   cursor: pointer;
+  z-index: 10;
 }
 
-/* line 38, sass/_site-wide.scss */
+/* line 37, sass/_site-wide.scss */
 .shutter {
   position: relative;
   top: 12px;
   width: 40px;
   height: 30px;
   margin: 0 auto;
-  z-index: 10000;
+  z-index: 5555;
 }
 
-/* line 47, sass/_site-wide.scss */
+/* line 46, sass/_site-wide.scss */
 .main-nav .shutter {
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gIcDDQpdG3+RwAAANlJREFUKM+lkzEKwjAYRl97gOKu0EAnCy3tZEHBHEUPVnoPHexYN5fGSaxQd+kF4qIiJSqxb/5e/vDni4OBwBcJIIERcAPK06U59HNOT5JA4XmemGUZ0zDk2rZsNxu6rmuA9enSlKZpqzSKdZHn2kSR5zqNYh34YtUXZRrFWtW1/oaq6+cB8l3efZpoukHgi/NrOWkUaxuW84UOfJG4QDLLMmx45KULiGkYWsnjyQRg5ALNUSkr+dq2ADcXOOyrykp+5Mth2x78zv827Ge3j0qxrypjt50hv+oOkcdNFP/hrTIAAAAASUVORK5CYII=') no-repeat;
   background-position: center;
 }
 
-/* line 52, sass/_site-wide.scss */
+/* line 51, sass/_site-wide.scss */
 .thumbmenu-nav .shutter {
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAOCAYAAAAWo42rAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gIcDDQULAWyVgAAAJpJREFUKM990K0RwkAQhuFnJhWcRdICFpkWsMi0EI2jBTSOFtC4tAAlJBZ3mE0mcyRZd3Pvfj9b4YAzjnj5nyuG8fFEj1RATfxNUyOjLcA39qXFo1BtFxaJzRyZUmm5FDwHVG+BKew31eYFcpxtmqqAWnywC/C+ZtvN7pfXct4CmEfoSqheKDCqNmWBeqVYj1RFgYTLAvjFCcMPKr0kgeGsve4AAAAASUVORK5CYII=') no-repeat;
   background-position: center;
 }
 
-/* line 59, sass/_site-wide.scss */
+/* line 58, sass/_site-wide.scss */
 .up,
 .down {
   width: 100%;
@@ -854,39 +853,39 @@ nav {
   background: url('data:image/png;base64,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') no-repeat;
 }
 
-/* line 66, sass/_site-wide.scss */
+/* line 65, sass/_site-wide.scss */
 .up {
   top: 0;
   background-position: center top;
 }
 
-/* line 71, sass/_site-wide.scss */
+/* line 70, sass/_site-wide.scss */
 .down {
   bottom: 0;
   background-position: center bottom;
 }
 
-/* line 77, sass/_site-wide.scss */
+/* line 76, sass/_site-wide.scss */
 .right,
 .left {
   width: 50%;
   height: 100%;
 }
 
-/* line 83, sass/_site-wide.scss */
+/* line 82, sass/_site-wide.scss */
 .right {
   right: 0;
 }
-/* line 85, sass/_site-wide.scss */
+/* line 84, sass/_site-wide.scss */
 .right img {
   margin-left: 70%;
 }
 
-/* line 91, sass/_site-wide.scss */
+/* line 90, sass/_site-wide.scss */
 .left {
   left: 0;
 }
-/* line 93, sass/_site-wide.scss */
+/* line 92, sass/_site-wide.scss */
 .left img {
   float: right;
   margin-right: 70%;
@@ -958,7 +957,7 @@ nav {
 
 /* line 45, sass/_layouts.scss */
 .gridnav {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   height: 98%;
@@ -969,30 +968,29 @@ nav {
   -moz-box-shadow: black 2px 2px 10px;
   box-shadow: black 2px 2px 10px;
   overflow: hidden;
-  z-index: 5555;
 }
-/* line 57, sass/_layouts.scss */
+/* line 56, sass/_layouts.scss */
 .gridnav .jcarousel-pagination {
   width: 25%;
   margin: 0 auto;
   padding-top: 45px;
   text-align: center;
 }
-/* line 64, sass/_layouts.scss */
+/* line 63, sass/_layouts.scss */
 .gridnav .gridframe {
   margin: 0 auto;
   overflow: hidden;
 }
-/* line 70, sass/_layouts.scss */
+/* line 69, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs {
   width: 100%;
 }
-/* line 74, sass/_layouts.scss */
+/* line 73, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs li {
   float: left;
   margin-right: 300px;
 }
-/* line 79, sass/_layouts.scss */
+/* line 78, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item {
   position: relative;
   float: left;
@@ -1000,13 +998,12 @@ nav {
   height: 140px;
   overflow: hidden;
   background: #333;
-  z-index: 9999;
 }
-/* line 88, sass/_layouts.scss */
+/* line 86, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item:hover .overlay {
   top: 0;
 }
-/* line 92, sass/_layouts.scss */
+/* line 90, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .overlay {
   position: absolute;
   top: -9999px;
@@ -1018,13 +1015,13 @@ nav {
   background: #b4f2f1;
   overflow: hidden;
 }
-/* line 103, sass/_layouts.scss */
+/* line 101, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .overlay > div {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-/* line 112, sass/_layouts.scss */
+/* line 110, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .project-title,
 .gridnav .jcarousel.thumbs .grid-item .project-description {
   margin: 0;
@@ -1032,24 +1029,24 @@ nav {
   font-weight: 300;
   text-transform: uppercase;
 }
-/* line 119, sass/_layouts.scss */
+/* line 117, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .project-title {
   font-size: 22px;
   line-height: 22px;
 }
-/* line 125, sass/_layouts.scss */
+/* line 123, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .project-description {
   visibility: hidden;
   padding: 10px 0 0 0;
   font-size: 12px;
   line-height: 14px;
 }
-/* line 135, sass/_layouts.scss */
+/* line 133, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .griditem.rightmost {
   margin-right: 0;
 }
 
-/* line 144, sass/_layouts.scss */
+/* line 142, sass/_layouts.scss */
 .main {
   width: 100%;
   height: 100%;
@@ -1058,23 +1055,21 @@ nav {
   /* necessary to prevent .main-frame margin-top from pushing this down */
 }
 
-/* line 152, sass/_layouts.scss */
+/* line 150, sass/_layouts.scss */
 .main-frame {
   position: relative;
   width: 66.67%;
   height: 65%;
   margin: 0 auto;
-  z-index: 10;
 }
-/* line 161, sass/_layouts.scss */
+/* line 158, sass/_layouts.scss */
 .main-frame .option {
   position: absolute;
   width: 100%;
   height: 100%;
   text-align: center;
-  z-index: auto;
 }
-/* line 168, sass/_layouts.scss */
+/* line 164, sass/_layouts.scss */
 .main-frame .option img {
   position: absolute;
   display: block;
@@ -1086,7 +1081,7 @@ nav {
   bottom: 0;
   margin: auto;
 }
-/* line 180, sass/_layouts.scss */
+/* line 176, sass/_layouts.scss */
 .main-frame .option .caption {
   position: relative;
   top: 100%;
@@ -1103,14 +1098,14 @@ nav {
   -o-transition-duration: 1s;
   transition-duration: 1s;
 }
-/* line 195, sass/_layouts.scss */
+/* line 191, sass/_layouts.scss */
 .main-frame .option .project-title {
   font-size: 12px;
   line-height: 24px;
   margin: 0;
   font-weight: normal;
 }
-/* line 202, sass/_layouts.scss */
+/* line 198, sass/_layouts.scss */
 .main-frame .option .description {
   max-width: 600px;
   margin: 0 auto;
@@ -1119,22 +1114,22 @@ nav {
   text-align: center;
   font-weight: normal;
 }
-/* line 212, sass/_layouts.scss */
+/* line 208, sass/_layouts.scss */
 .main-frame .option.left {
   top: 0;
   left: -3000px;
 }
-/* line 216, sass/_layouts.scss */
+/* line 212, sass/_layouts.scss */
 .main-frame .option.right {
   top: 0;
   left: 3000px;
 }
-/* line 220, sass/_layouts.scss */
+/* line 216, sass/_layouts.scss */
 .main-frame .option.up {
   top: -3000px;
   left: 0;
 }
-/* line 224, sass/_layouts.scss */
+/* line 220, sass/_layouts.scss */
 .main-frame .option.down {
   top: 3000px;
   left: 0;
