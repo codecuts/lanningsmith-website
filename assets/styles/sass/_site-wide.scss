@@ -34,6 +34,10 @@ nav {
 	cursor: pointer;
 }
 
+.ctrl.off {
+	background: none;
+}
+
 .shutter {
 	position: relative;
 	top: 12px;
@@ -58,34 +62,38 @@ nav {
 .down {
 	width: 100%;
 	height: 18%;
-	background: inline-image('arrow_updown.png') no-repeat;
+	text-align: center;
+//	background: inline-image('arrow_updown.png') no-repeat;
 }
 
 .up {
 	top: 0;
-	background-position: center top;
+//	background-position: center top;
 }
 
 .down {
 	bottom: 0;
-	background-position: center bottom;
+//	background-position: center bottom;
 }
 
 .right,
 .left {
 	width: 20%;
 	height: 100%;
-	background: inline-image('arrow_rightleft.png') no-repeat;
+//	background: inline-image('arrow_rightleft.png') no-repeat;
 }
 
 .right {
 	right: 0;
-	background-position: right center;
+	img { 
+		float: right; 
+	}
+//	background-position: right center;
 }
 
 .left {
 	left: 0;
-	background-position: left center;
+//	background-position: left center;
 }
 
 

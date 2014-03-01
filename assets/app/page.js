@@ -84,7 +84,6 @@ define(["jquery",
 
 		switch(dir){
 			case "left":
-				console.log( $('.'+dir) );
 				$('.option.center').animate({left:'1500px'},500);
 				$('.option.left').animate({left:0},500,'swing',callback);
 				break;	
@@ -168,18 +167,18 @@ define(["jquery",
 				console.log( 'main-frame moving: '+dir);
 				var options = projects.move( dir ); 
 				if(options == null) return;
+				
 				page.animate(dir , function() {
 					document.title = page.info.title+' - '+options.center.projectName;
-					page.populateMainFrame(options, dir);
-					
+					page.populateMainFrame(options, dir);					
 					if ( dir == 'up' || 'down' ) {
 						var url = options.center.url,
 							pageTitle = document.title,
 							html = document.getElementsByClassName('main-frame')[0].innerHTML;
 						page.pushToHistory(url, pageTitle, html);	
 					}
-					
 				});  
+				
 			} else if ( $(this).parent().attr('class') == 'thumbmenu-nav' ) {
 				$(this).jcarouselControl({
 					target: ( dir == 'right' ) ? '+=1' : '-=1'
@@ -206,7 +205,7 @@ define(["jquery",
 
 		$('.main').css('height', this.info.viewport.height);
 		$('.main-frame').vAlignInViewport();
-		$('.main-nav .left, .main-nav .right').vAlignInViewport();
+		$('.main-nav .left img, .main-nav .right img').vAlignInViewport();
 
 	},
 
