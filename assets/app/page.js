@@ -62,17 +62,20 @@ define(["jquery",
 
 		this.info.viewport.width = $(window).width();
 		this.info.viewport.height = $(window).height();
-		this.info.viewport.minHeight = $('.container').css('min-height');
-		this.info.viewport.minWidth = $('.container').css('min-width');
-		console.log('minHeight: '+this.info.viewport.minHeight);
-		console.log('minHeight: '+this.info.viewport.minWidth);
+		this.info.viewport.minHeight = parseInt( $('.container').css('min-height') );
+		this.info.viewport.minWidth = parseInt( $('.container').css('min-width') );
+		console.log('setPageInfo: height is '+this.info.viewport.height);
+		console.log('setPageInfo: minHeight: '+this.info.viewport.minHeight);
+		console.log('setPageInfo: width is '+this.info.viewport.width);
+		console.log('setPageInfo: minWidth: '+this.info.viewport.minWidth);
 	
-		if ( this.info.viewport.height < this.info.viewport.minHeight ) {
+/*		if ( this.info.viewport.height < this.info.viewport.minHeight ) {
 			this.info.viewport.height = this.info.viewport.minHeight;
+			console.log('setPageInfo: viewport height < minHeight, reset to minheight: '+this.info.viewport.height);
 		}
 		if ( this.info.viewport.width < this.info.viewport.minWidth ) {
 			this.info.viewport.width = this.info.viewport.minWidth;
-		}
+		}*/
 
 		this.info.url = window.location.href;
 		this.info.path = window.location.pathname.split('/');  // return array of path elements 
@@ -210,9 +213,6 @@ define(["jquery",
 
 		$('.main').css('height', this.info.viewport.height);
 		$('.main-frame').vAlignInViewport();
-		/*$('.option').find('img').load(function() {
-			$(this).parent().find('.caption').css('width', $(this).css('width'));
-		});*/
 		$('.main-nav .left, .main-nav .right').vAlignInViewport();
 
 	},
