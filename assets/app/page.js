@@ -161,7 +161,12 @@ define(["jquery",
 
 		$('#logo').on('click', function(e) {
 			e.preventDefault();
-			$('.about').toggle('slide');
+			page.toggleAbout();
+			//console.log('logo');
+		});
+
+		$(document).on('click', '#foffabout', function() {
+			page.toggleAbout();
 		});
 
 		$('.shutter').on('click', function(e) {
@@ -172,7 +177,6 @@ define(["jquery",
 
 		$(document).on('click', '.option.center img', 
 			function(e) {
-           	
 				var centerX = e.target.offsetWidth/2,
 					centerY = e.target.offsetHeight/2,
 					globalX = $(this).offset().left,
@@ -200,6 +204,23 @@ define(["jquery",
 			}
 		);
 
+//		$('body').on('click', function(e){
+//			
+//			//if (!e.target.text == "LANNINGSMITH" && $('.about').data('open')=="true")
+//			console.log("BUHJA");
+//			if (e.target.text == "LANNINGSMITH"){
+//				e.preventDefault;
+//				page.toggleAbout();
+//				return;
+//			}
+//
+//			if (!$(e.target).closest('.about').length>0 && page.aboutOpen())
+//				page.toggleAbout();
+//
+//			console.log("BUHJA");
+//			/*if(!e.target.text == "LANNINGSMITH")
+//				return;*/
+//		});
 
 		$('.left, .right, .up, .down').on('click', function(e) {
 			e.preventDefault();
@@ -398,7 +419,7 @@ define(["jquery",
 		$('.gridframe').vAlignInViewport();
 		$('.grid-item .project-title').vAlign();
 
-	}
+	},
 
 	calculateThumbGrid = function() {
 
@@ -428,7 +449,27 @@ define(["jquery",
 
 		return { rows: rows, cols: cols, itemsPerPage: itemsPerPage };
 
-	}
+	},
+	aboutOpen = function (){
+		if($('.about').data('open') == "true")
+			return true;
+		return false;
+	},
+
+	toggleAbout = function(){
+		if($('.about').data('open') == "true") {
+			$('.about').data('open', "false");
+			$('#foffabout').remove();
+		}
+		else {
+			$('.about').data('open', "true");
+			$('.container').append('<div id="foffabout" style="position:fixed;top:0;right:0;width:58%;height:100%;float:right;z-index:10000"></div>');
+		}
+
+//		console.log($('.about').data('open'));
+		
+		$('.about').toggle('slide');
+	},
 
 	toggleThumbMenu = function() {
 		if ( $('.main-nav').css('visibility') == 'hidden' ) {
@@ -475,6 +516,8 @@ define(["jquery",
 		initThumbMenu: initThumbMenu,
 		setupThumbMenu: setupThumbMenu,
 		calculateThumbGrid: calculateThumbGrid,
+		aboutOpen: aboutOpen,
+		toggleAbout: toggleAbout,
 		toggleThumbMenu: toggleThumbMenu,
 		clearThumbMenu: clearThumbMenu,
 		loaded: loaded,
