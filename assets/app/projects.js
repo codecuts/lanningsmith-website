@@ -68,6 +68,8 @@ define(["jquery", "app/helpers"], function($,helpers) {
 						return null;
 				}
 				else{
+					if(projects[indexY].media.length == 1)
+						return null;
 					if(indexX == 0){
 						indexX = projects[indexY].media.length-1;
 						break;
@@ -81,6 +83,8 @@ define(["jquery", "app/helpers"], function($,helpers) {
 						return null;
 				}
 				else{
+					if(projects[indexY].media.length == 1)
+						return null;
 					if(indexX==projects[indexY].media.length-1){
 						indexX=0;
 						break;
@@ -173,7 +177,8 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	var getStepForXY = function(x, y){
 	
 		if(imagesInLoop){
-			
+			/*if(projects[y].media.length == 1 && x!=0)
+				return null;*/
 			if(y>=activeProjects.length)
 				y = 0;
 			if(y == -1)
