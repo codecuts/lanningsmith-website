@@ -247,8 +247,8 @@ define(["jquery",
 			function (e){
 				console.log('mouseover');
 				timer=setTimeout(
-					function(){
-						$('.option.center .caption').css('opacity', 1);
+					function(){		
+						$('.option.center .caption').css('z-index',5555).css('opacity', 1);
 					}, 
 					1000
 				)
@@ -257,7 +257,7 @@ define(["jquery",
 		$(document).on('mouseout', '.option.center img',
 			function (e){
 				clearTimeout(timer);
-				$('.option.center .caption').css('opacity', 0);
+				$('.option.center .caption').css('opacity', 0).css('z-index','');
 			}
 		);
 	}, 

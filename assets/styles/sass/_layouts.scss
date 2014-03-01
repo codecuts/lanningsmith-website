@@ -145,8 +145,8 @@ $headerFontStack;     letter-spacing: 1.15px;     z-index: $aboveItAll;
 .main-frame {
 	position: relative;
 	width: 66.67%;
-//	height: 60%;
-	height: 65%;
+	height: 60%;
+//	height: 65%;
 	margin: 0 auto;
 //	background: lightblue;
 	
@@ -173,6 +173,7 @@ $headerFontStack;     letter-spacing: 1.15px;     z-index: $aboveItAll;
 	    	top: 100%;
 	    	margin: 0 auto;
 	    	padding: 5px 0;
+	    	background: $siteBackground;
 	    	@include opacity(0);
 	    	@include transition-property(opacity);
 	    	@include transition-duration(1s);
