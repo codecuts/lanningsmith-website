@@ -176,7 +176,7 @@ $headerFontStack;     letter-spacing: 1.15px;     z-index: $aboveItAll;
 	    	background: $siteBackground;
 	    	@include opacity(0);
 	    	@include transition-property(opacity);
-	    	@include transition-duration(1s);
+	    	@include transition-duration(0.3s);
 		}
 
 		.project-title,

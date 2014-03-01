@@ -250,7 +250,7 @@ define(["jquery",
 					function(){		
 						$('.option.center .caption').css('z-index',5555).css('opacity', 1);
 					}, 
-					1000
+					500
 				)
 			}
 		);
