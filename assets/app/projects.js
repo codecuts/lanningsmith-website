@@ -21,6 +21,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	var activeProjects = new Array(); 
 	var indexX;
 	var indexY; // Y is projects, X is media for the current project	
+	var loop = imagesInLoop;
 	
 	var init = function (mode,target){
 		this.resetToXY(0,0);
@@ -62,24 +63,56 @@ define(["jquery", "app/helpers"], function($,helpers) {
 		
 		switch(dir){
 			case "left":
-				if(indexX == 0)
-					return null;
+				if(!imagesInLoop){
+					if(indexX == 0)
+						return null;
+				}
+				else{
+					if(indexX == 0){
+						indexX = projects[indexY].media.length-1;
+						break;
+					}
+				}
 				indexX--;
 				break;	
 			case 'right':
-				if(projects[indexY].media.length<=indexX+1)
-					return null;
+				if(!imagesInLoop){
+					if(projects[indexY].media.length<=indexX+1)
+						return null;
+				}
+				else{
+					if(indexX==projects[indexY].media.length-1)
+						indexX=0;
+				}
 				indexX++;
 				break;
 			case "up":
-				if(indexY == 0)
-					return null;
+				if(!imagesInLoop){
+					if(indexY == 0)
+						return null;
+				}
+				else{
+					if(indexY == 0){
+						indexY = this.count()-1;
+						indexX=0;
+						break;
+					}
+				}
 				indexY--;
 				indexX=0;
 				break;
 			case "down":
-				if(indexY >= this.count())
-					return null;
+				if(!imagesInLoop){
+					if(indexY >= this.count()-1)
+						return null;
+				}
+				else{
+					if(indexY >= this.count()-1){
+						indexY = 0;
+						indexX = 0;
+						break;
+					}
+				}
 				indexY++;
 				indexX=0;
 		}	
@@ -136,22 +169,28 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	};
 	
 	var getStepForXY = function(x, y){
-		if(y>=activeProjects.length || y<0 || x>=projects[y].media.length || x<0)
-			return null;
-
+	
+		if(imagesInLoop){
+			
+			if(y>=activeProjects.length)
+				y = 0;
+			if(y == -1)
+				y = activeProjects.length-2;
+			if(x >= projects[y].media.length)
+				x = 0;
+			if(x == -1)
+				x = projects[y].media.length-1
+			
+		}
+		else{
+			if(x<0 || y>=activeProjects.length || y<0 || x>=projects[y].media.length )
+				return null;
+		}
+		
 		project = projects[y];
-		return this.createStep(project.url, project.title, project.description, this.getProjectMedia(x, y));
+		return this.createStep(project.url, project.title, project.description, project.media[x]);
 	};
-	
-	var getProjectMedia = function(x, y){
-		ma = projects[y].media;
-		//if(x>=ma.length || x<0)
-		//	return null;
-		return ma[x];
-	};
-	
-	
-	
+		
 	////////////////////////////////////////////////////////////////////////////////////////////////	
 
 	return {
@@ -164,7 +203,6 @@ define(["jquery", "app/helpers"], function($,helpers) {
 		setCategory: setCategory,
 		slug: slug,
 		getOptionsForXY: getOptionsForXY,
-		getProjectMedia: getProjectMedia,
 		getStepForXY: getStepForXY,
 		relocateToY: relocateToY,
 		getOptionsForCurrentPosition: getOptionsForCurrentPosition,
