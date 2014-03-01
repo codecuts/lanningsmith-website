@@ -351,6 +351,7 @@ define(["jquery",
 			'height': ( (grid.rows*c.thumbs.height) + ((grid.rows-1)*c.gutter) )+'px'
 		});
 		$('.gridframe').vAlignInViewport();
+		$('.grid-item .project-title').vAlign();
 
 	}
 
