@@ -25,8 +25,6 @@
 	<section class="gridnav" >
 		<nav class="thumbmenu-nav">
 			<div class="ctrl shutter" title="Close Thumb Menu"></div>
-			<div class="ctrl left" title="Previous Thumb Menu Page"></div>
-			<div class="ctrl right" title="Next Thumb Menu Page"></div>
 		</nav>
 		<div class="gridframe">
 			<div class='jcarousel thumbs'>
