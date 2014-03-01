@@ -6,7 +6,7 @@ define(["jquery"], function() {
 			var ph = $(this).parent().height();
 			var mh = (ph - ah) / 2;
 			$(this).css('margin-top', mh);
-			console.log('element:'+ah+',parent:'+ph+'margin:'+mh);
+//			console.log('element:'+ah+',parent:'+ph+'margin:'+mh);
   		});
 	};
 
