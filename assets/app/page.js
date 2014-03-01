@@ -64,10 +64,7 @@ define(["jquery",
 		this.info.viewport.height = $(window).height();
 		this.info.viewport.minHeight = parseInt( $('.container').css('min-height') );
 		this.info.viewport.minWidth = parseInt( $('.container').css('min-width') );
-		console.log('setPageInfo: height is '+this.info.viewport.height);
-		console.log('setPageInfo: minHeight: '+this.info.viewport.minHeight);
-		console.log('setPageInfo: width is '+this.info.viewport.width);
-		console.log('setPageInfo: minWidth: '+this.info.viewport.minWidth);
+	
 	
 /*		if ( this.info.viewport.height < this.info.viewport.minHeight ) {
 			this.info.viewport.height = this.info.viewport.minHeight;
@@ -87,6 +84,7 @@ define(["jquery",
 
 		switch(dir){
 			case "left":
+				console.log( $('.'+dir) );
 				$('.option.center').animate({left:'1500px'},500);
 				$('.option.left').animate({left:0},500,'swing',callback);
 				break;	
@@ -144,9 +142,6 @@ define(["jquery",
 	},
 
 	pushToHistory = function(url, pageTitle, html) {
-//		console.log('pushToHistory: url:',url);
-//		console.log('pushToHistory: pageTitle:',pageTitle);
-//		console.log('pushToHistory: html:',html);
 		history.pushState({'html':html, 'pageTitle':pageTitle}, pageTitle, url);
  		this.setPageInfo();
 	},
@@ -199,8 +194,6 @@ define(["jquery",
 		});
 
 		window.onpopstate = function(e){
-			console.log('onpopstate event',e);
-		    
 		    if(e.state){
 		        document.getElementsByClassName('main-frame')[0].innerHTML = e.state.html;
 		        document.title = e.state.pageTitle;
