@@ -144,6 +144,18 @@ define(["jquery",
  		this.setPageInfo();
 	},
 
+	getDirectionFromCoordinates = function (localX, localY, centerX, centerY){
+		var dir;
+		//console.log('localX: '+localX+' localY: '+localY+' centerX: '+centerX+' centerY: '+centerY);
+		
+		if(localX>centerX)
+			dir ='right';
+		else
+			dir ='left';
+
+		return dir;
+	},
+
 	setupEvents = function() {
 
 		var page = this;  // makes it possible to refer to page module's function inside jQuery event functions
@@ -157,6 +169,38 @@ define(["jquery",
 			e.preventDefault;
 			page.toggleThumbMenu();
 		});
+
+
+		$(document).on('click', '.option.center img', 
+			function(e) {
+           	
+				var centerX = e.target.offsetWidth/2,
+					centerY = e.target.offsetHeight/2,
+					globalX = $(this).offset().left,
+       	    		globalY = $(this).offset().top,
+       	    		clickX = e.pageX-globalX,
+           			clickY = e.pageY-globalY;
+           	
+           		dir = page.getDirectionFromCoordinates(clickX, clickY, centerX, centerY);
+				
+				//console.log(dir);
+
+				var options = projects.move( dir ); 
+				if(options == null) return;
+				
+				page.animate(dir , function() {
+					document.title = page.info.title+' - '+options.center.projectName;
+					page.populateMainFrame(options, dir);					
+					if ( dir == 'up' || 'down' ) {
+						var url = options.center.url,
+							pageTitle = document.title,
+							html = document.getElementsByClassName('main-frame')[0].innerHTML;
+						page.pushToHistory(url, pageTitle, html);	
+					}
+				});  
+			}
+		);
+
 
 		$('.left, .right, .up, .down').on('click', function(e) {
 			e.preventDefault();
@@ -422,6 +466,7 @@ define(["jquery",
 		positionMainFrame: positionMainFrame,
 		populateMainFrame: populateMainFrame,
 		createOptionContent: createOptionContent,
+		getDirectionFromCoordinates: getDirectionFromCoordinates,		
 		setupEvents: setupEvents,
 		animate: animate,
 		relocate: relocate,
