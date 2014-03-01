@@ -14,8 +14,8 @@
 			<div class="ctrl shutter" title="Open Thumb Menu"></div>
 			<div class="ctrl left" title="Previous Image"><img src="/assets/images/arrow_rightleft.png" alt"left arrow"/></div>
 			<div class="ctrl right" title="Next Image"><img src="/assets/images/arrow_rightleft.png" alt"right arrow"/></div>
-			<div class="ctrl up" title="Previous Project"><img src="/assets/images/arrow_updown.png" alt"up arrow"/></div>
-			<div class="ctrl down" title="Next Project"><img src="/assets/images/arrow_updown.png" alt"down arrow"/></div>
+			<div class="ctrl up" title="Previous Project"><!--<img src="/assets/images/arrow_updown.png" alt"up arrow"/>--></div>
+			<div class="ctrl down" title="Next Project"><!--<img src="/assets/images/arrow_updown.png" alt"down arrow"/>--></div>
 		</nav>
 		<div class="main-frame">
 			<?php //snippet('carousel', array('found' => $found, 'context'=>'mainframe')) ?>
