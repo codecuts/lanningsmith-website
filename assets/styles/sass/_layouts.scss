@@ -8,13 +8,8 @@
 		   things up behind the scenes, see assets/app/helpers.js */
 }
 
-#logo {
-	position: fixed;
-	top: 53px;
-	left: 10px;
-	font: 25px  $headerFontStack;
-	letter-spacing: 1.15px;
-	z-index: $aboveItAll;
+#logo {     position: fixed;     top: 50px;     left: 10px;     font: 25px
+$headerFontStack;     letter-spacing: 1.15px;     z-index: $aboveItAll;
 
 	a {
 		padding: 20px;
@@ -35,7 +30,7 @@
 	z-index: $topLayer;
 
 	.site-description {
-		font-size: 13px;
+		font-size: 18px;
 		font-family: $headerFontStack;
 		text-transform: uppercase;
 	}
