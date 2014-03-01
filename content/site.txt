@@ -1,0 +1,29 @@
+﻿Title: Kirby
+
+----
+
+Author: Bastian Allgeier
+
+----
+
+Description: Kirby is awesome
+
+----
+
+Keywords: kirby, cms, kirbycms, php, filesystem
+
+----
+
+Copyright: © 2009-(date: Year) (link: http://bastianallgeier.com text: Bastian Allgeier)
+
+----
+
+Categories: FALSE
+
+----
+
+Images_in_loop: yes
+
+----
+
+Grid_visible: TRUE
