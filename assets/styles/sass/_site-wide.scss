@@ -30,12 +30,8 @@ nav {
 .ctrl {
 	display: block;
 	position: absolute;
-	z-index: $topLayer;
+	z-index: $aboveItAll;
 	cursor: pointer;
-}
-
-.ctrl.off {
-	background: none;
 }
 
 .shutter {
@@ -44,7 +40,6 @@ nav {
 	width: 40px;
 	height: 30px;
 	margin: 0 auto;
-	z-index: $aboveItAll;
 }
 
 .main-nav .shutter {
@@ -86,13 +81,16 @@ nav {
 .right {
 	right: 0;
 	img { 
-		float: right; 
+		float: right;
 	}
 //	background-position: right center;
 }
 
 .left {
 	left: 0;
+	img { 
+		float: left;
+	}
 //	background-position: left center;
 }
 

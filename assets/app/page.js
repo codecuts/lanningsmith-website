@@ -84,19 +84,19 @@ define(["jquery",
 
 		switch(dir){
 			case "left":
-				$('.option.center').animate({left:'1500px'},500);
+				$('.option.center').animate({left:'3000px'},500);
 				$('.option.left').animate({left:0},500,'swing',callback);
 				break;	
 			case 'right':
-				$('.option.center').animate({left:'-1500px'},500);
+				$('.option.center').animate({left:'-3000px'},500);
 				$('.option.right').animate({left:0},500,'swing',callback);
 				break;
 			case "up":
-				$('.option.center').animate({top:'1500px'},500);
+				$('.option.center').animate({top:'3000px'},500);
 				$('.option.up').animate({top:0},500,'swing',callback);
 				break;
 			case "down":
-				$('.option.center').animate({top:'-1500px'},500);
+				$('.option.center').animate({top:'-3000px'},500);
 				$('.option.down').animate({top:0},500,'swing',callback);
 		}
 
@@ -178,7 +178,7 @@ define(["jquery",
 						page.pushToHistory(url, pageTitle, html);	
 					}
 				});  
-				
+
 			} else if ( $(this).parent().attr('class') == 'thumbmenu-nav' ) {
 				$(this).jcarouselControl({
 					target: ( dir == 'right' ) ? '+=1' : '-=1'
