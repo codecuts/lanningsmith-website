@@ -202,6 +202,7 @@ define(["jquery",
 		
 		$(document).on('mouseover', '.option.center img',
 			function (e){
+				console.log('mouseover');
 				timer=setTimeout(
 					function(){
 						$('.option.center .caption').css('opacity', 1);
@@ -219,13 +220,13 @@ define(["jquery",
 	}, 
 	
 	positionMainFrame = function() {
+		var page = this;
 
 		$('.main').css('height', this.info.viewport.height);
 		$('.main-frame').vAlignInViewport();
-		/*$('.option.center').find('img').load(function() {
-			$('.main-nav .left, .main-nav .right').css('width', $(this).css('width'));
-		});*/
-		$('.main-nav .left, .main-nav .right').css('width', this.info.viewport.width - $('.option.center img').css('width'));
+		$('.option.center').find('img').load(function() {
+			$('.main-nav .left, .main-nav .right').css('width', (page.info.viewport.width - $(this).width()) /2);
+		});
 		$('.main-nav .left img, .main-nav .right img').vAlignInViewport();
 
 	},

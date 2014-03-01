@@ -25,13 +25,12 @@ nav {
 	min-height: $minViewportHeight;
 	top: 0;
 	left: 0;
-	z-index: $topLayer;
 }
 
 .ctrl {
 	display: block;
 	position: absolute;
-	z-index: $aboveItAll;
+	//z-index: $aboveItAll;
 	cursor: pointer;
 }
 
@@ -57,7 +56,7 @@ nav {
 .up,
 .down {
 	width: 100%;
-	height: 18%;
+	height: 23%;
 	text-align: center;
 //	background: inline-image('arrow_updown.png') no-repeat;
 }
