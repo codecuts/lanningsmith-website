@@ -198,6 +198,24 @@ define(["jquery",
 		    }
 		};
 
+		var timer;
+		
+		$(document).on('mouseover', '.option.center img',
+			function (e){
+				timer=setTimeout(
+					function(){
+						$('.option.center .caption').css('opacity', 1);
+					}, 
+					1000
+				)
+			}
+		);
+		$(document).on('mouseout', '.option.center img',
+			function (e){
+				clearTimeout(timer);
+				$('.option.center .caption').css('opacity', 0);
+			}
+		);
 	}, 
 	
 	positionMainFrame = function() {
