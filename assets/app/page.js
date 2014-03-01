@@ -12,7 +12,9 @@ define(["jquery",
 		loaded: false,
 		viewport: {
 			width: 0,
-			height: 0
+			height: 0,
+			minWidth: 0,
+			minHeight: 0
 		},
 		url: null,
 		path: null,  // will ultimately hold window.location.pathname.split('/');
@@ -46,12 +48,13 @@ define(["jquery",
 	reload = function() {
 
 		this.setPageInfo();
-		if ( this.info.viewport.height >= 660 && this.info.viewport.width >= 960 ) {
-			console.log('resizing stuff');
+		if ( this.info.viewport.height >= this.info.viewport.minHeight || 
+			 this.info.viewport.width >= this.info.viewport.minWidth ) {
+
 			this.positionMainFrame();
 			this.clearThumbMenu();
 			this.initThumbMenu();
-		} else { console.log('not resizing stuff'); }
+		} else { console.log('not resizing'); }
 
 	},
 
@@ -59,6 +62,18 @@ define(["jquery",
 
 		this.info.viewport.width = $(window).width();
 		this.info.viewport.height = $(window).height();
+		this.info.viewport.minHeight = parseInt( $('.container').css('min-height') );
+		this.info.viewport.minWidth = parseInt( $('.container').css('min-width') );
+	
+	
+/*		if ( this.info.viewport.height < this.info.viewport.minHeight ) {
+			this.info.viewport.height = this.info.viewport.minHeight;
+			console.log('setPageInfo: viewport height < minHeight, reset to minheight: '+this.info.viewport.height);
+		}
+		if ( this.info.viewport.width < this.info.viewport.minWidth ) {
+			this.info.viewport.width = this.info.viewport.minWidth;
+		}*/
+
 		this.info.url = window.location.href;
 		this.info.path = window.location.pathname.split('/');  // return array of path elements 
 		this.info.thumbMenu.carousel = $('.jcarousel.thumbs');
@@ -69,6 +84,7 @@ define(["jquery",
 
 		switch(dir){
 			case "left":
+				console.log( $('.'+dir) );
 				$('.option.center').animate({left:'1500px'},500);
 				$('.option.left').animate({left:0},500,'swing',callback);
 				break;	
@@ -126,9 +142,6 @@ define(["jquery",
 	},
 
 	pushToHistory = function(url, pageTitle, html) {
-//		console.log('pushToHistory: url:',url);
-//		console.log('pushToHistory: pageTitle:',pageTitle);
-//		console.log('pushToHistory: html:',html);
 		history.pushState({'html':html, 'pageTitle':pageTitle}, pageTitle, url);
  		this.setPageInfo();
 	},
@@ -181,8 +194,6 @@ define(["jquery",
 		});
 
 		window.onpopstate = function(e){
-			console.log('onpopstate event',e);
-		    
 		    if(e.state){
 		        document.getElementsByClassName('main-frame')[0].innerHTML = e.state.html;
 		        document.title = e.state.pageTitle;
@@ -195,9 +206,6 @@ define(["jquery",
 
 		$('.main').css('height', this.info.viewport.height);
 		$('.main-frame').vAlignInViewport();
-		/*$('.option').find('img').load(function() {
-			$(this).parent().find('.caption').css('width', $(this).css('width'));
-		});*/
 		$('.main-nav .left, .main-nav .right').vAlignInViewport();
 
 	},
