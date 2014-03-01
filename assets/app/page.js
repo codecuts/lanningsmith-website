@@ -12,7 +12,9 @@ define(["jquery",
 		loaded: false,
 		viewport: {
 			width: 0,
-			height: 0
+			height: 0,
+			minWidth: 0,
+			minHeight: 0
 		},
 		url: null,
 		path: null,  // will ultimately hold window.location.pathname.split('/');
@@ -46,12 +48,13 @@ define(["jquery",
 	reload = function() {
 
 		this.setPageInfo();
-		if ( this.info.viewport.height >= 660 && this.info.viewport.width >= 960 ) {
-			console.log('resizing stuff');
+		if ( this.info.viewport.height >= this.info.viewport.minHeight || 
+			 this.info.viewport.width >= this.info.viewport.minWidth ) {
+
 			this.positionMainFrame();
 			this.clearThumbMenu();
 			this.initThumbMenu();
-		} else { console.log('not resizing stuff'); }
+		} else { console.log('not resizing'); }
 
 	},
 
@@ -59,6 +62,18 @@ define(["jquery",
 
 		this.info.viewport.width = $(window).width();
 		this.info.viewport.height = $(window).height();
+		this.info.viewport.minHeight = $('.container').css('min-height');
+		this.info.viewport.minWidth = $('.container').css('min-width');
+		console.log('minHeight: '+this.info.viewport.minHeight);
+		console.log('minHeight: '+this.info.viewport.minWidth);
+	
+		if ( this.info.viewport.height < this.info.viewport.minHeight ) {
+			this.info.viewport.height = this.info.viewport.minHeight;
+		}
+		if ( this.info.viewport.width < this.info.viewport.minWidth ) {
+			this.info.viewport.width = this.info.viewport.minWidth;
+		}
+
 		this.info.url = window.location.href;
 		this.info.path = window.location.pathname.split('/');  // return array of path elements 
 		this.info.thumbMenu.carousel = $('.jcarousel.thumbs');

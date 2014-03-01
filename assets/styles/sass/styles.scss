@@ -36,11 +36,13 @@ $bottomLayer: 10;
 $siteBackground: #fbfaf8;
 $thumbOverlayBackground: #b4f2f1;
 
+/* sizing */
+$minViewportWidth: 960px;
+$minViewportHeight: 760px;
 
 @import 'mixins';
 @import 'site-wide';
 @import 'typography';
 @import 'modules';
 @import 'layouts';
-
 @import 'jcarousel';

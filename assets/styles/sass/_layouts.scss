@@ -1,7 +1,7 @@
 .container {
 	width: 100%;
-	min-width: 960px;
-	margin: 0 auto;
+	min-width: $minViewportWidth;
+	min-height: $minViewportHeight;
 	overflow: hidden;
 	/*opacity: 1; */
 		/* page is hidden at first so jQuery mangagePageLoad can set
@@ -42,8 +42,8 @@
 	top: 0;
 	width: 100%;
 	height: 98%;
-	min-width: 960px;
-	min-height: 600px;
+	min-width: $minViewportWidth;
+	min-height: $minViewportHeight;
 	background: rgba(255,255,255,0.5);
 	@include box-shadow(#000 2px 2px 10px);
 	overflow:hidden;
