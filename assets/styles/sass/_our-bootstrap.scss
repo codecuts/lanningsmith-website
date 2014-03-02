@@ -206,8 +206,8 @@ textarea {
 body {
   margin: 0;
   font-family: $baseFontStack;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: $defaultFontSize;
+  line-height: $defaultLineHeight;
   color: #000000;
   background-color: #ffffff;
 }

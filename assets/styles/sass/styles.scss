@@ -15,9 +15,8 @@ style.scss - Sass Styles for lanningsmith.com
 /*==================================================================================*/
 
 /* fonts */
-$defaultFontSize: 16px;
-$defaultLineHeight: 1.5em;  /* 22px */
-$defaultVerticalRhythmUnit: 2.2em;
+$defaultFontSize: 13px;
+$defaultLineHeight: 16px;  /* 22px */
 $defaultFontColor: black;
 $baseFontStack: 'Nunito', Helvetica, Arial, sans-serif;
 $headerFontStack: 'League Gothic', Helvetica, Arial, sans-serif;
@@ -37,8 +36,8 @@ $siteBackground: #fbfaf8;
 $thumbOverlayBackground: #b4f2f1;
 
 /* sizing */
-$minViewportWidth: 960px;
-$minViewportHeight: 450px;
+$minViewportWidth: 640px;
+$minViewportHeight: 480px;
 
 @import 'our-bootstrap';
 @import 'mixins';
