@@ -373,6 +373,11 @@ define(["jquery",
 					$(this).jcarouselPagination('destroy');	
 				}
 			})
+			.on('jcarouselpagination:reloadend', function(e) {
+				if ( $(this).find('a').length == 1 ) {
+					$(this).jcarouselPagination('destroy');	
+				}
+			})
 			.jcarouselPagination({
 				item: function(page) {
 		    		return '<a href="#' + page + '">' + page + '</a>';
