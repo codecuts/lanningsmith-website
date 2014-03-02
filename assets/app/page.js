@@ -327,7 +327,7 @@ define(["jquery",
 
 		var elem = $('<article class="option '+dir+'" data-url="'+url+'"></article>');
 		elem.append('<img src="'+media.url+'" alt="'+caption+'"/>');
-		elem.append('<div class="caption"><h1 class="project-title">'+pName+'<br></span><h2 class="description">'+caption+'</span></div>');
+		elem.append('<div class="caption"><h1 class="media-title">'+media.title+'<br></span><h2 class="description">'+media.description+'</span></div>');
 		return elem;
 	},	
 

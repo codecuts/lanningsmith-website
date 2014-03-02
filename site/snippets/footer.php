@@ -16,7 +16,9 @@
 						$media[] = array(
 							'url' => $c->images()->first()->url(),
 							'width' => $c->images()->first()->width(),
-							'height' => $c->images()->first()->height()
+							'height' => $c->images()->first()->height(),
+							'title' => $c->title()->value,
+							'description' =>$c->text()->value
 						);
 					}
 				}
