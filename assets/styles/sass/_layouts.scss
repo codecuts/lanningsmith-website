@@ -10,9 +10,9 @@
 
 #logo {     
 	position: fixed;     
-	top: 50px;     
+	top: 30px;     
 	left: 10px;     
-	font: 18px $headerFontStack;
+	font: 34px $headerFontStack;
 	z-index: $aboveItAll;
 
 	a {
@@ -34,8 +34,8 @@
 	z-index: $topLayer;
 
 	.site-description {
-		margin-top: 2px;
-		font-size: 18px;
+		margin-top: -2px;
+		font-size: 22px;
 		font-weight: normal;
 		font-family: $headerFontStack;
 		text-transform: uppercase;
@@ -152,9 +152,9 @@
 	position: relative;
 	width: 66.67%;
 //	height: 60%;
-	height: 75%;
+//	height: 75%;
+	height: 70%;
 	margin: 0 auto;
-//	background: lightblue;
 	
 	.option {
 		position: absolute;

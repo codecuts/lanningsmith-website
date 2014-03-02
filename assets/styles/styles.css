@@ -913,9 +913,9 @@ nav {
 /* line 11, sass/_layouts.scss */
 #logo {
   position: fixed;
-  top: 50px;
+  top: 30px;
   left: 10px;
-  font: 18px "League Gothic", Helvetica, Arial, sans-serif;
+  font: 34px "League Gothic", Helvetica, Arial, sans-serif;
   z-index: 10000;
 }
 /* line 18, sass/_layouts.scss */
@@ -942,8 +942,8 @@ nav {
 }
 /* line 36, sass/_layouts.scss */
 .about .site-description {
-  margin-top: 2px;
-  font-size: 18px;
+  margin-top: -2px;
+  font-size: 22px;
   font-weight: normal;
   font-family: "League Gothic", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
@@ -1053,7 +1053,7 @@ nav {
 .main-frame {
   position: relative;
   width: 66.67%;
-  height: 75%;
+  height: 70%;
   margin: 0 auto;
 }
 /* line 159, sass/_layouts.scss */

@@ -79,8 +79,8 @@ define(["jquery",
 		this.info.viewport.height = $(window).height();
 		//this.info.viewport.minHeight = parseInt( $('.container').css('min-height') );
 		//this.info.viewport.minWidth = parseInt( $('.container').css('min-width') );
-		this.info.viewport.minHeight = 600;
-		this.info.viewport.minWidth = 600;
+		this.info.viewport.minHeight = 500;
+		this.info.viewport.minWidth = 500;
 	
 	
 /*		if ( this.info.viewport.height < this.info.viewport.minHeight ) {
