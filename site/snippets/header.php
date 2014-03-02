@@ -11,6 +11,20 @@
     <meta name="keywords" content="<?php echo html($site->keywords()) ?>" />
     <meta name="robots" content="index, follow" />
 
+    <!-- Facebook Metatags -->
+    <meta property="og:type"            content="website" />
+    <meta property="og:site_name"       content="<?php echo $site->title() ?>"/> 
+    <meta property="og:url"             content="<?php echo $site->url().'/'.$site->uri()->path(2); ?>" /> 
+    <?php if ( $site->uri()->path() == 'projects' ) : ?>
+        <meta property="og:title" content="<?php echo $site->title().' - HOME' ?>" />
+        <meta property="og:description" content="<?php echo $site->description ?>" />
+        <meta property="og:image" content="" /> 
+    <?php else : ?>
+        <meta property="og:title" content="<?php echo $site->title().' - '.$pages->find($site->uri())->title() ?>" />
+        <meta property="og:description" content="<?php echo $page->text() ?>" />
+        <meta property="og:image" content="<?php echo $pages->active()->children()->first()->images()->first()->url(); ?>" />
+    <?php endif; ?>
+    
     <link rel="icon" type="image/png" href="<?php echo url('favicon.ico') ?>">
 
     <?php //echo css('assets/styles/bootstrap-full.css') ?>
