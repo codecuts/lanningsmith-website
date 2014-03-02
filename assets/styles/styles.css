@@ -929,18 +929,19 @@ nav {
 
 /* line 23, sass/_layouts.scss */
 .about {
+  box-sizing: initial;
+  /* border-box setting caused text to jump at end of slide when padding added */
   display: none;
   /* starts out hidden; jQuery-UI changes this to slide out */
   position: fixed;
   top: 0;
   left: 0;
-  width: 42%;
+  width: 600px;
   height: 100%;
   padding: 58px 31px;
   background: #fff;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
   opacity: 0.9;
-  overflow: hidden;
   z-index: 9999;
 }
 /* line 36, sass/_layouts.scss */

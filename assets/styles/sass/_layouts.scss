@@ -21,16 +21,16 @@
 }
 
 .about {
+	box-sizing: initial; /* border-box setting caused text to jump at end of slide when padding added */
 	display: none; /* starts out hidden; jQuery-UI changes this to slide out */
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 42%;
+	width: 600px;
 	height: 100%;
 	padding: 58px 31px;
 	background: #fff;
 	@include opacity(.9);
-	overflow: hidden;
 	z-index: $topLayer;
 
 	.site-description {
