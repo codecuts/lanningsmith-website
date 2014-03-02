@@ -202,6 +202,7 @@ define(["jquery",
 							html = document.getElementsByClassName('main-frame')[0].innerHTML;
 						page.pushToHistory(url, pageTitle, html);	
 					}
+					$('.option.center img').trigger('mouseover');
 				});  
 			}
 		);
