@@ -185,8 +185,6 @@ define(["jquery",
            			clickY = e.pageY-globalY;
            	
            		dir = page.getDirectionFromCoordinates(clickX, clickY, centerX, centerY);
-				
-				//console.log(dir);
 
 				var options = projects.move( dir ); 
 				if(options == null) return;
@@ -203,24 +201,6 @@ define(["jquery",
 				});  
 			}
 		);
-
-//		$('body').on('click', function(e){
-//			
-//			//if (!e.target.text == "LANNINGSMITH" && $('.about').data('open')=="true")
-//			console.log("BUHJA");
-//			if (e.target.text == "LANNINGSMITH"){
-//				e.preventDefault;
-//				page.toggleAbout();
-//				return;
-//			}
-//
-//			if (!$(e.target).closest('.about').length>0 && page.aboutOpen())
-//				page.toggleAbout();
-//
-//			console.log("BUHJA");
-//			/*if(!e.target.text == "LANNINGSMITH")
-//				return;*/
-//		});
 
 		$('.left, .right, .up, .down').on('click', function(e) {
 			e.preventDefault();
@@ -266,7 +246,6 @@ define(["jquery",
 		
 		$(document).on('mouseover', '.option.center img',
 			function (e){
-				console.log('mouseover');
 				timer=setTimeout(
 					function(){		
 						$('.option.center .caption').css('z-index',5555).css('opacity', 1);
