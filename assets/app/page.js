@@ -41,7 +41,11 @@ define(["jquery",
 		this.relocate( this.info.url );
 		this.initThumbMenu();
 		this.setupEvents();
+
 		this.info.loaded = true;
+		$('.container').animate({
+			opacity:1
+		}, 400);
 	},
 
 	reload = function() {

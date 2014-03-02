@@ -3,7 +3,7 @@
 	min-width: $minViewportWidth;
 	min-height: $minViewportHeight;
 	overflow: hidden;
-	/*opacity: 1; */
+	opacity: 0; 
 		/* page is hidden at first so jQuery mangagePageLoad can set
 		   things up behind the scenes, see assets/app/helpers.js */
 }
