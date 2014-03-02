@@ -39,13 +39,13 @@ define(["jquery",
 	load = function() {
 		this.setPageInfo();
 		this.relocate( this.info.url );
+		$('.container').animate({
+			opacity:1
+		}, 400);
 		this.initThumbMenu();
 		this.setupEvents();
 
 		this.info.loaded = true;
-		$('.container').animate({
-			opacity:1
-		}, 400);
 	},
 
 	reload = function() {
