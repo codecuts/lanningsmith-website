@@ -920,12 +920,12 @@ nav {
   letter-spacing: 1.15px;
   z-index: 10000;
 }
-/* line 14, sass/_layouts.scss */
+/* line 19, sass/_layouts.scss */
 #logo a {
   padding: 20px;
 }
 
-/* line 19, sass/_layouts.scss */
+/* line 24, sass/_layouts.scss */
 .about {
   display: none;
   /* starts out hidden; jQuery-UI changes this to slide out */
@@ -941,14 +941,14 @@ nav {
   overflow: hidden;
   z-index: 9999;
 }
-/* line 32, sass/_layouts.scss */
+/* line 37, sass/_layouts.scss */
 .about .site-description {
   font-size: 18px;
   font-family: "League Gothic", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
 }
 
-/* line 40, sass/_layouts.scss */
+/* line 45, sass/_layouts.scss */
 .gridnav {
   position: fixed;
   top: 0;
@@ -962,28 +962,28 @@ nav {
   box-shadow: black 2px 2px 10px;
   overflow: hidden;
 }
-/* line 51, sass/_layouts.scss */
+/* line 56, sass/_layouts.scss */
 .gridnav .jcarousel-pagination {
   width: 25%;
   margin: 0 auto;
   padding-top: 45px;
   text-align: center;
 }
-/* line 58, sass/_layouts.scss */
+/* line 63, sass/_layouts.scss */
 .gridnav .gridframe {
   margin: 0 auto;
   overflow: hidden;
 }
-/* line 64, sass/_layouts.scss */
+/* line 69, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs {
   width: 100%;
 }
-/* line 68, sass/_layouts.scss */
+/* line 73, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs li {
   float: left;
   margin-right: 300px;
 }
-/* line 73, sass/_layouts.scss */
+/* line 78, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item {
   position: relative;
   float: left;
@@ -992,11 +992,11 @@ nav {
   overflow: hidden;
   background: #333;
 }
-/* line 81, sass/_layouts.scss */
+/* line 86, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item:hover .overlay {
   top: 0;
 }
-/* line 85, sass/_layouts.scss */
+/* line 90, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .overlay {
   position: absolute;
   top: -9999px;
@@ -1008,13 +1008,13 @@ nav {
   background: #b4f2f1;
   overflow: hidden;
 }
-/* line 96, sass/_layouts.scss */
+/* line 101, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .overlay > div {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-/* line 105, sass/_layouts.scss */
+/* line 110, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .project-title,
 .gridnav .jcarousel.thumbs .grid-item .project-description {
   margin: 0;
@@ -1022,24 +1022,24 @@ nav {
   font-weight: 300;
   text-transform: uppercase;
 }
-/* line 112, sass/_layouts.scss */
+/* line 117, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .project-title {
   font-size: 22px;
   line-height: 22px;
 }
-/* line 118, sass/_layouts.scss */
+/* line 123, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .project-description {
   visibility: hidden;
   padding: 10px 0 0 0;
   font-size: 12px;
   line-height: 14px;
 }
-/* line 128, sass/_layouts.scss */
+/* line 133, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .griditem.rightmost {
   margin-right: 0;
 }
 
-/* line 137, sass/_layouts.scss */
+/* line 142, sass/_layouts.scss */
 .main {
   width: 100%;
   height: 100%;
@@ -1048,21 +1048,21 @@ nav {
   /* necessary to prevent .main-frame margin-top from pushing this down */
 }
 
-/* line 145, sass/_layouts.scss */
+/* line 150, sass/_layouts.scss */
 .main-frame {
   position: relative;
   width: 66.67%;
   height: 60%;
   margin: 0 auto;
 }
-/* line 153, sass/_layouts.scss */
+/* line 158, sass/_layouts.scss */
 .main-frame .option {
   position: absolute;
   width: 100%;
   height: 100%;
   text-align: center;
 }
-/* line 159, sass/_layouts.scss */
+/* line 164, sass/_layouts.scss */
 .main-frame .option img {
   position: absolute;
   display: block;
@@ -1074,7 +1074,7 @@ nav {
   bottom: 0;
   margin: auto;
 }
-/* line 171, sass/_layouts.scss */
+/* line 176, sass/_layouts.scss */
 .main-frame .option .caption {
   position: relative;
   top: 100%;
@@ -1092,14 +1092,14 @@ nav {
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 187, sass/_layouts.scss */
+/* line 192, sass/_layouts.scss */
 .main-frame .option .project-title {
   font-size: 12px;
   line-height: 24px;
   margin: 0;
   font-weight: normal;
 }
-/* line 194, sass/_layouts.scss */
+/* line 199, sass/_layouts.scss */
 .main-frame .option .description {
   max-width: 600px;
   margin: 0 auto;
@@ -1108,22 +1108,22 @@ nav {
   text-align: center;
   font-weight: normal;
 }
-/* line 204, sass/_layouts.scss */
+/* line 209, sass/_layouts.scss */
 .main-frame .option.left {
   top: 0;
   left: -3000px;
 }
-/* line 208, sass/_layouts.scss */
+/* line 213, sass/_layouts.scss */
 .main-frame .option.right {
   top: 0;
   left: 3000px;
 }
-/* line 212, sass/_layouts.scss */
+/* line 217, sass/_layouts.scss */
 .main-frame .option.up {
   top: -3000px;
   left: 0;
 }
-/* line 216, sass/_layouts.scss */
+/* line 221, sass/_layouts.scss */
 .main-frame .option.down {
   top: 3000px;
   left: 0;
