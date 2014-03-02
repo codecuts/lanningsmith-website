@@ -886,16 +886,16 @@ nav {
 }
 /* line 93, sass/_site-wide.scss */
 .right img {
-  right: 13%;
+  right: 62px;
 }
 
-/* line 99, sass/_site-wide.scss */
+/* line 100, sass/_site-wide.scss */
 .left {
   left: 0;
 }
-/* line 101, sass/_site-wide.scss */
+/* line 102, sass/_site-wide.scss */
 .left img {
-  left: 13%;
+  left: 62px;
 }
 
 @font-face {
@@ -1057,7 +1057,7 @@ nav {
 .main-frame {
   position: relative;
   width: 66.67%;
-  height: 60%;
+  height: 70%;
   margin: 0 auto;
 }
 /* line 159, sass/_layouts.scss */
