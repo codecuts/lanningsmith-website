@@ -11,6 +11,8 @@
 	$uri = &$_SERVER['REQUEST_URI'];  // passing as reference
 	$base = 'http://'.$_SERVER['HTTP_HOST'];
 	$path = str::split($uri, '/');
+
+//	dump($uri);
 	
 	if ( $uri == '/projects') {
 
