@@ -909,7 +909,6 @@ nav {
   min-width: 960px;
   min-height: 450px;
   overflow: hidden;
-  opacity: 0;
   /* page is hidden at first so jQuery mangagePageLoad can set
      things up behind the scenes, see assets/app/helpers.js */
 }
