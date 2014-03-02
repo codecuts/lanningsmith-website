@@ -1,7 +1,7 @@
 .container {
 	width: 100%;
-	min-width: $minViewportWidth;
-	min-height: $minViewportHeight;
+//	min-width: $minViewportWidth;
+//	min-height: $minViewportHeight;
 	overflow: hidden;
 	opacity: 0; 
 		/* page is hidden at first so jQuery mangagePageLoad can set
@@ -152,7 +152,7 @@
 	position: relative;
 	width: 66.67%;
 //	height: 60%;
-	height: 70%;
+	height: 75%;
 	margin: 0 auto;
 //	background: lightblue;
 	
