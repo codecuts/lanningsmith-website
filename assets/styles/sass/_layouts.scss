@@ -1,15 +1,19 @@
 .container {
 	width: 100%;
-	min-width: $minViewportWidth;
-	min-height: $minViewportHeight;
+//	min-width: $minViewportWidth;
+//	min-height: $minViewportHeight;
 	overflow: hidden;
-	/*opacity: 1; */
+	opacity: 0; 
 		/* page is hidden at first so jQuery mangagePageLoad can set
 		   things up behind the scenes, see assets/app/helpers.js */
 }
 
-#logo {     position: fixed;     top: 50px;     left: 10px;     font: 25px
-$headerFontStack;     letter-spacing: 1.15px;     z-index: $aboveItAll;
+#logo {     
+	position: fixed;     
+	top: 30px;     
+	left: 10px;     
+	font: 34px $headerFontStack;
+	z-index: $aboveItAll;
 
 	a {
 		padding: 20px;
@@ -17,20 +21,22 @@ $headerFontStack;     letter-spacing: 1.15px;     z-index: $aboveItAll;
 }
 
 .about {
+	box-sizing: initial; /* border-box setting caused text to jump at end of slide when padding added */
 	display: none; /* starts out hidden; jQuery-UI changes this to slide out */
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 42%;
+	width: 600px;
 	height: 100%;
 	padding: 58px 31px;
 	background: #fff;
 	@include opacity(.9);
-	overflow: hidden;
 	z-index: $topLayer;
 
 	.site-description {
-		font-size: 18px;
+		margin-top: -2px;
+		font-size: 22px;
+		font-weight: normal;
 		font-family: $headerFontStack;
 		text-transform: uppercase;
 	}
@@ -145,10 +151,10 @@ $headerFontStack;     letter-spacing: 1.15px;     z-index: $aboveItAll;
 .main-frame {
 	position: relative;
 	width: 66.67%;
-	height: 60%;
-//	height: 65%;
+//	height: 60%;
+//	height: 75%;
+	height: 70%;
 	margin: 0 auto;
-//	background: lightblue;
 	
 	.option {
 		position: absolute;
@@ -179,12 +185,12 @@ $headerFontStack;     letter-spacing: 1.15px;     z-index: $aboveItAll;
 	    	@include transition-duration(0.3s);
 		}
 
-		.project-title,
+		.media-title,
 		.description {
 			//display: inline;
 		}
 
-		.project-title {
+		.media-title {
 			font-size: 12px;
 			line-height: 24px;			
 			margin: 0;

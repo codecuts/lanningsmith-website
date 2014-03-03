@@ -21,10 +21,11 @@ nav {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	min-width: $minViewportWidth;
-	min-height: $minViewportHeight;
+//	min-width: $minViewportWidth;
+//	min-height: $minViewportHeight;
 	top: 0;
 	left: 0;
+	text-align: center;
 }
 
 .ctrl {
@@ -35,12 +36,15 @@ nav {
 }
 
 .shutter {
-	position: relative;
 	top: 12px;
 	width: 40px;
 	height: 30px;
-	margin: 0 auto;
 	z-index: $middleLayer;
+
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	  /* for some reason these three needed to center this item */
 }
 
 .main-nav .shutter {
@@ -68,8 +72,7 @@ nav {
 }
 
 .down {
-//	bottom: 0;
-	bottom: -5%;
+	bottom: 0;
 	background-position: center bottom;
 }
 
@@ -88,7 +91,8 @@ nav {
 
 	right: 0;
 	img { 
-		right: 13%;
+//		right: 13%;
+		right: 3%;
 	}
 //	background-position: right center;
 }
@@ -97,7 +101,8 @@ nav {
 	left: 0;
 	img {
 		//float: right;
-		left: 13%;
+//		left: 13%;
+		left: 3%;
 	}
 //	background-position: left center;
 }

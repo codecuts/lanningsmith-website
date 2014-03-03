@@ -39,19 +39,36 @@ define(["jquery",
 	load = function() {
 		this.setPageInfo();
 		this.relocate( this.info.url );
+		$('.container').animate({
+			opacity:1
+		}, 400);
 		this.initThumbMenu();
 		this.setupEvents();
+
+		if ( this.info.viewport.height <= this.info.viewport.minHeight) {
+			console.log('load:height <= minHeight');
+			$('.ctrl.up , .ctrl.down').css('background','none');
+		}
+
 		this.info.loaded = true;
 	},
 
 	reload = function() {
 
 		this.setPageInfo();
-		if ( this.info.viewport.height >= this.info.viewport.minHeight || 
-			 this.info.viewport.width >= this.info.viewport.minWidth ) {
+//		if ( this.info.viewport.height >= this.info.viewport.minHeight || 
+//			 this.info.viewport.width >= this.info.viewport.minWidth ) {
 			this.positionMainFrame();
 			this.clearThumbMenu();
 			this.initThumbMenu();
+//		}
+		console.log('minHeight:'+this.info.viewport.minHeight);
+		console.log('height:'+this.info.viewport.height);
+		if ( this.info.viewport.height <= this.info.viewport.minHeight) {
+			console.log('height less than viewport height');
+			$('.ctrl.up, .ctrl.down').css('background','none');
+		} else {
+			$('.ctrl.up, .ctrl.down').css('background','');
 		}
 
 	},
@@ -60,8 +77,10 @@ define(["jquery",
 
 		this.info.viewport.width = $(window).width();
 		this.info.viewport.height = $(window).height();
-		this.info.viewport.minHeight = parseInt( $('.container').css('min-height') );
-		this.info.viewport.minWidth = parseInt( $('.container').css('min-width') );
+		//this.info.viewport.minHeight = parseInt( $('.container').css('min-height') );
+		//this.info.viewport.minWidth = parseInt( $('.container').css('min-width') );
+		this.info.viewport.minHeight = 500;
+		this.info.viewport.minWidth = 500;
 	
 	
 /*		if ( this.info.viewport.height < this.info.viewport.minHeight ) {
@@ -75,6 +94,21 @@ define(["jquery",
 		this.info.url = window.location.href;
 		this.info.path = window.location.pathname.split('/');  // return array of path elements 
 		this.info.thumbMenu.carousel = $('.jcarousel.thumbs');
+
+	},
+
+	positionMainFrame = function() {
+		var page = this;
+
+		$('.main').css('height', this.info.viewport.height);
+		$('.main-frame').vAlignInViewport();
+		$('.option.center').find('img').load(function() {
+			$('.main-nav .left, .main-nav .right').css('width', (page.info.viewport.width - $(this).width()) /2);
+			$('.main-nav .up, .main-nav .down').css('height', (page.info.viewport.height - $(this).height()) /2);
+		});
+		$('.main-nav .left, .main-nav .right').css('width', (page.info.viewport.width - $('.option.center img').width()) /2);
+		$('.main-nav .up, .main-nav .down').css('height', (page.info.viewport.height - $('.option.center img').height()) /2);
+		$('.main-nav .left img, .main-nav .right img').vAlignInViewport();
 
 	},
 
@@ -185,8 +219,6 @@ define(["jquery",
            			clickY = e.pageY-globalY;
            	
            		dir = page.getDirectionFromCoordinates(clickX, clickY, centerX, centerY);
-				
-				//console.log(dir);
 
 				var options = projects.move( dir ); 
 				if(options == null) return;
@@ -200,27 +232,10 @@ define(["jquery",
 							html = document.getElementsByClassName('main-frame')[0].innerHTML;
 						page.pushToHistory(url, pageTitle, html);	
 					}
+					$('.option.center img').trigger('mouseover');
 				});  
 			}
 		);
-
-//		$('body').on('click', function(e){
-//			
-//			//if (!e.target.text == "LANNINGSMITH" && $('.about').data('open')=="true")
-//			console.log("BUHJA");
-//			if (e.target.text == "LANNINGSMITH"){
-//				e.preventDefault;
-//				page.toggleAbout();
-//				return;
-//			}
-//
-//			if (!$(e.target).closest('.about').length>0 && page.aboutOpen())
-//				page.toggleAbout();
-//
-//			console.log("BUHJA");
-//			/*if(!e.target.text == "LANNINGSMITH")
-//				return;*/
-//		});
 
 		$('.left, .right, .up, .down').on('click', function(e) {
 			e.preventDefault();
@@ -266,7 +281,6 @@ define(["jquery",
 		
 		$(document).on('mouseover', '.option.center img',
 			function (e){
-				console.log('mouseover');
 				timer=setTimeout(
 					function(){		
 						$('.option.center .caption').css('z-index',5555).css('opacity', 1);
@@ -281,21 +295,6 @@ define(["jquery",
 				$('.option.center .caption').css('opacity', 0).css('z-index','');
 			}
 		);
-	}, 
-	
-	positionMainFrame = function() {
-		var page = this;
-
-		$('.main').css('height', this.info.viewport.height);
-		$('.main-frame').vAlignInViewport();
-		$('.option.center').find('img').load(function() {
-			$('.main-nav .left, .main-nav .right').css('width', (page.info.viewport.width - $(this).width()) /2);
-			$('.main-nav .up, .main-nav .down').css('height', (page.info.viewport.height - $(this).height()) /2);
-		});
-		$('.main-nav .left, .main-nav .right').css('width', (page.info.viewport.width - $('.option.center img').width()) /2);
-		$('.main-nav .up, .main-nav .down').css('height', (page.info.viewport.height - $('.option.center img').height()) /2);
-		$('.main-nav .left img, .main-nav .right img').vAlignInViewport();
-
 	},
 
 	populateMainFrame = function (options, dir) {
@@ -344,7 +343,7 @@ define(["jquery",
 
 		var elem = $('<article class="option '+dir+'" data-url="'+url+'"></article>');
 		elem.append('<img src="'+media.url+'" alt="'+caption+'"/>');
-		elem.append('<div class="caption"><h1 class="project-title">'+pName+'<br></span><h2 class="description">'+caption+'</span></div>');
+		elem.append('<div class="caption"><h1 class="media-title">'+media.title+'<br></span><h2 class="description">'+media.description+'</span></div>');
 		return elem;
 	},	
 
