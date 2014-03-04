@@ -182,7 +182,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 			if(y>=activeProjects.length)
 				y = 0;
 			if(y == -1)
-				y = activeProjects.length-2;
+				y = activeProjects.length-1;
 			if(x == projects[y].media.length)
 				x = 0;
 			if(x == -1)
