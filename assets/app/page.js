@@ -444,8 +444,15 @@ define(["jquery",
 		rows = ( rows*c.thumbs.hight + (rows-1)*c.gutter <= this.height() - 2*c.margin.y ) ?
 		       rows : (rows) ? rows : 0;
 
-		// calculate items per page
+		// reduce num of rows if too few projects to fill
+		while ( projects.count() <= cols*(rows-1) ) {
+			rows--;
+		}
+
 		var itemsPerPage = cols * rows;
+
+		//if ( projects.count() <= cols*(rows-1) ) 
+		//	rows--;
 
 		// there should always at least be 1 
 		cols = ( cols ) ? cols : 1;
