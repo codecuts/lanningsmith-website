@@ -39,9 +39,9 @@ define(["jquery",
 	load = function() {
 		this.setPageInfo();
 		this.relocate( this.info.url );
-		$('.container').animate({
-			opacity:1
-		}, 400);
+//		$('.container').animate({
+//			opacity:1
+//		}, 400);
 		this.initThumbMenu();
 		this.setupEvents();
 

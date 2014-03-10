@@ -3,7 +3,7 @@
 //	min-width: $minViewportWidth;
 //	min-height: $minViewportHeight;
 	overflow: hidden;
-	opacity: 0; 
+//	opacity: 0; 
 		/* page is hidden at first so jQuery mangagePageLoad can set
 		   things up behind the scenes, see assets/app/helpers.js */
 }
@@ -18,6 +18,45 @@
 	a {
 		padding: 20px;
 	}
+}
+
+
+.splash {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: $aboveItAll;
+
+	img {
+		position: absolute;
+		top: 0; left: 0;
+		width: 100%;
+		z-index: $bottomLayer;
+	}
+
+	.splash-text {
+		position: absolute;
+		top: 50%;
+		@include translate(25%, -50%);
+		z-index: $middleLayer;
+	}
+
+	.header,
+	.subheader {
+		font-family: $headerFontStack;
+		color: #fff;
+	}
+
+	.header {
+		font-size: 90px;
+		line-height: 90px;
+		letter-spacing: 2px;
+	}
+
+	.subheader {
+		font-size: 30px;
+	}
+	
 }
 
 .about {

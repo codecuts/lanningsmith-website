@@ -4,6 +4,14 @@
 		<div id="logo"><a href="">LANNINGSMITH</a></div>
 	</header>
 
+	<section class="splash">
+		<div class="splash-text">
+			<h1 class="header"><?php echo $pages->find('/splash')->header(); ?></h1>
+			<h2 class="subheader"><?php echo $pages->find('/splash')->subheader(); ?></h2>
+		</div>
+		<img src="<?php echo $pages->find('/splash')->images()->first()->url() ?>" alt="splash image"/>
+	</section>
+
 	<section class="about">
 		<h2 class="site-description"><?php echo $site->description() ?></h2>
 		<?php echo kirbytext($pages->find('/about-us')->text()) ?>
