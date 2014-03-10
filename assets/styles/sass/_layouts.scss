@@ -37,20 +37,21 @@
 	.splash-text {
 		position: absolute;
 		top: 50%;
-		@include translate(25%, -50%);
+		left: 50%;
+		@include translate(-50%, -50%);
 		z-index: $middleLayer;
 	}
 
 	.header,
 	.subheader {
 		font-family: $headerFontStack;
+		font-weight: normal;
 		color: #fff;
 	}
 
 	.header {
 		font-size: 90px;
 		line-height: 90px;
-		letter-spacing: 2px;
 	}
 
 	.subheader {
