@@ -17,6 +17,8 @@ c::set('upload.allowed', array(
   'image/png',
   'image/x-png', 
   'image/gif',
+  'video/mp4',
+  'video/mpeg',
   'application/pdf',
   'application/gzip',
   'application/zip',

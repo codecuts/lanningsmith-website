@@ -199,6 +199,11 @@ define(["jquery",
 			//console.log('logo');
 		});
 
+		$('.splash').on('click', function(e) {
+			e.preventDefault();
+			page.removeSplash();
+		});
+
 		$(document).on('click', '#foffabout', function() {
 			page.toggleAbout();
 		});
@@ -498,6 +503,10 @@ define(["jquery",
 		$('.gridnav').toggle('slide', { direction: 'up'} );
 	},
 
+	removeSplash = function() {
+		$('.splash').toggle('slide', {easing: 'linear', duration: 400, direction: 'up'} );
+	},
+
 	clearThumbMenu = function() {
 		this.info.thumbMenu.carousel.find('ul').empty();
 	},
@@ -535,6 +544,7 @@ define(["jquery",
 		aboutOpen: aboutOpen,
 		toggleAbout: toggleAbout,
 		toggleThumbMenu: toggleThumbMenu,
+		removeSplash: removeSplash,
 		clearThumbMenu: clearThumbMenu,
 		loaded: loaded,
 		height: height,

@@ -1,16 +1,29 @@
+<?php
+// do some prep
+$splash_on = strtolower($site->splash_page());
+$splash_on = ( $splash_on == 'yes' || $splash_on == 'true' || $splash_on = 'on' ) ? true : false;
+if ( $splash_on ) $splash = $pages->find('/splash');
+?>
 <div class="container">
 
 	<header>
 		<div id="logo"><a href="">LANNINGSMITH</a></div>
 	</header>
 
+	<?php  if ( $splash_on ) : ?>
 	<section class="splash">
 		<div class="splash-text">
-			<h1 class="header"><?php echo $pages->find('/splash')->header(); ?></h1>
-			<h2 class="subheader"><?php echo $pages->find('/splash')->subheader(); ?></h2>
+			<h1 class="header"><?php echo $splash ? $splash->header() : ''; ?></h1>
+			<h2 class="subheader"><?php echo $splash ? $splash->subheader() : ''; ?></h2>
 		</div>
-		<img src="<?php echo $pages->find('/splash')->images()->first()->url() ?>" alt="splash image"/>
+		<?php if ( $splash->hasImages() ) : ?>
+			<img src="<?php echo $splash->hasImages() ? $splash->images()->first()->url() : ''; ?>" alt="splash image"/>
+		<?php elseif ( $splash->videos()->count() > 0 ) : ?>
+			<video loop autoplay src="<?php echo $splash->videos()->first()->url(); ?>">
+			</video>
+		<?php endif; ?>
 	</section>
+	<?php endif; ?>
 
 	<section class="about">
 		<h2 class="site-description"><?php echo $site->description() ?></h2>

@@ -18,7 +18,7 @@ Copyright: © 2009-(date: Year) Code Cuts
 
 ----
 
-Categories: FALSE
+Categories: ours, everybodys, clients
 
 ----
 
@@ -27,3 +27,7 @@ Images_in_loop: yes
 ----
 
 Grid_visible: TRUE
+
+----
+
+Splash_page: Yes
