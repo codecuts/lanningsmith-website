@@ -4,6 +4,10 @@
 
 title: Project
 pages: true
+  template: 
+    - image
+    - video
+    - audio
 files: false
 fields:
   title: 
