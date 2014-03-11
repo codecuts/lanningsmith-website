@@ -1116,8 +1116,9 @@ nav {
   height: 100%;
   text-align: center;
 }
-/* line 214, sass/_layouts.scss */
-.main-frame .option img {
+/* line 215, sass/_layouts.scss */
+.main-frame .option img,
+.main-frame .option iframe {
   position: absolute;
   display: block;
   max-width: 100%;
@@ -1128,7 +1129,7 @@ nav {
   bottom: 0;
   margin: auto;
 }
-/* line 226, sass/_layouts.scss */
+/* line 227, sass/_layouts.scss */
 .main-frame .option .caption {
   position: relative;
   top: 100%;
@@ -1146,14 +1147,14 @@ nav {
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 242, sass/_layouts.scss */
+/* line 243, sass/_layouts.scss */
 .main-frame .option .media-title {
   font-size: 12px;
   line-height: 24px;
   margin: 0;
   font-weight: normal;
 }
-/* line 249, sass/_layouts.scss */
+/* line 250, sass/_layouts.scss */
 .main-frame .option .description {
   max-width: 600px;
   margin: 0 auto;
@@ -1162,22 +1163,22 @@ nav {
   text-align: center;
   font-weight: normal;
 }
-/* line 259, sass/_layouts.scss */
+/* line 260, sass/_layouts.scss */
 .main-frame .option.left {
   top: 0;
   left: -3000px;
 }
-/* line 263, sass/_layouts.scss */
+/* line 264, sass/_layouts.scss */
 .main-frame .option.right {
   top: 0;
   left: 3000px;
 }
-/* line 267, sass/_layouts.scss */
+/* line 268, sass/_layouts.scss */
 .main-frame .option.up {
   top: -3000px;
   left: 0;
 }
-/* line 271, sass/_layouts.scss */
+/* line 272, sass/_layouts.scss */
 .main-frame .option.down {
   top: 3000px;
   left: 0;

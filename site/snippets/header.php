@@ -22,7 +22,11 @@
     <?php else : ?>
         <meta property="og:title" content="<?php echo $site->title().' - '.$pages->find($site->uri())->title() ?>" />
         <meta property="og:description" content="<?php echo $page->text() ?>" />
+        <?php if ( $pages->active()->children()->first()->template() === 'image' ) : ?>
         <meta property="og:image" content="<?php echo $pages->active()->children()->first()->images()->first()->url(); ?>" />
+        <?php elseif ( $pages->active()->children()->first()->template() === 'video' ) : ?>
+        <meta property="og:image" content="<?php echo videos::thumb($pages->active()->children()->first()->video_url()); ?>" />
+        <?php endif; ?>
     <?php endif; ?>
     
     <link rel="icon" type="image/png" href="<?php echo url('favicon.ico') ?>">

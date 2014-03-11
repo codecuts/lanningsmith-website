@@ -106,8 +106,8 @@ define(["jquery",
 			$('.main-nav .left, .main-nav .right').css('width', (page.info.viewport.width - $(this).width()) /2);
 			$('.main-nav .up, .main-nav .down').css('height', (page.info.viewport.height - $(this).height()) /2);
 		});
-		$('.main-nav .left, .main-nav .right').css('width', (page.info.viewport.width - $('.option.center img').width()) /2);
-		$('.main-nav .up, .main-nav .down').css('height', (page.info.viewport.height - $('.option.center img').height()) /2);
+		$('.main-nav .left, .main-nav .right').css('width', (page.info.viewport.width - $('.option.center img, .option.center iframe').width()) /2);
+		$('.main-nav .up, .main-nav .down').css('height', (page.info.viewport.height - $('.option.center img, .option.center iframe').height()) /2);
 		$('.main-nav .left img, .main-nav .right img').vAlignInViewport();
 
 	},
@@ -347,7 +347,10 @@ define(["jquery",
 			pName = o.projectName;
 
 		var elem = $('<article class="option '+dir+'" data-url="'+url+'"></article>');
-		elem.append('<img src="'+media.url+'" alt="'+caption+'"/>');
+		if ( media.type === 'image' ) 
+			elem.append('<img src="'+media.url+'" alt="'+caption+'"/>');
+		if ( media.type === 'video' ) 
+			elem.append(media.embed);
 		elem.append('<div class="caption"><h1 class="media-title">'+media.title+'<br></span><h2 class="description">'+media.description+'</span></div>');
 		return elem;
 	},	

@@ -445,3 +445,14 @@ array('.', '..', '.DS_Store', '.svn', '.git', '.htaccess');
 
 */
 c::set('content.file.ignore', array());
+
+/*
+---------------------------------------
+Database Configuration
+---------------------------------------
+*/
+
+c::set('db.host', 'localhost');
+c::set('db.user', 'lanningsmith');
+c::set('db.password', 'lanningsmith');
+c::set('db.name', 'lanningsmith');

@@ -8,18 +8,49 @@
 			$thumb = null;
 			if ( $p->countChildren() > 0 ) {
 
-				$thumb = thumb($p->children()->first()->images()->first(), array('width'=>210));
+				if ($p->children->first()->template() === 'image' ) {
+					$thumb = thumb($p->children()->first()->images()->first(), array('width'=>210));
+				}
+				else if ( $p->children()->first()->template() === 'video' ) {
+					$thumb = '<img src="'.videos::thumb($p->children()->first()->video_url()->value).'" alt="video thumbnail"/>';
+				}
 				
 				foreach ( $p->children() as $c ) {
 
-					if($c->images()->first()){
-						$media[] = array(
-							'url' => $c->images()->first()->url(),
-							'width' => $c->images()->first()->width(),
-							'height' => $c->images()->first()->height(),
-							'title' => $c->title()->value,
-							'description' =>$c->text()->value
-						);
+					$mtype = $c->template();
+
+					switch ($mtype) {
+						case 'image':
+							if($c->images()->first()){
+								$media[] = array(
+									'type' => $mtype,
+									'url' => $c->images()->first()->url(),
+									'width' => $c->images()->first()->width(),
+									'height' => $c->images()->first()->height(),
+									'title' => $c->title()->value,
+									'description' =>$c->text()->value
+								);
+							}
+							break;
+						case 'video':
+							$embed = '';
+							$url = $c->video_url()->value;
+							$test = videos::thumb($url);
+							if ( !isset($c->video_embed()->value) || $c->video_embed()->value == '' ) {
+								$embed = videos::embed($url);
+							} else {
+								$embed = $c->video_embed()->value; 
+							}	
+							$media[] = array(
+								'type' => $mtype,
+								'id' => videos::id($url),
+								'url' => $c->video_url()->value,
+								'title' => $c->title()->value,
+								'description' => $c->text()->value,
+								'embed' => $embed,
+								'thumb' => videos::thumb($url)
+							);
+							break;
 					}
 				}
 				$transfer[] = array(

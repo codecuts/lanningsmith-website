@@ -24,5 +24,8 @@
 		$uri = '/projects/'.$path[0];
 
 	}
+	if ( str::contains($uri, 'category') ) {
+		$uri = '/category';
+	}
 	 
 ?>
