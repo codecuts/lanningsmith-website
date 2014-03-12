@@ -13,19 +13,20 @@
 	$path = str::split($uri, '/');
 
 //	dump($uri);
-	
-	if ( $uri == '/projects') {
 
+	if ( $uri == '/projects') {
 		go( $base );
-		
 	}
-	if ( !str::contains($uri,'category') || !str::contains($uri,'.') ) {
+	else if ( $uri == '/sitemap' ) {
+		$uri = '/sitemap';
+	}
+	else if ( str::contains($uri, 'category') ) {
+		$uri = '/category';
+	}
+	else {
 
 		$uri = '/projects/'.$path[0];
 
-	}
-	if ( str::contains($uri, 'category') ) {
-		$uri = '/category';
 	}
 	 
 ?>

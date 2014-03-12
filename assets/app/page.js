@@ -46,7 +46,6 @@ define(["jquery",
 		this.setupEvents();
 
 		if ( this.info.viewport.height <= this.info.viewport.minHeight) {
-			console.log('load:height <= minHeight');
 			$('.ctrl.up , .ctrl.down').css('background','none');
 		}
 
@@ -347,7 +346,6 @@ define(["jquery",
 			pName = o.projectName;
 
 		var elem = $('<article class="option '+dir+'" data-url="'+url+'"></article>');
-		console.log(media);
 		if ( media.type === 'image' ) 
 			elem.append('<img src="'+media.url+'" alt="'+caption+'"/>');
 		if ( media.type === 'video' ) 
