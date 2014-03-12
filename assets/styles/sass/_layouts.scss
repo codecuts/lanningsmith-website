@@ -28,18 +28,21 @@
 	overflow: hidden;
 	z-index: $aboveItAll;
 
-	img {
+	img,
+	video {
 		position: absolute;
-		top: 0; left: 0;
-		width: 100%;
+		top: 0; left: 0; 
 		z-index: $bottomLayer;
 	}
 
-	video {
-		position: absolute;
-		top: 0; left: 0;
+	img {
 		width: 100%;
-		z-index: $bottomLayer;
+		height: 100%;
+	}
+
+	video {
+		min-width: 100%;
+		min-height: 100%;
 	}
 
 	.splash-text {
