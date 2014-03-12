@@ -55,16 +55,10 @@ define(["jquery",
 	reload = function() {
 
 		this.setPageInfo();
-//		if ( this.info.viewport.height >= this.info.viewport.minHeight || 
-//			 this.info.viewport.width >= this.info.viewport.minWidth ) {
-			this.positionMainFrame();
-			this.clearThumbMenu();
-			this.initThumbMenu();
-//		}
-		console.log('minHeight:'+this.info.viewport.minHeight);
-		console.log('height:'+this.info.viewport.height);
+		this.positionMainFrame();
+		this.clearThumbMenu();
+		this.initThumbMenu();
 		if ( this.info.viewport.height <= this.info.viewport.minHeight) {
-			console.log('height less than viewport height');
 			$('.ctrl.up, .ctrl.down').css('background','none');
 		} else {
 			$('.ctrl.up, .ctrl.down').css('background','');
@@ -178,7 +172,6 @@ define(["jquery",
 
 	getDirectionFromCoordinates = function (localX, localY, centerX, centerY){
 		var dir;
-		//console.log('localX: '+localX+' localY: '+localY+' centerX: '+centerX+' centerY: '+centerY);
 		
 		if(localX>centerX)
 			dir ='right';
@@ -490,8 +483,6 @@ define(["jquery",
 			$('.about').data('open', "true");
 			$('.container').append('<div id="foffabout" style="position:fixed;top:0;right:0;width:58%;height:100%;float:right;z-index:10000"></div>');
 		}
-
-//		console.log($('.about').data('open'));
 		
 		$('.about').toggle('slide');
 	},
