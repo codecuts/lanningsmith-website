@@ -347,9 +347,12 @@ define(["jquery",
 			pName = o.projectName;
 
 		var elem = $('<article class="option '+dir+'" data-url="'+url+'"></article>');
+		console.log(media);
 		if ( media.type === 'image' ) 
 			elem.append('<img src="'+media.url+'" alt="'+caption+'"/>');
 		if ( media.type === 'video' ) 
+			elem.append(media.embed);
+		if ( media.type === 'audio' )
 			elem.append(media.embed);
 		elem.append('<div class="caption"><h1 class="media-title">'+media.title+'<br></span><h2 class="description">'+media.description+'</span></div>');
 		return elem;

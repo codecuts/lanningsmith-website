@@ -12,8 +12,13 @@ fields:
     label: Audio Caption
     type:  textarea
     size:  small
-  url:
-    label: Audio code
+  audio_url:
+    label: SoundCloud URL
+    type: text
+    required: true
+    help: The URL of a SoundCloud track (for example, https://soundcloud.com/bookdpodcast/episode-1-of-writers-envy-with)
+  audio_embed:
+    label: SoundCloud Embed
     type: textarea
     size: medium
-    required: true
+    help: The embed code for the track's SoundCloud player. If you do not add this, the system will attempt to automatically generate the embed code.

@@ -14,6 +14,9 @@
 				else if ( $p->children()->first()->template() === 'video' ) {
 					$thumb = '<img src="'.videos::thumb($p->children()->first()->video_url()->value).'" alt="video thumbnail"/>';
 				}
+				else if ( $p->children()->first()->template() === 'audio' ) { 
+					$thumb = '<img src="'.scaudio::thumb($p->children()->first()->audio_url()->value).'" alt="audio thumbnail"/>';
+				}
 				
 				foreach ( $p->children() as $c ) {
 
@@ -35,7 +38,6 @@
 						case 'video':
 							$embed = '';
 							$url = $c->video_url()->value;
-							$test = videos::thumb($url);
 							if ( !isset($c->video_embed()->value) || $c->video_embed()->value == '' ) {
 								$embed = videos::embed($url);
 							} else {
@@ -50,6 +52,25 @@
 								'embed' => $embed,
 								'thumb' => videos::thumb($url)
 							);
+							break;
+						case 'audio':
+							$embed = '';
+							$url = $c->audio_url()->value;
+							if ( !isset($c->audio_embed()->value) || $c->audio_embed()->value == '' ) {
+								$embed = scaudio::embed($url);
+							} else {
+								$embed = $c->audio_embed()->value;
+							}
+							$media[] = array(
+								'type' => $mtype,
+								'id' => $url,
+								'url' => $url,
+								'title' => $c->title()->value,
+								'description' => $c->title()->value,
+								'embed' => $embed,
+								'thumb' => scaudio::thumb($url)
+							);
+
 							break;
 					}
 				}
