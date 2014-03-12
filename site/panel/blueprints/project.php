@@ -19,11 +19,12 @@ fields:
     type:  textarea
     size:  medium
     help: Full description of the Project
-  tags:
-   	label: Project Tags
-   	type: tags
-    help: "Choose tags for the project here. This is important for SEO. Important: Only choose tags that accurately describe the project."
   categories: 
     label: Categories
     type: categories
     help: "Choose the categories to which this project belongs. This choice determines in which category filters this project will be included."
+  tags:
+   	label: Project Tags
+   	type: tags
+    help: "Choose tags for the project here. This is important for SEO. Important: Only choose tags that accurately describe the project."
+ 

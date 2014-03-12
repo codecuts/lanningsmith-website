@@ -16,14 +16,16 @@ foreach ($categories as $c) {
 }
 $categories = $n;
 
+$selected = explode(', ', $page->categories());
+
 ?>
 <div id="<?php echo $id ?>" class="field multicheckbox">
 	<ul>
 		<?php foreach ($categories as $i => $c) : ?>
 		<li>
 			<label class="inline input">
-				<input type="checkbox" value="<?php echo $i ?>" name="<?php echo $name ?>">
-				<?php echo $c ?>
+				<input type="checkbox" value="<?php echo $i ?>" name="<?php echo $name ?>[]" <?php echo array_search($i, $selected) !== false ? 'checked' : ''; ?>/>
+				<?php echo $c; ?>
 			</label>
 		</li>
 		<?php endforeach; ?>
