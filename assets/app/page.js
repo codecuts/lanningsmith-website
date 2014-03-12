@@ -70,20 +70,8 @@ define(["jquery",
 
 		this.info.viewport.width = $(window).width();
 		this.info.viewport.height = $(window).height();
-		//this.info.viewport.minHeight = parseInt( $('.container').css('min-height') );
-		//this.info.viewport.minWidth = parseInt( $('.container').css('min-width') );
 		this.info.viewport.minHeight = 500;
-		this.info.viewport.minWidth = 500;
-	
-	
-/*		if ( this.info.viewport.height < this.info.viewport.minHeight ) {
-			this.info.viewport.height = this.info.viewport.minHeight;
-			console.log('setPageInfo: viewport height < minHeight, reset to minheight: '+this.info.viewport.height);
-		}
-		if ( this.info.viewport.width < this.info.viewport.minWidth ) {
-			this.info.viewport.width = this.info.viewport.minWidth;
-		}*/
-
+		this.info.viewport.minWidth = 500;	
 		this.info.url = window.location.href;
 		this.info.path = window.location.pathname.split('/');  // return array of path elements 
 		this.info.thumbMenu.carousel = $('.jcarousel.thumbs');
