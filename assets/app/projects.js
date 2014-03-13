@@ -6,17 +6,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	} else {
 		var _projects = projects;
 	}
-	
-	var count = function() {
-		return _projects.length;
-	},
-
-	get = function() {
-		return _projects;
-	};
-	
-	////////////////////////////////////////////////////////////////////////////////////////////////
-	
+		
 	var category = "all"; 
 	var activeProjects = new Array(); 
 	var indexX;
@@ -25,18 +15,34 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	
 	var init = function (mode,target){
 		this.resetToXY(0,0);
-		if ( mode == 'category' ){
+		if ( mode === 'category' ){
 			this.setCategory( target );
 			return this.relocateToY(0);
 		} 
-		else if ( mode == 'single' ){
+		else if ( mode === 'single' ){
 			this.setCategory( 'all' );
 			return this.relocate( target );
+		}
+		else if ( mode === 'single-in-category' ) {
+			this.setCategory( target.category );
+			return this.relocate( target.project );
 		}
 		else {
 			return null;
 		}
 	};
+
+	var count = function() {
+		return activeProjects.length;
+	};
+
+	var get = function() {
+		return activeProjects;
+	};
+
+	var getAll = function() {
+		return _projects;
+	}
 
 	var setCategory = function (categoryName){	// sets a new categpry and recomputes the subset of projects
 		category = categoryName;
@@ -48,14 +54,23 @@ define(["jquery", "app/helpers"], function($,helpers) {
 		activeProjects = new Array();
 
 		if(category == "all"){
-			activeProjects = projects;
+			activeProjects = this.getAll();
 			return;
 		}
 		
-		for(var i=0;i<projects.length;i++){
-			var categories = projects[i].categories.split(', ');			
-			if(categories.indexOf(category)>-1)
-				activeProjects.push(projects[i]);
+		// if specific category has been selected, set activeProjects to subset and update the urls
+		var allProjects = this.getAll();
+		for(var i=0;i<allProjects.length;i++){
+			var categories = allProjects[i].categories.split(', ');
+			var p, a, u; 
+			if(categories.indexOf(category)>-1) {
+				p = allProjects[i];
+				a = document.createElement('a');
+				a.href = p.url;
+				u = siteURL+'/category/'+category+a.pathname;
+				p.url = u;
+				activeProjects.push(p);
+			}
 		}		
 	};
 	
@@ -142,7 +157,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	
 	var relocate = function (name){					// returns options after relocating to project specified by name (slug)	
 		for(var i=0;i<activeProjects.length;i++){
-			if(name == this.slug(projects[i].url))
+			if(name == this.slug(activeProjects[i].url))
 				return this.relocateToY(i);
 		}
 		return null; // only if we didn't find that project
@@ -202,6 +217,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 
 	return {
 		get: get,
+		getAll: getAll,
 		count: count,
 		move: move,
 		relocate: relocate,

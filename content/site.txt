@@ -1,4 +1,4 @@
-﻿Title: Kirby
+﻿Title: (dev) LanningSmith
 
 ----
 
@@ -26,8 +26,8 @@ Images_in_loop: yes
 
 ----
 
-Grid_visible: TRUE
+Grid_visible: false
 
 ----
 
-Splash_page: Yes
+Splash_page: yes

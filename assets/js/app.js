@@ -1,7 +1,7 @@
 requirejs.config({
-    "baseUrl": "../assets/js/vendor",
+    "baseUrl": siteURL+"/assets/js/vendor",
     "paths": {
-      "app": "../../app",
+      "app": siteURL+"/assets/app",
       "jquery": "jquery-2.1.0",
       "jquery-ui": "//code.jquery.com/ui/1.10.4/jquery-ui",
       "debounced-resize": "jquery.debouncedresize",

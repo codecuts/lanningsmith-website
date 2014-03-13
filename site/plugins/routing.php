@@ -12,21 +12,26 @@
 	$base = 'http://'.$_SERVER['HTTP_HOST'];
 	$path = str::split($uri, '/');
 
-//	dump($uri);
+/*	echo 'uri:';
+	dump($uri);
+	echo 'path:';
+	dump($path);*/
 
-	if ( $uri == '/projects') {
-		go( $base );
-	}
-	else if ( $uri == '/sitemap' ) {
+	if ( $uri == '/sitemap' ) {
 		$uri = '/sitemap';
 	}
-	else if ( str::contains($uri, 'category') ) {
+	else if ( str::contains($uri, 'category') && !str::contains($uri, '.')) {
+		$GLOBALS['category_name'] = ucwords($path[1]);
+		if ( isset($path[2]) ) $GLOBALS['project_name'] = $path[2];
 		$uri = '/category';
 	}
 	else {
-
-		$uri = '/projects/'.$path[0];
-
+		if ( empty($path) ) {
+			//$uri = '/';
+		} else {
+			$GLOBALS['project_name'] = ucwords($path[0]);
+			$uri = '/projects/'.$path[0];
+		}
 	}
 	 
 ?>

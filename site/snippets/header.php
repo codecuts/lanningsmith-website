@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <title><?php echo html($site->title()) ?> - <?php echo html($page->title()) ?></title>
+    <?php 
+    global $project_name; 
+    global $category_name;
+    ?>   
+    <?php if ( isset($category_name) ) : ?>
+        <title><?php echo html($site->title()) ?> - Category Archive - <?php echo html(strtoupper($category_name)) ?></title>
+    <?php elseif ( isset($project_name) ) : ?>
+        <title><?php echo html($site->title()) ?> - <?php echo html($page->title()) ?></title>
+    <?php else : ?>
+         <title><?php echo html($site->title()) ?> - <?php echo html($page->title()) ?></title>
+    <?php endif; ?>
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,13 +24,18 @@
     <meta property="og:type"            content="website" />
     <meta property="og:site_name"       content="<?php echo $site->title() ?>"/> 
     <meta property="og:url"             content="<?php echo $site->url().'/'.$site->uri()->path(2); ?>" /> 
-    <?php if ( $site->uri()->path() == 'projects' ) : ?>
-        <meta property="og:title" content="<?php echo $site->title().' - HOME' ?>" />
-        <meta property="og:description" content="<?php echo $site->description ?>" />
-        <meta property="og:image" content="" /> 
-    <?php else : ?>
-        <meta property="og:title" content="<?php echo $site->title().' - '.$pages->find($site->uri())->title() ?>" />
+    <?php if ($page->isHomePage() ) : ?>
+        <meta property="og:title" content="<?php echo $site->title() ?> - <?php echo $page->title()?>" />
+        <meta property="og:description" content="<?php echo $site->description()?>" />
+        <meta property="og:image" content="" />
+    <?php elseif ( isset($category_name) ) : ?>
+        <meta property="og:title" content="<?php echo $site->title.' - Category Archive - '.$category_name ?>" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="" />
+    <?php elseif ( isset($project_name) ) : ?>
+        <meta property="og:title" content="<?php echo $site->title.' - '.$page->title()?>" />
         <meta property="og:description" content="<?php echo $page->text() ?>" />
+        <meta property="og:image" content="" /> 
         <?php if ( $pages->active()->template() == 'project' || $pages->active()->isHomePage() ) : ?>
             <?php if ( $pages->active()->children()->first()->template() === 'image' ) : ?>
             <meta property="og:image" content="<?php echo $pages->active()->children()->first()->images()->first()->url(); ?>" />
@@ -33,7 +47,6 @@
     
     <link rel="icon" type="image/png" href="<?php echo url('favicon.ico') ?>">
 
-    <?php //echo css('assets/styles/bootstrap-full.css') ?>
     <?php echo css('assets/styles/styles.css') ?>
     <?php echo css('http://fonts.googleapis.com/css?family=Nunito:300,400') ?>
 

@@ -10,6 +10,7 @@ define(["jquery",
 	var info = {
 		title: siteTitle,
 		loaded: false,
+		mode: 'normal',
 		viewport: {
 			width: 0,
 			height: 0,
@@ -39,9 +40,9 @@ define(["jquery",
 	load = function() {
 		this.setPageInfo();
 		this.relocate( this.info.url );
-//		$('.container').animate({
-//			opacity:1
-//		}, 400);
+		$('.container').animate({
+			opacity:1
+		}, 400);
 		this.initThumbMenu();
 		this.setupEvents();
 
@@ -55,7 +56,7 @@ define(["jquery",
 	reload = function() {
 
 		this.setPageInfo();
-		this.positionMainFrame();
+		this.layout();
 		this.clearThumbMenu();
 		this.initThumbMenu();
 		if ( this.info.viewport.height <= this.info.viewport.minHeight) {
@@ -78,7 +79,7 @@ define(["jquery",
 
 	},
 
-	positionMainFrame = function() {
+	layout = function() {
 		var page = this;
 
 		$('.main').css('height', this.info.viewport.height);
@@ -131,17 +132,20 @@ define(["jquery",
 
 		if ( path[1] == '' ) {  // showing all projects
 			console.log('handleRequest: url is / , showing all projects');
-			document.title = this.info.title+' - Home';
 			this.populateMainFrame( projects.init('category', 'all'), 'relocate' );
 		} 
 		else if ( path[1] == 'category' ) {
-			// do stuff to handle category
+			console.log('url request for category: '+path[2]);
+			this.info.mode = 'category';
+			if ( 3 in path ) {
+				this.populateMainFrame( projects.init('single-in-category', {'category': path[2], 'project': path[3]}), 'relocate');
+			} else {
+				this.populateMainFrame( projects.init('category', path[2]), 'relocate');
+			}
 		}
 		else {		
 			console.log('handleRequest: url is seeking specific project '+path[1]+', relocating to that project');
-
 			var success = projects.init( 'single', path[1] );
-			
 			if ( success !== null ) {
 				console.log('handleRequest: suceesfully initialized projects, returned options:',success);
 				document.title = this.info.title+' - '+success.center.projectName;
@@ -209,7 +213,6 @@ define(["jquery",
 				if(options == null) return;
 				
 				page.animate(dir , function() {
-					document.title = page.info.title+' - '+options.center.projectName;
 					page.populateMainFrame(options, dir);					
 					if ( dir == 'up' || 'down' ) {
 						var url = options.center.url,
@@ -227,17 +230,28 @@ define(["jquery",
 			var dir = $(this).attr('class').slice(5);
 			
 			if ( $(this).parent().attr('class') == 'main-nav' ) {
-				console.log( 'main-frame moving: '+dir);
+//				console.log( 'main-frame moving: '+dir);
 				var options = projects.move( dir ); 
+
 				if(options == null) return;
 				
-				page.animate(dir , function() {
-					document.title = page.info.title+' - '+options.center.projectName;
-					page.populateMainFrame(options, dir);					
+				page.animate(dir, function() {
+					
+					// set document title
+					if ( page.info.mode === 'category' ) {
+						document.title = page.info.title+' - Category - '+options.center.projectName;
+					} else {
+						document.title = page.info.title+' - '+options.center.projectName;
+					}
+
+					// repopulate the main frame
+					page.populateMainFrame(options, dir);
+
+					// if going between projects update the url with new project and save history
 					if ( dir == 'up' || 'down' ) {
 						var url = options.center.url,
-							pageTitle = document.title,
-							html = document.getElementsByClassName('main-frame')[0].innerHTML;
+						    pageTitle = document.title,
+						    html = document.getElementsByClassName('main-frame')[0].innerHTML;
 						page.pushToHistory(url, pageTitle, html);	
 					}
 				});  
@@ -314,7 +328,7 @@ define(["jquery",
 			$('.main-frame').append(l).append(r).append(u).append(d);
 
 		}
-		this.positionMainFrame();
+		this.layout();
 	},
 
 	createOptionContent = function(o, dir){
@@ -513,7 +527,7 @@ define(["jquery",
 		reload: reload,
 		handleRequest: handleRequest,
 		setPageInfo: setPageInfo,
-		positionMainFrame: positionMainFrame,
+		layout: layout,
 		populateMainFrame: populateMainFrame,
 		createOptionContent: createOptionContent,
 		getDirectionFromCoordinates: getDirectionFromCoordinates,		
