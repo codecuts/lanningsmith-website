@@ -342,7 +342,7 @@ define(["jquery",
 
 	createOptionContent = function(o, dir){
 
-//		console.log('createOptionContent: for direction '+dir,o);
+		console.log('createOptionContent: for direction '+dir,o);
 
 		var url = o.url,
 			media = o.media,
@@ -350,13 +350,16 @@ define(["jquery",
 			pName = o.projectName;
 
 		var elem = $('<article class="option '+dir+'" data-url="'+url+'"></article>');
-		if ( media.type === 'image' ) 
-			elem.append('<img src="'+media.url+'" alt="'+caption+'"/>');
-		if ( media.type === 'video' ) 
-			elem.append(media.embed);
-		if ( media.type === 'audio' )
-			elem.append(media.embed);
-		elem.append('<div class="caption"><h1 class="media-title">'+media.title+'<br></span><h2 class="description">'+media.description+'</span></div>');
+		if ( typeof media !== 'undefined' ) {
+			if ( media.type === 'image' ) 
+				elem.append('<img src="'+media.url+'" alt="'+caption+'"/>');
+			if ( media.type === 'video' ) 
+				elem.append(media.embed);
+			if ( media.type === 'audio' )
+				elem.append(media.embed);
+			elem.append('<div class="caption"><h1 class="media-title">'+media.title+'<br></span><h2 class="description">'+media.description+'</span></div>');
+		}
+		
 		return elem;
 	},	
 
