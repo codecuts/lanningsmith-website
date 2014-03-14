@@ -8,9 +8,6 @@ define(["jquery",
 	    function($,helpers,projects,page,ourCarousel) {
 
 	$(document).ready(function() {
-		if ( splashOn === true ) {
-			$('.splash').css('left','0px');
-		}
 		page.load();
 		$('.gridnav').hide();
 //		ourCarousel.init();

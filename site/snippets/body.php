@@ -1,7 +1,7 @@
 <?php
 // do some prep
 $splash_on = strtolower($site->splash_page());
-$splash_on = ( $splash_on == 'yes' || $splash_on == 'true' || $splash_on = 'on' ) ? true : false;
+$splash_on = ( $splash_on === 'yes' || $splash_on == 'true' || $splash_on === 'on' ) ? true : false;
 if ( $splash_on ) $splash = $pages->find('/splash');
 $categories_on = strtolower($site->categories_enabled());
 $categories_on = ( $categories_on === 'yes' || $categories_on === 'true' || $categories_on === 'on' ) ? true : false;
@@ -22,7 +22,7 @@ if ( $categories_on ) {
 		<div id="logo"><a href="">LANNINGSMITH</a></div>
 	</header>
 
-	<?php  if ( $splash_on ) : ?>
+	<?php  if ( $splash_on == true ) : ?>
 	<section class="splash">
 		<div class="splash-text">
 			<h1 class="header"><?php echo $splash ? $splash->header() : ''; ?></h1>

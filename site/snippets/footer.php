@@ -93,7 +93,6 @@
 	var projects = <?php print json_encode($transfer).';'; ?>
 	var iil = <?php echo "'".$site->images_in_loop()."';" ?>
 	var gV = <?php echo "'".$site->grid_visible()."';" ?>
-	var splashOn = <?php echo (strtolower($site->splash_page()) === 'true' || strtolower($site->splash_page()) === 'on' || strtolower($site->splash_page()) === 'yes') ? 'true;' : 'false;'; ?>
 	var imagesInLoop = iil == "TRUE" || iil == "True"|| iil == "true"|| iil == "YES" || iil == "Yes" || iil == "yes" ? 1 : 0;
 	var gridVisible = gV == "TRUE" || gV == "True"|| gV == "true"|| gV == "YES" || gV == "Yes" || gV == "yes" ? 1 : 0;
 	</script>
