@@ -46,10 +46,9 @@
     <?php endif; ?>
     
     <link rel="icon" type="image/png" href="<?php echo url('favicon.ico') ?>">
-
+    <link rel="alternate" type="application/rss+xml" href="<?php echo url('blog/feed') ?>" title="Blog Feed" />
     <?php echo css('assets/styles/styles.css') ?>
     <?php echo css('http://fonts.googleapis.com/css?family=Nunito:300,400') ?>
-
     <script src="<?php echo $site->url() ?>/assets/js/vendor/modernizr-full.js"></script>
 </head>
 

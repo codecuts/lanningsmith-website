@@ -12,13 +12,16 @@
 	$base = 'http://'.$_SERVER['HTTP_HOST'];
 	$path = str::split($uri, '/');
 
-/*	echo 'uri:';
-	dump($uri);
-	echo 'path:';
-	dump($path);*/
+//	echo 'uri:';
+//	dump($uri);
+//	echo 'path:';
+//	dump($path);
 
-	if ( $uri == '/sitemap' ) {
-		$uri = '/sitemap';
+	if ( $uri === '/sitemap' ) {
+		$uri = $uri;
+	}
+	else if ( $uri === '/feed' ) {
+		$uri = $uri;
 	}
 	else if ( str::contains($uri, 'category') && !str::contains($uri, '.')) {
 		$GLOBALS['category_name'] = ucwords($path[1]);
