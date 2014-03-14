@@ -18,7 +18,7 @@
 					$thumb = '<img src="'.scaudio::thumb($p->children()->first()->audio_url()->value).'" alt="audio thumbnail"/>';
 				}
 				
-				foreach ( $p->children() as $c ) {
+				foreach ( $p->children()->visible() as $c ) {
 
 					$mtype = $c->template();
 
