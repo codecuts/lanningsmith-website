@@ -79,6 +79,35 @@ define(["jquery",
 		this.pushToHistory( url, pageTitle, html);
 	},
 
+	handleRequest = function(path) {
+
+		if ( path[1] == '' ) {  // showing all projects
+			console.log('handleRequest: url is / , showing all projects');
+			this.populateMainFrame( projects.init('category', 'all'), 'relocate' );
+		} 
+		else if ( path[1] == 'category' ) {
+			console.log('url request for category: '+path[2]);
+			this.info.mode = 'category';
+			if ( 3 in path ) {
+				this.populateMainFrame( projects.init('single-in-category', {'category': path[2], 'project': path[3]}), 'relocate');
+			} else {
+				this.populateMainFrame( projects.init('category', path[2]), 'relocate');
+			}
+		}
+		else {		
+			console.log('handleRequest: url is seeking specific project '+path[1]+', relocating to that project');
+			var success = projects.init( 'single', path[1] );
+			if ( success !== null ) {
+				console.log('handleRequest: suceesfully initialized projects, returned options:',success);
+				document.title = this.info.title+' - '+success.center.projectName;
+				this.populateMainFrame( success, 'relocate' );
+			} else {
+				console.error("Failed to get projects with slug: "+path[1]);
+			}
+		}
+
+	},
+
 	setPageInfo = function() {
 
 		this.info.viewport.width = $(window).width();
@@ -124,35 +153,6 @@ define(["jquery",
 			case "down":
 				$('.option.center').animate({top:'-3000px'},500);
 				$('.option.down').animate({top:0},500,'swing',callback);
-		}
-
-	},
-
-	handleRequest = function(path) {
-
-		if ( path[1] == '' ) {  // showing all projects
-			console.log('handleRequest: url is / , showing all projects');
-			this.populateMainFrame( projects.init('category', 'all'), 'relocate' );
-		} 
-		else if ( path[1] == 'category' ) {
-			console.log('url request for category: '+path[2]);
-			this.info.mode = 'category';
-			if ( 3 in path ) {
-				this.populateMainFrame( projects.init('single-in-category', {'category': path[2], 'project': path[3]}), 'relocate');
-			} else {
-				this.populateMainFrame( projects.init('category', path[2]), 'relocate');
-			}
-		}
-		else {		
-			console.log('handleRequest: url is seeking specific project '+path[1]+', relocating to that project');
-			var success = projects.init( 'single', path[1] );
-			if ( success !== null ) {
-				console.log('handleRequest: suceesfully initialized projects, returned options:',success);
-				document.title = this.info.title+' - '+success.center.projectName;
-				this.populateMainFrame( success, 'relocate' );
-			} else {
-				console.error("Failed to get projects with slug: "+path[1]);
-			}
 		}
 
 	},
@@ -305,6 +305,9 @@ define(["jquery",
 	populateMainFrame = function (options, dir) {
 
 		console.log('populateMainFrame: options:',options);
+
+		if ( options == null )
+			return;
 
 		if ( dir == 'relocate' ) {
 

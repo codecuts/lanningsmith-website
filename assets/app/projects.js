@@ -157,6 +157,7 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	};
 	
 	var relocate = function (name){					// returns options after relocating to project specified by name (slug)	
+		console.log('active:',activeProjects);
 		for(var i=0;i<activeProjects.length;i++){
 			if(name == this.slug(activeProjects[i].url))
 				return this.relocateToY(i);
@@ -171,6 +172,10 @@ define(["jquery", "app/helpers"], function($,helpers) {
 	
 	var relocateToY = function (y){	
 		this.resetToXY(0,y);
+
+		if ( this.count() === 0 )
+			return null;
+		
 		return this.getOptionsForCurrentPosition();
 	};
 	
