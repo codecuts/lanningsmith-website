@@ -226,7 +226,7 @@ define(["jquery",
 							html = document.getElementsByClassName('main-frame')[0].innerHTML;
 						page.pushToHistory(url, pageTitle, html);	
 					}
-					$('.option.center img').trigger('mouseover');
+					$('.option.center img, .option.center iframe').trigger('mouseover');
 				});  
 			}
 		);
@@ -284,7 +284,7 @@ define(["jquery",
 
 		var timer;
 		
-		$(document).on('mouseover', '.option.center img',
+		$(document).on('mouseover', '.option.center img, .option.center iframe',
 			function (e){
 				timer=setTimeout(
 					function(){		
@@ -294,7 +294,7 @@ define(["jquery",
 				)
 			}
 		);
-		$(document).on('mouseout', '.option.center img',
+		$(document).on('mouseout', '.option.center img, .option.center iframe',
 			function (e){
 				clearTimeout(timer);
 				$('.option.center .caption').css('opacity', 0).css('z-index','');
