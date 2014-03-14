@@ -3,6 +3,18 @@
 $splash_on = strtolower($site->splash_page());
 $splash_on = ( $splash_on == 'yes' || $splash_on == 'true' || $splash_on = 'on' ) ? true : false;
 if ( $splash_on ) $splash = $pages->find('/splash');
+$categories_on = strtolower($site->categories_enabled());
+$categories_on = ( $categories_on === 'yes' || $categories_on === 'true' || $categories_on === 'on' ) ? true : false;
+if ( $categories_on ) {
+	$categories = str::split($site->categories(),',');
+	$n = array( 'all' => 'All' );
+	$s = array('\'',' ');
+	$r = array('-','-');
+	foreach ($categories as $c) {
+		$n[str_replace($s,$r,trim($c))] = $c;	
+	}
+	$categories = $n;
+}
 ?>
 <div class="container">
 
@@ -39,7 +51,6 @@ if ( $splash_on ) $splash = $pages->find('/splash');
 			<div class="ctrl down" title="Next Project"><!--<img src="/assets/images/arrow_updown.png" alt"down arrow"/>--></div>
 		</nav>
 		<div class="main-frame">
-			<?php //snippet('carousel', array('found' => $found, 'context'=>'mainframe')) ?>
 		</div>
 	</section>
 
@@ -50,6 +61,19 @@ if ( $splash_on ) $splash = $pages->find('/splash');
 		<div class="gridframe">
 			<div class='jcarousel thumbs'>
 				<ul></ul>
+			</div>
+			<div class="categories">
+			<?php 
+				if ( $categories_on ) {
+					foreach ($categories as $i=>$c) {
+						echo '<a class="category-filter" href="'.$site->url.'/category/'.$i.'" data-category="'.$i.'">'.strtoupper($c).'</a>';
+						end($categories);
+						if ( $i !== key($categories) ) {
+							echo '<span> // </span>';
+						} 
+					}
+				}
+				?>
 			</div>
 		</div>
 		<div class="jcarousel-pagination"></div>

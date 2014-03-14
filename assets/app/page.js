@@ -67,6 +67,18 @@ define(["jquery",
 
 	},
 
+	relocate = function(url) {
+		var pageTitle,
+			html,
+			path = url.replace(/^http:\/\/[^/]*/,'').split('/');
+
+		this.handleRequest( path );
+		
+		html = document.getElementsByClassName('main-frame')[0].innerHTML
+		pageTitle = document.title;
+		this.pushToHistory( url, pageTitle, html);
+	},
+
 	setPageInfo = function() {
 
 		this.info.viewport.width = $(window).width();
@@ -114,18 +126,6 @@ define(["jquery",
 				$('.option.down').animate({top:0},500,'swing',callback);
 		}
 
-	},
-
-	relocate = function(url) {
-		var pageTitle,
-			html,
-			path = url.replace(/^http:\/\/[^/]*/,'').split('/');
-
-		this.handleRequest( path );
-		
-		html = document.getElementsByClassName('main-frame')[0].innerHTML
-		pageTitle = document.title;
-		this.pushToHistory( url, pageTitle, html);
 	},
 
 	handleRequest = function(path) {
@@ -197,6 +197,12 @@ define(["jquery",
 			page.toggleThumbMenu();
 		});
 
+		$(document).on('click', '.category-filter', function(e) {
+			e.preventDefault();
+			page.clearThumbMenu();
+			page.relocate( e.target.href );
+			page.initThumbMenu();
+		});
 
 		$(document).on('click', '.option.center img', 
 			function(e) {
@@ -302,7 +308,7 @@ define(["jquery",
 
 		if ( dir == 'relocate' ) {
 
-			console.log('populateMainFrame: relocating to this project: ',options);
+			console.log('populateMainFrame: relocating to this project: ',options.center);
 
 			var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
 			r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
@@ -400,7 +406,7 @@ define(["jquery",
 			console.error("The thumb menu's carousel object is not set.", c.carousel);
 		}
 
-		var grid = this.calculateThumbGrid()
+		var grid = this.calculateThumbGrid();
 
 		// add pages of thumbs
 		$.each(projects.get(), function() {
@@ -413,11 +419,8 @@ define(["jquery",
 
 			// add project thumb
 			var classes = ( (this.i+1) % grid.cols  == 0 ) ? 'grid-item rightmost' : 'grid-item';
-			
 			var elem = $('<div class="'+classes+'"></div>');
 			elem.append('<a href="'+this.url+'">'+this.thumb+'<div class="overlay"><div><h1 class="project-title">'+this.title+'</h1><h2 class="project-description">'+this.description+'</h2></div></div></a>');
-			
-
 			$('.grid-page > div').last().append(elem);
 
 		});
@@ -454,9 +457,6 @@ define(["jquery",
 		}
 
 		var itemsPerPage = cols * rows;
-
-		//if ( projects.count() <= cols*(rows-1) ) 
-		//	rows--;
 
 		// there should always at least be 1 
 		cols = ( cols ) ? cols : 1;

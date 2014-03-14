@@ -31,3 +31,22 @@ $selected = explode(', ', $page->categories());
 		<?php endforeach; ?>
 	</ul>
 </div>
+
+<?php
+
+function get_categories() {
+	$c = explode(',',$site->categories());
+	sort($categories);
+
+	$n = array();
+	$s = array('\'',' ');
+	$r = array('-','-');
+	foreach ($categories as $c) {
+		$n[str_replace($s,$r,trim($c))] = $c;
+	}
+	$c = $n;
+
+	return $c;
+}
+
+?>

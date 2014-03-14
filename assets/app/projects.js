@@ -59,19 +59,20 @@ define(["jquery", "app/helpers"], function($,helpers) {
 		}
 		
 		// if specific category has been selected, set activeProjects to subset and update the urls
-		var allProjects = this.getAll();
+		var newI=0, allProjects = this.getAll();
 		for(var i=0;i<allProjects.length;i++){
 			var categories = allProjects[i].categories.split(', ');
 			var p, a, u; 
 			if(categories.indexOf(category)>-1) {
-				p = allProjects[i];
+				p = $.extend(true, {},allProjects[i]);
 				a = document.createElement('a');
 				a.href = p.url;
 				u = siteURL+'/category/'+category+a.pathname;
 				p.url = u;
+				p.i = newI++;
 				activeProjects.push(p);
 			}
-		}		
+		}
 	};
 	
 	var move = function(dir){					// switches into appropiate method calls
@@ -83,10 +84,10 @@ define(["jquery", "app/helpers"], function($,helpers) {
 						return null;
 				}
 				else{
-					if(projects[indexY].media.length == 1)
+					if(activeProjects[indexY].media.length == 1)
 						return null;
 					if(indexX == 0){
-						indexX = projects[indexY].media.length-1;
+						indexX = activeProjects[indexY].media.length-1;
 						break;
 					}
 				}
@@ -94,13 +95,13 @@ define(["jquery", "app/helpers"], function($,helpers) {
 				break;	
 			case 'right':
 				if(!imagesInLoop){
-					if(projects[indexY].media.length<=indexX+1)
+					if(activeProjects[indexY].media.length<=indexX+1)
 						return null;
 				}
 				else{
-					if(projects[indexY].media.length == 1)
+					if(activeProjects[indexY].media.length == 1)
 						return null;
-					if(indexX==projects[indexY].media.length-1){
+					if(indexX==activeProjects[indexY].media.length-1){
 						indexX=0;
 						break;
 					}
@@ -198,18 +199,18 @@ define(["jquery", "app/helpers"], function($,helpers) {
 				y = 0;
 			if(y == -1)
 				y = activeProjects.length-1;
-			if(x == projects[y].media.length)
+			if(x == activeProjects[y].media.length)
 				x = 0;
 			if(x == -1)
-				x = projects[y].media.length-1
+				x = activeProjects[y].media.length-1
 			
 		}
 		else{
-			if(x<0 || y>=activeProjects.length || y<0 || x>=projects[y].media.length )
+			if(x<0 || y>=activeProjects.length || y<0 || x>=activeProjects[y].media.length )
 				return null;
 		}
 		
-		project = projects[y];
+		project = activeProjects[y];
 		return this.createStep(project.url, project.title, project.description, project.media[x]);
 	};
 		

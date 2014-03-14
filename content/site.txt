@@ -18,6 +18,10 @@ Copyright: © 2009-(date: Year) Code Cuts
 
 ----
 
+Categories Enabled: Yes
+
+----
+
 Categories: ours, everybodys, client's, hopefull days
 
 ----
