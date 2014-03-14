@@ -1028,7 +1028,7 @@ nav {
 .gridnav .categories {
   position: absolute;
   bottom: -40px;
-  right: 0;
+  left: 0;
 }
 /* line 121, sass/_layouts.scss */
 .gridnav .categories .category-filter, .gridnav .categories span {
