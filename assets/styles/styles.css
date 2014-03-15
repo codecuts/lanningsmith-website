@@ -931,7 +931,7 @@ nav {
   overflow: hidden;
   z-index: 10000;
 }
-/* line 33, sass/_layouts.scss */
+/* line 32, sass/_layouts.scss */
 .splash img,
 .splash video {
   position: absolute;
@@ -941,7 +941,7 @@ nav {
   min-height: 100%;
   z-index: 10;
 }
-/* line 41, sass/_layouts.scss */
+/* line 40, sass/_layouts.scss */
 .splash .splash-text {
   position: absolute;
   top: 50%;
@@ -953,25 +953,25 @@ nav {
   transform: translate(-50%, -50%);
   z-index: 5555;
 }
-/* line 50, sass/_layouts.scss */
+/* line 49, sass/_layouts.scss */
 .splash .header,
 .splash .subheader {
   font-family: "League Gothic", Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #fff;
 }
-/* line 56, sass/_layouts.scss */
+/* line 55, sass/_layouts.scss */
 .splash .header {
   font-size: 90px;
   line-height: 90px;
 }
-/* line 61, sass/_layouts.scss */
+/* line 60, sass/_layouts.scss */
 .splash .subheader {
   font-size: 30px;
   line-height: 33px;
 }
 
-/* line 68, sass/_layouts.scss */
+/* line 67, sass/_layouts.scss */
 .about {
   box-sizing: initial;
   /* border-box setting caused text to jump at end of slide when padding added */
@@ -988,7 +988,7 @@ nav {
   opacity: 0.9;
   z-index: 9999;
 }
-/* line 81, sass/_layouts.scss */
+/* line 80, sass/_layouts.scss */
 .about .site-description {
   margin-top: -2px;
   font-size: 22px;
@@ -997,7 +997,7 @@ nav {
   text-transform: uppercase;
 }
 
-/* line 91, sass/_layouts.scss */
+/* line 90, sass/_layouts.scss */
 .gridnav {
   position: fixed;
   top: 0;
@@ -1011,38 +1011,38 @@ nav {
   box-shadow: black 2px 2px 10px;
   overflow: hidden;
 }
-/* line 102, sass/_layouts.scss */
+/* line 101, sass/_layouts.scss */
 .gridnav .jcarousel-pagination {
   width: 25%;
   margin: 0 auto;
   padding-top: 45px;
   text-align: center;
 }
-/* line 109, sass/_layouts.scss */
+/* line 108, sass/_layouts.scss */
 .gridnav .gridframe {
   position: relative;
   margin: 0 auto;
 }
-/* line 116, sass/_layouts.scss */
+/* line 115, sass/_layouts.scss */
 .gridnav .categories {
   position: absolute;
   bottom: -40px;
   left: 0;
 }
-/* line 121, sass/_layouts.scss */
+/* line 120, sass/_layouts.scss */
 .gridnav .categories .category-filter, .gridnav .categories span {
   font-size: 16px;
 }
-/* line 126, sass/_layouts.scss */
+/* line 125, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs {
   width: 100%;
 }
-/* line 130, sass/_layouts.scss */
+/* line 129, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs li {
   float: left;
   margin-right: 300px;
 }
-/* line 135, sass/_layouts.scss */
+/* line 134, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item {
   position: relative;
   float: left;
@@ -1051,11 +1051,11 @@ nav {
   overflow: hidden;
   background: #333;
 }
-/* line 143, sass/_layouts.scss */
+/* line 142, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item:hover .overlay {
   top: 0;
 }
-/* line 147, sass/_layouts.scss */
+/* line 146, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .overlay {
   position: absolute;
   top: -9999px;
@@ -1067,13 +1067,13 @@ nav {
   background: #b4f2f1;
   overflow: hidden;
 }
-/* line 158, sass/_layouts.scss */
+/* line 157, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .overlay > div {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-/* line 167, sass/_layouts.scss */
+/* line 166, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .project-title,
 .gridnav .jcarousel.thumbs .grid-item .project-description {
   margin: 0;
@@ -1081,24 +1081,24 @@ nav {
   font-weight: 300;
   text-transform: uppercase;
 }
-/* line 174, sass/_layouts.scss */
+/* line 173, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .project-title {
   font-size: 22px;
   line-height: 22px;
 }
-/* line 180, sass/_layouts.scss */
+/* line 179, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .project-description {
   visibility: hidden;
   padding: 10px 0 0 0;
   font-size: 12px;
   line-height: 14px;
 }
-/* line 190, sass/_layouts.scss */
+/* line 189, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .griditem.rightmost {
   margin-right: 0;
 }
 
-/* line 199, sass/_layouts.scss */
+/* line 198, sass/_layouts.scss */
 .main {
   width: 100%;
   height: 100%;
@@ -1107,21 +1107,21 @@ nav {
   /* necessary to prevent .main-frame margin-top from pushing this down */
 }
 
-/* line 207, sass/_layouts.scss */
+/* line 206, sass/_layouts.scss */
 .main-frame {
   position: relative;
   width: 66.67%;
   height: 70%;
   margin: 0 auto;
 }
-/* line 215, sass/_layouts.scss */
+/* line 212, sass/_layouts.scss */
 .main-frame .option {
   position: absolute;
   width: 100%;
   height: 100%;
   text-align: center;
 }
-/* line 222, sass/_layouts.scss */
+/* line 219, sass/_layouts.scss */
 .main-frame .option img,
 .main-frame .option iframe {
   position: absolute;
@@ -1134,10 +1134,9 @@ nav {
   bottom: 0;
   margin: auto;
 }
-/* line 234, sass/_layouts.scss */
+/* line 231, sass/_layouts.scss */
 .main-frame .option .caption {
-  position: relative;
-  top: 100%;
+  position: absolute;
   margin: 0 auto;
   padding: 5px 0;
   background: #fbfaf8;
@@ -1152,14 +1151,14 @@ nav {
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 250, sass/_layouts.scss */
+/* line 246, sass/_layouts.scss */
 .main-frame .option .media-title {
   font-size: 12px;
   line-height: 24px;
   margin: 0;
   font-weight: normal;
 }
-/* line 257, sass/_layouts.scss */
+/* line 253, sass/_layouts.scss */
 .main-frame .option .description {
   max-width: 600px;
   margin: 0 auto;
@@ -1168,22 +1167,22 @@ nav {
   text-align: center;
   font-weight: normal;
 }
-/* line 267, sass/_layouts.scss */
+/* line 263, sass/_layouts.scss */
 .main-frame .option.left {
   top: 0;
   left: -3000px;
 }
-/* line 271, sass/_layouts.scss */
+/* line 267, sass/_layouts.scss */
 .main-frame .option.right {
   top: 0;
   left: 3000px;
 }
-/* line 275, sass/_layouts.scss */
+/* line 271, sass/_layouts.scss */
 .main-frame .option.up {
   top: -3000px;
   left: 0;
 }
-/* line 279, sass/_layouts.scss */
+/* line 275, sass/_layouts.scss */
 .main-frame .option.down {
   top: 3000px;
   left: 0;

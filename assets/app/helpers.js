@@ -19,6 +19,17 @@ define(["jquery"], function() {
 		});
 	};
 
+	$.fn.hAlign = function() {
+		return this.each(function() {
+			var ah = $(this).width();
+			var ph = $(this).parent().width();
+			var mh = (ph - ah) / 2;
+			$(this).css('margin-left', mh);
+//			console.log('element:'+ah+',parent:'+ph+'margin:'+mh);
+  		});
+	};
+
+
 	$.fn.hAlignInViewport = function() {
 		return this.each(function() {
 			var ah = $(this).width();

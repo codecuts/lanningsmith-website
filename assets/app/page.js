@@ -133,6 +133,16 @@ define(["jquery",
 		$('.main-nav .up, .main-nav .down').css('height', (page.info.viewport.height - $('.option.center img, .option.center iframe').height()) /2);
 		$('.main-nav .left img, .main-nav .right img').vAlignInViewport();
 
+		// place the caption near the image
+		$('.option.center img').each(function() {
+			var caption = $(this).parent().find('.caption'),
+				h = $(this).outerHeight(true),
+				bM = parseInt($(this).css('margin-bottom')),
+				pos = (h-bM);
+			caption.css('top', pos+'px');
+			caption.hAlign();
+		});	
+
 	},
 
 	animate = function(dir, callback) {
@@ -304,7 +314,7 @@ define(["jquery",
 
 	populateMainFrame = function (options, dir) {
 
-		console.log('populateMainFrame: options:',options);
+//		console.log('populateMainFrame: options:',options);
 
 		if ( options == null )
 			return;
@@ -342,7 +352,7 @@ define(["jquery",
 
 	createOptionContent = function(o, dir){
 
-		console.log('createOptionContent: for direction '+dir,o);
+//		console.log('createOptionContent: for direction '+dir,o);
 
 		var url = o.url,
 			media = o.media,
@@ -358,6 +368,17 @@ define(["jquery",
 			if ( media.type === 'audio' )
 				elem.append(media.embed);
 			elem.append('<div class="caption"><h1 class="media-title">'+media.title+'<br></span><h2 class="description">'+media.description+'</span></div>');
+		}
+		
+		if ( dir === 'center' ) {
+			elem.find('img, iframe').load(function() {
+				var caption = $(this).parent().find('.caption'),
+					h = $(this).outerHeight(true),
+					bM = parseInt($(this).css('margin-bottom')),
+					pos = (h-bM);
+				caption.css('top', pos+'px');
+				caption.hAlign();
+			});
 		}
 		
 		return elem;
