@@ -134,7 +134,7 @@ define(["jquery",
 		$('.main-nav .left img, .main-nav .right img').vAlignInViewport();
 
 		// place the caption near the image
-		$('.option.center img').each(function() {
+		$('.option.center img, .option.center iframe').each(function() {
 			var caption = $(this).parent().find('.caption'),
 				h = $(this).outerHeight(true),
 				bM = parseInt($(this).css('margin-bottom')),
