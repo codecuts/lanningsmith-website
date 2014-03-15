@@ -8,10 +8,15 @@ fields:
   title: 
     label: Audio Title
     type:  text
+  captiontitle:
+    label: Caption Title
+    type: text
+    help: The caption header
   text: 
-    label: Audio Caption
+    label: Caption Text
     type:  textarea
     size:  small
+    help: Longer text for caption displayed just below caption title
   audio_url:
     label: SoundCloud URL
     type: text

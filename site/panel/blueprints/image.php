@@ -8,8 +8,13 @@ fields:
   title: 
     label: Image Title
     type:  text
+  captiontitle:
+  	label: Caption Title
+  	type: text
+  	help: The caption title or header
   text: 
-    label: Image Caption
+    label: Caption Text
     type:  textarea
     size:  small
+    help: Longer description to be display just below the title of each image
   

@@ -8,10 +8,15 @@ fields:
   title: 
     label: Video Title
     type:  text
+  captiontitle:
+    label: Caption Title
+    type: text
+    help: The caption header 
   text: 
-    label: Video Caption
+    label: Caption Text
     type:  textarea
     size:  small
+    help: Longer text for caption displayed just below caption title
   video_url:
    	label: Video Url
    	type: text

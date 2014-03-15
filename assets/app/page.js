@@ -352,7 +352,7 @@ define(["jquery",
 
 	createOptionContent = function(o, dir){
 
-//		console.log('createOptionContent: for direction '+dir,o);
+		console.log('createOptionContent: for direction '+dir,o);
 
 		var url = o.url,
 			media = o.media,

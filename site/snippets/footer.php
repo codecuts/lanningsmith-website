@@ -22,6 +22,10 @@
 
 					$mtype = $c->template();
 
+					$title = ($c->title() !== null) ? $c->title()->value : '';
+					$caption_title = ($c->captiontitle() !== null) ? $c->captiontitle()->value : '';
+					$description = ($c->text() !== null) ? $c->text()->value : '';
+
 					switch ($mtype) {
 						case 'image':
 							if($c->images()->first()){
@@ -30,12 +34,13 @@
 									'url' => $c->images()->first()->url(),
 									'width' => $c->images()->first()->width(),
 									'height' => $c->images()->first()->height(),
-									'title' => $c->title()->value,
-									'description' =>$c->text()->value
+									'title' => $title,
+									'caption_title' => $caption_title,
+									'description' => $description
 								);
 							}
 							break;
-						case 'video':
+						case 'video':	
 							$embed = '';
 							$url = $c->video_url()->value;
 							if ( !isset($c->video_embed()->value) || $c->video_embed()->value == '' ) {
@@ -47,8 +52,9 @@
 								'type' => $mtype,
 								'id' => videos::id($url),
 								'url' => $c->video_url()->value,
-								'title' => $c->title()->value,
-								'description' => $c->text()->value,
+								'title' => $title,
+								'caption_title' => $caption_title,
+								'description' => $description,
 								'embed' => $embed,
 								'thumb' => videos::thumb($url)
 							);
@@ -65,12 +71,12 @@
 								'type' => $mtype,
 								'id' => $url,
 								'url' => $url,
-								'title' => $c->title()->value,
-								'description' => $c->title()->value,
+								'title' => $title,
+								'caption_title' => $caption_title,
+								'description' => $description,
 								'embed' => $embed,
 								'thumb' => scaudio::thumb($url)
 							);
-
 							break;
 					}
 				}
