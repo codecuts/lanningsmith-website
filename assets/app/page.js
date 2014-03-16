@@ -45,6 +45,7 @@ define(["jquery",
 		}, 400);
 		this.initThumbMenu();
 		this.setupEvents();
+		this.layout();
 
 		if ( this.info.viewport.height <= this.info.viewport.minHeight) {
 			$('.ctrl.up , .ctrl.down').css('background','none');
@@ -56,9 +57,9 @@ define(["jquery",
 	reload = function() {
 
 		this.setPageInfo();
-		this.layout();
 		this.clearThumbMenu();
 		this.initThumbMenu();
+		this.layout();
 		if ( this.info.viewport.height <= this.info.viewport.minHeight) {
 			$('.ctrl.up, .ctrl.down').css('background','none');
 		} else {
@@ -141,8 +142,12 @@ define(["jquery",
 				pos = (h-bM);
 			caption.css('top', pos+'px');
 			caption.hAlign();
-		});	
+		});
+		
+		/*if ( !page.info.loaded ) 
+			$('.categories').css('top',$('.grid-page').height()+20+'px');*/
 
+		$('.categories').css('right', $('.gridframe').css('margin-right'));
 	},
 
 	animate = function(dir, callback) {
@@ -212,6 +217,7 @@ define(["jquery",
 			page.clearThumbMenu();
 			page.relocate( e.target.href );
 			page.initThumbMenu();
+			page.layout();
 		});
 
 		$(document).on('click', '.option.center img', 
@@ -230,6 +236,7 @@ define(["jquery",
 				
 				page.animate(dir , function() {
 					page.populateMainFrame(options, dir);					
+					page.layout();
 					if ( dir == 'up' || 'down' ) {
 						var url = options.center.url,
 							pageTitle = document.title,
@@ -321,7 +328,7 @@ define(["jquery",
 
 		if ( dir == 'relocate' ) {
 
-			console.log('populateMainFrame: relocating to this project: ',options.center);
+//			console.log('populateMainFrame: relocating to this project: ',options.center);
 
 			var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
 			r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
@@ -335,7 +342,7 @@ define(["jquery",
 		} 
 		else {
 
-			console.log('populateMainFrame: animating to this project or project image: ', options);
+//			console.log('populateMainFrame: animating to this project or project image: ', options);
 
 			var l = options.left != null ? this.createOptionContent(options.left, 'left') : null,
 				r = options.right != null ? this.createOptionContent(options.right, 'right'): null,
@@ -347,12 +354,11 @@ define(["jquery",
 			$('.main-frame').append(l).append(r).append(u).append(d);
 
 		}
-		this.layout();
 	},
 
 	createOptionContent = function(o, dir){
 
-		console.log('createOptionContent: for direction '+dir,o);
+//		console.log('createOptionContent: for direction '+dir,o);
 
 		var url = o.url,
 			media = o.media,
@@ -461,7 +467,7 @@ define(["jquery",
 		});
 		$('.gridframe').vAlignInViewport();
 		$('.grid-item .project-title').vAlign();
-
+		$('.categories').css('width', $('.gridframe').width());
 	},
 
 	calculateThumbGrid = function() {

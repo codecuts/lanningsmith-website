@@ -62,7 +62,8 @@ if ( $categories_on ) {
 			<div class='jcarousel thumbs'>
 				<ul></ul>
 			</div>
-			<div class="categories">
+		</div>
+		<div class="categories">
 			<?php 
 				if ( $categories_on ) {
 					foreach ($categories as $i=>$c) {
@@ -74,7 +75,6 @@ if ( $categories_on ) {
 					}
 				}
 				?>
-			</div>
 		</div>
 		<div class="jcarousel-pagination"></div>
 	</section>
