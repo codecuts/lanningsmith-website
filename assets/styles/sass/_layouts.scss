@@ -114,7 +114,9 @@
 	.categories {
 		position: absolute;
 		top: 80px;
+		width: 100%;
 		text-align: center;
+		//margin: 0 auto;
 
 		.category-filter, span {
 			font-size: 12px;

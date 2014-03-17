@@ -144,9 +144,6 @@ define(["jquery",
 			caption.hAlign();
 		});
 
-		// help center categories in thumb menu
-		$('.categories').css('right', $('.gridframe').css('margin-right'));
-
 		// disable right/left nav when only one image
 		console.log($('.option.left img').attr('src')===$('.option.right img').attr('src'));
 		if ( $('.option.left img').attr('src')===$('.option.right img').attr('src') ) {
@@ -476,7 +473,6 @@ define(["jquery",
 		});
 		$('.gridframe').vAlignInViewport();
 		$('.grid-item .project-title').vAlign();
-		$('.categories').css('width', $('.gridframe').width());
 	},
 
 	calculateThumbGrid = function() {
