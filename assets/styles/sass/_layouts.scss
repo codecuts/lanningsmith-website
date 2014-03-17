@@ -1,11 +1,10 @@
 .container {
 	width: 100%;
-//	min-width: $minViewportWidth;
-//	min-height: $minViewportHeight;
 	overflow: hidden;
-	opacity: 0; 
-		/* page is hidden at first so jQuery mangagePageLoad can set
-		   things up behind the scenes, see assets/app/helpers.js */
+}
+
+.about, .main-frame, .gridnav {
+	opacity: 0;
 }
 
 #logo {     
