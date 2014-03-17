@@ -1028,7 +1028,7 @@ nav {
   position: absolute;
   width: 100%;
   top: 80px;
-  text-align: right;
+  text-align: center;
 }
 /* line 120, sass/_layouts.scss */
 .gridnav .categories .category-filter, .gridnav .categories span {
