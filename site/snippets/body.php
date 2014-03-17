@@ -1,7 +1,7 @@
 <?php
 // do some prep
 $splash_on = strtolower($site->splash_page());
-$splash_on = ( $splash_on === 'yes' || $splash_on == 'true' || $splash_on === 'on' ) ? true : false;
+$splash_on = ( $page->isHomePage() && ($splash_on === 'yes' || $splash_on == 'true' || $splash_on === 'on') ) ? true : false;
 if ( $splash_on ) $splash = $pages->find('/splash');
 $categories_on = strtolower($site->categories_enabled());
 $categories_on = ( $categories_on === 'yes' || $categories_on === 'true' || $categories_on === 'on' ) ? true : false;
