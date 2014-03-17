@@ -143,11 +143,19 @@ define(["jquery",
 			caption.css('top', pos+'px');
 			caption.hAlign();
 		});
-		
-		/*if ( !page.info.loaded ) 
-			$('.categories').css('top',$('.grid-page').height()+20+'px');*/
 
+		// help center categories in thumb menu
 		$('.categories').css('right', $('.gridframe').css('margin-right'));
+
+		// disable right/left nav when only one image
+		console.log($('.option.left img').attr('src')===$('.option.right img').attr('src'));
+		if ( $('.option.left img').attr('src')===$('.option.right img').attr('src') ) {
+			$('.main-nav .left img, .main-nav .right img').hide();
+		} else {
+			$('.main-nav .left img, .main-nav .right img').show();
+		}
+
+
 	},
 
 	animate = function(dir, callback) {
