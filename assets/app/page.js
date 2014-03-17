@@ -43,6 +43,9 @@ define(["jquery",
 		$('.about, .main-frame, .gridnav').animate({
 			opacity:1
 		}, 400);
+		$('.splash-text').animate({
+			opacity: 1
+		}, 250);
 		this.initThumbMenu();
 		this.setupEvents();
 		this.layout();

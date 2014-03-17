@@ -945,6 +945,7 @@ nav {
 }
 /* line 39, sass/_layouts.scss */
 .splash .splash-text {
+  opacity: 0;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -955,25 +956,25 @@ nav {
   transform: translate(-50%, -50%);
   z-index: 5555;
 }
-/* line 48, sass/_layouts.scss */
+/* line 49, sass/_layouts.scss */
 .splash .header,
 .splash .subheader {
   font-family: "League Gothic", Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #fff;
 }
-/* line 54, sass/_layouts.scss */
+/* line 55, sass/_layouts.scss */
 .splash .header {
   font-size: 90px;
   line-height: 90px;
 }
-/* line 59, sass/_layouts.scss */
+/* line 60, sass/_layouts.scss */
 .splash .subheader {
   font-size: 30px;
   line-height: 33px;
 }
 
-/* line 66, sass/_layouts.scss */
+/* line 67, sass/_layouts.scss */
 .about {
   box-sizing: initial;
   /* border-box setting caused text to jump at end of slide when padding added */
@@ -990,7 +991,7 @@ nav {
   opacity: 0.9;
   z-index: 9999;
 }
-/* line 79, sass/_layouts.scss */
+/* line 80, sass/_layouts.scss */
 .about .site-description {
   margin-top: -2px;
   font-size: 22px;
@@ -999,7 +1000,7 @@ nav {
   text-transform: uppercase;
 }
 
-/* line 89, sass/_layouts.scss */
+/* line 90, sass/_layouts.scss */
 .gridnav {
   position: fixed;
   top: 0;
@@ -1012,40 +1013,40 @@ nav {
   box-shadow: black 2px 2px 10px;
   overflow: hidden;
 }
-/* line 100, sass/_layouts.scss */
+/* line 101, sass/_layouts.scss */
 .gridnav .jcarousel-pagination {
   width: 30%;
   margin: 0 auto;
   padding-top: 30px;
   text-align: center;
 }
-/* line 107, sass/_layouts.scss */
+/* line 108, sass/_layouts.scss */
 .gridnav .gridframe {
   position: relative;
   margin: 0 auto;
   max-height: 90%;
 }
-/* line 113, sass/_layouts.scss */
+/* line 114, sass/_layouts.scss */
 .gridnav .categories {
   position: absolute;
   top: 80px;
   width: 100%;
   text-align: center;
 }
-/* line 120, sass/_layouts.scss */
+/* line 121, sass/_layouts.scss */
 .gridnav .categories .category-filter, .gridnav .categories span {
   font-size: 12px;
 }
-/* line 125, sass/_layouts.scss */
+/* line 126, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs {
   width: 100%;
 }
-/* line 129, sass/_layouts.scss */
+/* line 130, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs li {
   float: left;
   margin-right: 300px;
 }
-/* line 134, sass/_layouts.scss */
+/* line 135, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item {
   position: relative;
   float: left;
@@ -1054,11 +1055,11 @@ nav {
   overflow: hidden;
   background: #333;
 }
-/* line 142, sass/_layouts.scss */
+/* line 143, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item:hover .overlay {
   top: 0;
 }
-/* line 146, sass/_layouts.scss */
+/* line 147, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .overlay {
   position: absolute;
   top: -9999px;
@@ -1070,13 +1071,13 @@ nav {
   background: #b4f2f1;
   overflow: hidden;
 }
-/* line 157, sass/_layouts.scss */
+/* line 158, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .overlay > div {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-/* line 166, sass/_layouts.scss */
+/* line 167, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .project-title,
 .gridnav .jcarousel.thumbs .grid-item .project-description {
   margin: 0;
@@ -1084,24 +1085,24 @@ nav {
   font-weight: 300;
   text-transform: uppercase;
 }
-/* line 173, sass/_layouts.scss */
+/* line 174, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .project-title {
   font-size: 22px;
   line-height: 22px;
 }
-/* line 179, sass/_layouts.scss */
+/* line 180, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .grid-item .project-description {
   visibility: hidden;
   padding: 10px 0 0 0;
   font-size: 12px;
   line-height: 14px;
 }
-/* line 189, sass/_layouts.scss */
+/* line 190, sass/_layouts.scss */
 .gridnav .jcarousel.thumbs .griditem.rightmost {
   margin-right: 0;
 }
 
-/* line 198, sass/_layouts.scss */
+/* line 199, sass/_layouts.scss */
 .main {
   width: 100%;
   height: 100%;
@@ -1110,21 +1111,21 @@ nav {
   /* necessary to prevent .main-frame margin-top from pushing this down */
 }
 
-/* line 206, sass/_layouts.scss */
+/* line 207, sass/_layouts.scss */
 .main-frame {
   position: relative;
   width: 66.67%;
   height: 70%;
   margin: 0 auto;
 }
-/* line 212, sass/_layouts.scss */
+/* line 213, sass/_layouts.scss */
 .main-frame .option {
   position: absolute;
   width: 100%;
   height: 100%;
   text-align: center;
 }
-/* line 219, sass/_layouts.scss */
+/* line 220, sass/_layouts.scss */
 .main-frame .option img,
 .main-frame .option iframe {
   position: absolute;
@@ -1137,7 +1138,7 @@ nav {
   bottom: 0;
   margin: auto;
 }
-/* line 231, sass/_layouts.scss */
+/* line 232, sass/_layouts.scss */
 .main-frame .option .caption {
   position: absolute;
   margin: 0 auto;
@@ -1154,14 +1155,14 @@ nav {
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 246, sass/_layouts.scss */
+/* line 247, sass/_layouts.scss */
 .main-frame .option .media-title {
   font-size: 12px;
   line-height: 24px;
   margin: 0;
   font-weight: normal;
 }
-/* line 253, sass/_layouts.scss */
+/* line 254, sass/_layouts.scss */
 .main-frame .option .description {
   max-width: 600px;
   margin: 0 auto;
@@ -1170,28 +1171,28 @@ nav {
   text-align: center;
   font-weight: normal;
 }
-/* line 263, sass/_layouts.scss */
+/* line 264, sass/_layouts.scss */
 .main-frame .option.left {
   top: 0;
   left: -3000px;
 }
-/* line 267, sass/_layouts.scss */
+/* line 268, sass/_layouts.scss */
 .main-frame .option.right {
   top: 0;
   left: 3000px;
 }
-/* line 271, sass/_layouts.scss */
+/* line 272, sass/_layouts.scss */
 .main-frame .option.up {
   top: -3000px;
   left: 0;
 }
-/* line 275, sass/_layouts.scss */
+/* line 276, sass/_layouts.scss */
 .main-frame .option.down {
   top: 3000px;
   left: 0;
 }
 
-/* line 286, sass/_layouts.scss */
+/* line 287, sass/_layouts.scss */
 .error .container {
   position: absolute;
   top: 0;
@@ -1201,25 +1202,25 @@ nav {
   opacity: 1;
   text-align: center;
 }
-/* line 295, sass/_layouts.scss */
+/* line 296, sass/_layouts.scss */
 .error .container:before {
   content: '';
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
-/* line 303, sass/_layouts.scss */
+/* line 304, sass/_layouts.scss */
 .error .error-message {
   display: inline-block;
   width: 650px;
   vertical-align: middle;
   margin: 0 auto;
 }
-/* line 309, sass/_layouts.scss */
+/* line 310, sass/_layouts.scss */
 .error .error-message p {
   margin: 0;
 }
-/* line 313, sass/_layouts.scss */
+/* line 314, sass/_layouts.scss */
 .error .error-message span {
   font-family: "Nunito", Helvetica, Arial, sans-serif;
   font-size: 30px;
