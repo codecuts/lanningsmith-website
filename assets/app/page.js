@@ -31,7 +31,7 @@ define(["jquery",
 			gutter: 20,
 			margin: {
 				x: 0.075,
-				y: 0.10
+				y: 0.15
 			},
 			carousel: null
 		}
