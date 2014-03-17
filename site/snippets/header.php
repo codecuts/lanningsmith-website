@@ -40,4 +40,4 @@
     <script src="<?php echo $site->url() ?>/assets/js/vendor/modernizr-full.js"></script>
 </head>
 
-<body>
+<body class="<?php echo str_replace('/',' ', $page->uri()) ?>">
