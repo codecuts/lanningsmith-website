@@ -1323,8 +1323,12 @@ have a fixed width and height (but it's not required).
   -moz-box-shadow: 0 0 2px #4E443C;
   box-shadow: 0 0 2px #4E443C;
 }
+/* line 101, sass/_jcarousel.scss */
+.jcarousel-pagination a:last-of-type {
+  margin-right: 0;
+}
 
-/* line 102, sass/_jcarousel.scss */
+/* line 106, sass/_jcarousel.scss */
 .jcarousel-pagination a.active {
   background: #4E443C;
   color: #fff;
