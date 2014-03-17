@@ -269,6 +269,7 @@ define(["jquery",
 
 					// repopulate the main frame
 					page.populateMainFrame(options, dir);
+					page.layout();
 
 					// if going between projects update the url with new project and save history
 					if ( dir == 'up' || 'down' ) {
@@ -394,7 +395,11 @@ define(["jquery",
 
 		this.setupThumbMenu();
 
-		$('.jcarousel.thumbs').jcarousel({});
+		$('.jcarousel.thumbs').on('jcarousel:create jcarousel:reload', function() {
+			// do some setup stuff...
+		}).jcarousel({
+			//config			
+		});
 
 		$('.jcarousel-pagination')
 			.on('jcarouselpagination:active', 'a', function() {
