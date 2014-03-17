@@ -80,15 +80,17 @@
 							break;
 					}
 				}
-				$transfer[] = array(
-					'i' => $i,
-					'title' => $p->title()->value,
-					'url' => str_replace('/projects','',$p->url()),
-					'thumb' => $thumb,
-					'media' => $media,
-					'description' => $p->text()->value,	
-					'categories' => $p->categories()->value
-				);			
+				if ( ! empty($media) ) {
+					$transfer[] = array(
+						'i' => $i,
+						'title' => $p->title()->value,
+						'url' => str_replace('/projects','',$p->url()),
+						'thumb' => $thumb,
+						'media' => $media,
+						'description' => $p->text()->value,	
+						'categories' => $p->categories()->value
+					);			
+				}
 			$i++;
 			}
 		}
