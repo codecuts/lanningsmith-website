@@ -89,9 +89,9 @@
 						'media' => $media,
 						'description' => $p->text()->value,	
 						'categories' => $p->categories()->value
-					);			
+					);	
+					$i++;
 				}
-			$i++;
 			}
 		}
 	?>

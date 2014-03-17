@@ -38,6 +38,11 @@ define(["jquery",
 	},
 
 	load = function() {
+
+		$('.splash-text').animate({
+			opacity: 1
+		}, 400);
+
 		this.setPageInfo();
 		this.relocate( this.info.url );
 		this.initThumbMenu();
@@ -46,9 +51,6 @@ define(["jquery",
 
 		$('.about, .main-frame, .main-nav, .gridnav').animate({
 			opacity:1
-		}, 400);
-		$('.splash-text').animate({
-			opacity: 1
 		}, 400);
 
 		if ( this.info.viewport.height <= this.info.viewport.minHeight) {
@@ -505,8 +507,8 @@ define(["jquery",
 		rows = ( rows ) ? rows : 1;
 		itemsPerPage = ( itemsPerPage ) ? itemsPerPage : 1;
 
-//		console.log('vw:'+page.width(),'cols:'+cols);
-//		console.log('vh:'+page.height(),'rows:'+rows);
+//		console.log('vw:'+this.width(),'cols:'+cols);
+//		console.log('vh:'+this.height(),'rows:'+rows);
 //		console.log('itemsPerPage'+itemsPerPage);
 
 		return { rows: rows, cols: cols, itemsPerPage: itemsPerPage };
