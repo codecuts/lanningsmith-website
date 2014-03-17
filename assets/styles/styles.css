@@ -1012,7 +1012,7 @@ nav {
 }
 /* line 101, sass/_layouts.scss */
 .gridnav .jcarousel-pagination {
-  width: 25%;
+  width: 30%;
   margin: 0 auto;
   padding-top: 30px;
   text-align: center;
@@ -1027,7 +1027,7 @@ nav {
 .gridnav .categories {
   position: absolute;
   width: 100%;
-  bottom: 60px;
+  top: 60px;
   text-align: right;
 }
 /* line 120, sass/_layouts.scss */
