@@ -9,6 +9,8 @@ fields:
   title: 
     label: Page Title
     type:  text
-    help: PLEASE DO NOT CHANGE!
- 
+  text: 
+  	label: Error Text
+  	type: textarea
+  	size: small
  

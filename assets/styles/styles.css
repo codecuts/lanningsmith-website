@@ -1189,6 +1189,42 @@ nav {
   left: 0;
 }
 
+/* line 286, sass/_layouts.scss */
+.error .container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  text-align: center;
+}
+/* line 295, sass/_layouts.scss */
+.error .container:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+/* line 303, sass/_layouts.scss */
+.error .error-message {
+  display: inline-block;
+  width: 650px;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+/* line 309, sass/_layouts.scss */
+.error .error-message p {
+  margin: 0;
+}
+/* line 313, sass/_layouts.scss */
+.error .error-message span {
+  font-family: "Nunito", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  line-height: 34px;
+  text-transform: uppercase;
+}
+
 /*
 This is the visible area of you carousel.
 Set a width here to define how much items are visible.

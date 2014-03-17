@@ -280,3 +280,42 @@
 
 }
 
+
+.error {
+
+	.container {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0; 
+		right: 0;
+		opacity: 1;
+		text-align: center;
+
+		&:before {
+			content: '';
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
+	}	
+
+	.error-message {
+		display: inline-block;
+		width: 650px;
+		vertical-align: middle;
+		margin: 0 auto;
+
+		p {
+			margin: 0;
+		}
+
+		span {
+			font-family: $baseFontStack;
+			font-size: 30px;
+			line-height: 34px;
+			text-transform: uppercase;
+		}
+	}
+
+}
