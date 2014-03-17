@@ -40,15 +40,16 @@ define(["jquery",
 	load = function() {
 		this.setPageInfo();
 		this.relocate( this.info.url );
-		$('.about, .main-frame, .gridnav').animate({
+		this.initThumbMenu();
+		this.setupEvents();
+		this.layout();
+
+		$('.about, .main-frame, .main-nav, .gridnav').animate({
 			opacity:1
 		}, 400);
 		$('.splash-text').animate({
 			opacity: 1
-		}, 250);
-		this.initThumbMenu();
-		this.setupEvents();
-		this.layout();
+		}, 400);
 
 		if ( this.info.viewport.height <= this.info.viewport.minHeight) {
 			$('.ctrl.up , .ctrl.down').css('background','none');
