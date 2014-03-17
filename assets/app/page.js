@@ -394,11 +394,7 @@ define(["jquery",
 
 		this.setupThumbMenu();
 
-		$('.jcarousel.thumbs').on('jcarousel:create jcarousel:reload', function() {
-			// do some setup stuff...
-		}).jcarousel({
-			//config			
-		});
+		$('.jcarousel.thumbs').jcarousel({});
 
 		$('.jcarousel-pagination')
 			.on('jcarouselpagination:active', 'a', function() {
