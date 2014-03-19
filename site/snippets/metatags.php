@@ -6,11 +6,15 @@ global $project_name;
 	<meta property="og:type"            content="website" />
 	<meta property="og:site_name"       content="<?php echo $site->title() ?>"/> 
 	<meta property="og:url"             content="<?php echo $site->url().'/'.$site->uri()->path(2); ?>" /> 
-	<?php if ($page->isHomePage() ) : ?>
+	<?php if ( $page->isHomePage() ) : ?>
 	    <meta property="og:title" content="<?php echo $site->title() ?> - <?php echo $page->title()?>" />
 	    <meta property="og:description" content="<?php echo $site->description()?>" />
-	    <?php if ($pages->find('/home')->hasImages() ) : ?>
-	    	<?php echo '<meta property="og:image:url" content="'.$pages->find("/home")->images()->first()->url().'" />' ?>
+	    <?php if ( $pages->find('/splash')->hasImages() ) : ?>
+	    	<?php echo '<meta property="og:image" content="'.$pages->find("/splash")->images()->first()->url().'" />' ?>
+	    	<?php echo '<meta property="og:image:url" content="'.$pages->find("/splash")->images()->first()->url().'" />' ?>
+	    <?php elseif ( $pages->find('/splash')->hasVideos() ) : ?>
+	    	<?php echo '<meta property="og:image" content="" />' ?>
+	    	<?php echo '<meta property="og:video" content="'.$pages->find("/splash")->videos()->first()->url().'" />' ?>
 		<?php endif; ?>
 	<?php elseif ( isset($project_name) ) : ?>
 	    <meta property="og:title" content="<?php echo $site->title.' - '.$page->title()?>" />
