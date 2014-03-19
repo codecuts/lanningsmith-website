@@ -20,13 +20,16 @@ global $project_name;
 	    <meta property="og:title" content="<?php echo $site->title.' - '.$page->title()?>" />
 	    <meta property="og:description" content="<?php echo html($page->text()) ?>" />
         <?php if ( $pages->active()->children()->first()->template() === 'image' ) : ?>
+        <meta property="og:image" content="<?php echo $pages->active()->children()->first()->images()->first()->url(); ?>" />
         <meta property="og:image:url" content="<?php echo $pages->active()->children()->first()->images()->first()->url(); ?>" />
         <?php elseif ( $pages->active()->children()->first()->template() === 'video' ) : ?>
+        <meta property="og:image" content="<?php echo videos::thumb($pages->active()->children()->first()->video_url()); ?>" />
         <meta property="og:image:url" content="<?php echo videos::thumb($pages->active()->children()->first()->video_url()); ?>" />
         <?php endif; ?>
     <?php elseif ( isset($category_name) ) : ?>
 	    <meta property="og:title" content="<?php echo $site->title.' - Category Archive - '.$category_name ?>" />
 	    <meta property="og:description" content="" />
+	    <meta property="og:image" content="" />
 	    <meta property="og:image:url" content="" />
 	<?php endif; ?>	
 <?php endif; ?>
