@@ -6,4 +6,4 @@ Text:
 
 ----
 
-Tags: tag1
+Tags: 

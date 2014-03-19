@@ -5,7 +5,7 @@
     global $project_name; 
     global $category_name;
     ?>   
-    <?php if ( isset($category_name) ) : ?>
+    <?php if ( isset($category_name) && !$page->isHomePage() ) : ?>
         <title><?php echo html($site->title()) ?> - Category Archive - <?php echo html(strtoupper($category_name)) ?></title>
     <?php elseif ( isset($project_name) ) : ?>
         <title><?php echo html($site->title()) ?> - <?php echo html($page->title()) ?></title>
@@ -18,13 +18,14 @@
     <!-- will need to get right for desktop version of this site: <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <meta name="robots" content="index, follow" />
 
-    <?php if($page->text() !== ''): ?>
+
+    <?php if($page->text()->value !== ''): ?>
     <meta name="description" content="<?php echo html($page->text()) ?>" />
     <?php else: ?>
     <meta name="description" content="<?php echo html($site->description()) ?>" />
     <?php endif ?>
 
-    <?php if($page->tags() !== ''): ?>
+    <?php if($page->tags()->value !== ''): ?>
     <meta name="keywords" content="<?php echo html($page->tags()) ?>" />
     <?php else: ?>
     <meta name="keywords" content="<?php echo html($site->keywords()) ?>" />

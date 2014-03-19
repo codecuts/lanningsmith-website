@@ -1,3 +1,8 @@
+<?php
+global $category_name;
+global $project_name;
+echo $category_name;
+?>
 <?php if ($type === 'facebook') : ?>
 	<meta property="og:type"            content="website" />
 	<meta property="og:site_name"       content="<?php echo $site->title() ?>"/> 
@@ -5,22 +10,21 @@
 	<?php if ($page->isHomePage() ) : ?>
 	    <meta property="og:title" content="<?php echo $site->title() ?> - <?php echo $page->title()?>" />
 	    <meta property="og:description" content="<?php echo $site->description()?>" />
-	    <meta property="og:image:url" content="" />
-	<?php elseif ( isset($category_name) ) : ?>
+	    <?php if ($pages->find('/home')->hasImages() ) : ?>
+	    	<?php echo '<meta property="og:image:url" content="'.$pages->find("/home")->images()->first()->url().'" />' ?>
+		<?php endif; ?>
+	<?php elseif ( isset($project_name) ) : ?>
+	    <meta property="og:title" content="<?php echo $site->title.' - '.$page->title()?>" />
+	    <meta property="og:description" content="<?php echo html($page->text()) ?>" />
+        <?php if ( $pages->active()->children()->first()->template() === 'image' ) : ?>
+        <meta property="og:image:url" content="<?php echo $pages->active()->children()->first()->images()->first()->url(); ?>" />
+        <?php elseif ( $pages->active()->children()->first()->template() === 'video' ) : ?>
+        <meta property="og:image:url" content="<?php echo videos::thumb($pages->active()->children()->first()->video_url()); ?>" />
+        <?php endif; ?>
+    <?php elseif ( isset($category_name) ) : ?>
 	    <meta property="og:title" content="<?php echo $site->title.' - Category Archive - '.$category_name ?>" />
 	    <meta property="og:description" content="" />
 	    <meta property="og:image:url" content="" />
-	<?php elseif ( isset($project_name) ) : ?>
-	    <meta property="og:title" content="<?php echo $site->title.' - '.$page->title()?>" />
-	    <meta property="og:description" content="<?php echo $page->text() ?>" />
-	    <meta property="og:image:url" content="" /> 
-	    <?php if ( $pages->active()->template() == 'project' || $pages->active()->isHomePage() ) : ?>
-	        <?php if ( $pages->active()->children()->first()->template() === 'image' ) : ?>
-	        <meta property="og:image:url" content="<?php echo $pages->active()->children()->first()->images()->first()->url(); ?>" />
-	        <?php elseif ( $pages->active()->children()->first()->template() === 'video' ) : ?>
-	        <meta property="og:image:url" content="<?php echo videos::thumb($pages->active()->children()->first()->video_url()); ?>" />
-	        <?php endif; ?>
-	    <?php endif; ?>
 	<?php endif; ?>	
 <?php endif; ?>
 

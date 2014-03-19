@@ -4,9 +4,8 @@
 
 title: default
 pages: false
-files: false
+files: true
 fields:
   title: 
     label: Page Title
     type:  text
-    help: PLEASE DO NOT CHANGE!
