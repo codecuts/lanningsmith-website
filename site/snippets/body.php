@@ -5,6 +5,8 @@ $splash_on = ( $page->isHomePage() && ($splash_on === 'yes' || $splash_on == 'tr
 if ( $splash_on ) $splash = $pages->find('/splash');
 $categories_on = strtolower($site->categories_enabled());
 $categories_on = ( $categories_on === 'yes' || $categories_on === 'true' || $categories_on === 'on' ) ? true : false;
+global $category_name;
+echo 'active act: '.$category_name;
 if ( $categories_on ) {
 	$categories = str::split($site->categories(),',');
 	$n = array( 'all' => 'All' );
@@ -67,7 +69,8 @@ if ( $categories_on ) {
 			<?php 
 				if ( $categories_on ) {
 					foreach ($categories as $i=>$c) {
-						echo '<a class="category-filter" href="'.$site->url.'/category/'.$i.'" data-category="'.$i.'">'.strtoupper($c).'</a>';
+						$active = ($i === strtolower($category_name)) ? 'active' : '';
+						echo '<a class="category-filter '.$active.'" href="'.$site->url.'/category/'.$i.'" data-category="'.$i.'">'.strtoupper($c).'</a>';
 						end($categories);
 						if ( $i !== key($categories) ) {
 							echo '<span> // </span>';

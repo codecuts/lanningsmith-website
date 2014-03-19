@@ -25,10 +25,16 @@
 	}
 	else if ( str::contains($uri, 'category') && !str::contains($uri, '.')) {
 		$GLOBALS['category_name'] = ucwords($path[1]);
+		if ( isset($path[1]) ) {
+			$GLOBALS['category_name'] = $path[1];
+		} else {
+			$GLOBALS['category_name'] = 'all';
+		}
 		if ( isset($path[2]) ) $GLOBALS['project_name'] = $path[2];
 		$uri = '/category';
 	}
 	else {
+		$GLOBALS['category_name'] = 'all';
 		if ( empty($path) ) {
 			//$uri = '/';
 		} else {

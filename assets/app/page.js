@@ -225,6 +225,8 @@ define(["jquery",
 
 		$(document).on('click', '.category-filter', function(e) {
 			e.preventDefault();
+			$(this).parent().find('.active').removeClass('active');
+			$(this).addClass('active');
 			page.clearThumbMenu();
 			page.relocate( e.target.href );
 			page.initThumbMenu();
