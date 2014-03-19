@@ -1,7 +1,6 @@
 <?php
 global $category_name;
 global $project_name;
-echo $category_name;
 ?>
 <?php if ($type === 'facebook') : ?>
 	<meta property="og:type"            content="website" />
