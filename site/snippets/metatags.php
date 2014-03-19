@@ -16,7 +16,7 @@ global $project_name;
 	    <meta property="og:image" content="<?php echo $pages->find("/home")->images()->first()->url() ?>" />
 	    <meta property="og:image:url" content="<?php echo $pages->find("/home")->images()->first()->url() ?>" /> 
 		<?php endif; ?>
-	<?php elseif ( isset($project_name) ) : ?>
+	<?php elseif ( $project_name !== null ) : ?>
 	    <meta property="og:title" content="<?php echo $site->title.' - '.$page->title()?>" />
 	    <meta property="og:description" content="<?php echo html($page->text()) ?>" />
         <?php if ( $pages->active()->children()->first()->template() === 'image' ) : ?>
@@ -26,11 +26,18 @@ global $project_name;
         <meta property="og:image" content="<?php echo videos::thumb($pages->active()->children()->first()->video_url()); ?>" />
         <meta property="og:image:url" content="<?php echo videos::thumb($pages->active()->children()->first()->video_url()); ?>" />
         <?php endif; ?>
-    <?php elseif ( isset($category_name) ) : ?>
+    <?php elseif ( $category_name !== null ) : ?>
 	    <meta property="og:title" content="<?php echo $site->title.' - Category Archive - '.$category_name ?>" />
-	    <meta property="og:description" content="" />
+	    <meta property="og:description" content="An archive of projects in the category: <?php echo $category_name ?>" />
 	    <meta property="og:image" content="" />
 	    <meta property="og:image:url" content="" />
+	    <?php if ( $pages->find('/splash')->hasImages() ) : ?>
+	    <meta property="og:image" content="<?php echo $pages->find("/splash")->images()->first()->url() ?>" />
+	    <meta property="og:image:url" content="<?php echo $pages->find("/splash")->images()->first()->url() ?>" />
+	    <?php else : ?>
+	    <meta property="og:image" content="<?php echo $pages->find("/home")->images()->first()->url() ?>" />
+	    <meta property="og:image:url" content="<?php echo $pages->find("/home")->images()->first()->url() ?>" /> 
+		<?php endif; ?>
 	<?php endif; ?>	
 <?php endif; ?>
 
