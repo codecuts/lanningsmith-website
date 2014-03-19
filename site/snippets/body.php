@@ -6,7 +6,6 @@ if ( $splash_on ) $splash = $pages->find('/splash');
 $categories_on = strtolower($site->categories_enabled());
 $categories_on = ( $categories_on === 'yes' || $categories_on === 'true' || $categories_on === 'on' ) ? true : false;
 global $category_name;
-echo 'active act: '.$category_name;
 if ( $categories_on ) {
 	$categories = str::split($site->categories(),',');
 	$n = array( 'all' => 'All' );
