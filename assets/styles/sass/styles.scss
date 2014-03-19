@@ -40,9 +40,7 @@ $minViewportWidth: 640px;
 $minViewportHeight: 600px;
 
 @import 'our-bootstrap';
-@import 'mixins';
 @import 'site-wide';
 @import 'typography';
-@import 'modules';
 @import 'layouts';
 @import 'jcarousel';
