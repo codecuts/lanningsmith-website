@@ -511,7 +511,7 @@ define(["jquery",
 
 		var itemsPerPage = cols * rows;
 
-		console.log({ rows: rows, cols: cols, itemsPerPage: itemsPerPage });
+//		console.log({ rows: rows, cols: cols, itemsPerPage: itemsPerPage });
 
 		return { rows: rows, cols: cols, itemsPerPage: itemsPerPage };
 
