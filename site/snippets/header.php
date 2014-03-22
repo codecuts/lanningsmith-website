@@ -38,7 +38,7 @@
     <link rel="alternate" type="application/rss+xml" href="<?php echo url('blog/feed') ?>" title="Blog Feed" />
     <?php echo css('assets/styles/styles.css') ?>
     <?php echo css('http://fonts.googleapis.com/css?family=Nunito:300,400') ?>
-    <script src="<?php echo $site->url() ?>/assets/js/vendor/modernizr-min.js"></script>
+    <script src="<?php echo $site->url() ?>/assets/js/vendor/modernizr.min.js"></script>
 </head>
 
 <body class="<?php echo str_replace('/',' ', $page->uri()) ?>">
