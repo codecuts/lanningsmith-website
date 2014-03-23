@@ -1,6 +1,6 @@
 define(["jquery",
-	    "app/helpers", 
-	    "app/projects",
+	    "scripts/helpers", 
+	    "scripts/projects",
 	    "jcarousel", 
 	    "jcarousel-control", 
 	    "jcarousel-pagination"], function($,helpers,projects) {

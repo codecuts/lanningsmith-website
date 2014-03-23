@@ -1,8 +1,8 @@
 define(["jquery", 
-		"app/helpers",
-		"app/projects", 
-		"app/page",
-		"app/ourCarousel",
+		"scripts/helpers",
+		"scripts/projects", 
+		"scripts/page",
+		"scripts/ourCarousel",
 		"jquery-ui",
 		"debounced-resize"], // see https://github.com/louisremi/jquery-smartresize, 
 	    function($,helpers,projects,page,ourCarousel) {

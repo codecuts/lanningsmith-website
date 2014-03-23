@@ -1,9 +1,9 @@
 requirejs.config({
-    "baseUrl": siteURL+"/assets/js/vendor",
+    "baseUrl": "/assets/js/vendor",
     "paths": {
-      "app": siteURL+"/assets/app",
-      "jquery": "jquery-2.1.0",
-      "jquery-ui": "//code.jquery.com/ui/1.10.4/jquery-ui",
+      "scripts": "../scripts",
+      "jquery": "jquery-2.1.0.min",
+      "jquery-ui": "jquery-ui-1.10.4.custom.min",
       "debounced-resize": "jquery.debouncedresize",
       "jcarousel": "jquery.jcarousel-core",
       "jcarousel-control": "jquery.jcarousel-control",
@@ -19,4 +19,4 @@ requirejs.config({
 });
 
 // Load the main app module to start the app
-requirejs(["app/main"]);
+requirejs(["scripts/main"]);

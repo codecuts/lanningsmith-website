@@ -1,4 +1,4 @@
-define(["jquery", "app/helpers"], function($,helpers) {
+define(["jquery", "scripts/helpers"], function($,helpers) {
 
 	// capture the projects data from the global level
 	if ( typeof projects === 'undefined' ) {
