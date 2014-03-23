@@ -18,14 +18,13 @@
     <!-- will need to get right for desktop version of this site: <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <meta name="robots" content="index, follow" />
 
-
     <?php if($page->text()->value !== ''): ?>
     <meta name="description" content="<?php echo html($page->text()) ?>" />
     <?php else: ?>
     <meta name="description" content="<?php echo html($site->description()) ?>" />
     <?php endif ?>
 
-    <?php if($page->tags()->value !== ''): ?>
+    <?php if($page->tags() !== null): ?>
     <meta name="keywords" content="<?php echo html($page->tags()) ?>" />
     <?php else: ?>
     <meta name="keywords" content="<?php echo html($site->keywords()) ?>" />
