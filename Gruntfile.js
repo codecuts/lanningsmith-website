@@ -32,11 +32,11 @@ module.exports = function(grunt) {
 	// Transfer the build folder to the right location on the server
 	grunt.registerTask(
 	    "transfer",
-	    "Transfer the updated files in build folder to ./assets and then remove it",
+	    "Transfer the updated files in ./built folder to ./assets and then remove it",
 	    function() {
 	        var done = this.async();
 	        // Delete the build folder locally after transferring
-	        exec("rsync -rlv --delete --delete-after ./build/ ./assets && rm -rf ./build",
+	        exec("rsync -rlv --delete --delete-after ./built/ ./assets && rm -rf ./built",
 	        function( err, stdout, stderr ) {
 	            if ( err ) {
 	                fatal("Problem with rsync: " + err + " " + stderr );
