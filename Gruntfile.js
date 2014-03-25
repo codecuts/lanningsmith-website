@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 	    function() {
 	        var done = this.async();
 	        // Delete the build folder locally after transferring
-	        exec("rsync -rlv --delete --delete-after ./built/ ./assets && rm -rf ./built",
+	        exec("rsync -rlv --delete --delete-after --delete-excluded --exclude=/styles/sass ./built/ ./assets && rm -rf ./built",
 	        function( err, stdout, stderr ) {
 	            if ( err ) {
 	                fatal("Problem with rsync: " + err + " " + stderr );
