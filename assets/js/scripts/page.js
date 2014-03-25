@@ -387,7 +387,7 @@ define(["jquery",
 				elem.append(media.embed);
 			if ( media.type === 'audio' )
 				elem.append(media.embed);
-			elem.append('<div class="caption"><h1 class="media-title">'+media.title+'<br></span><h2 class="description">'+media.description+'</span></div>');
+			elem.append('<div class="caption"><h1 class="media-title">'+media.caption_title+'<br></span><h2 class="description">'+media.description+'</span></div>');
 		}
 		
 		if ( dir === 'center' ) {
