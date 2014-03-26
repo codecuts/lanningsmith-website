@@ -28,8 +28,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
     <?php foreach($items as $item): ?>
     <item>
       <title><?php echo xml($item->title()) ?></title>  
-      <link><?php echo xml($item->url()) ?></link>
-      <guid><?php echo xml($item->url()) ?></guid>
+      <link><?php echo xml(str_replace('/projects','',$item->url())) ?></link>
+      <guid><?php echo xml(str_replace('/projects','',$item->url())) ?></guid>
       <pubDate><?php echo ($item->date()) ? date('r', $item->date()) : date('r', $item->modified()) ?></pubDate>
         
       <?php if(isset($descriptionField)): ?>
