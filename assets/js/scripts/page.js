@@ -5,8 +5,6 @@ define(["jquery",
 	    "jcarousel-control", 
 	    "jcarousel-pagination"], function($,helpers,projects) {
 
-	console.log('loading up page.js');
-
 	var info = {
 		title: siteTitle,
 		loaded: false,
@@ -102,10 +100,10 @@ define(["jquery",
 			}
 		}
 		else {		
-			console.log('handleRequest: url is seeking specific project '+path[1]+', relocating to that project');
+//			console.log('handleRequest: url is seeking specific project '+path[1]+', relocating to that project');
 			var success = projects.init( 'single', path[1] );
 			if ( success !== null ) {
-				console.log('handleRequest: suceesfully initialized projects, returned options:',success);
+//				console.log('handleRequest: suceesfully initialized projects, returned options:',success);
 				document.title = this.info.title+' - '+success.center.projectName;
 				this.populateMainFrame( success, 'relocate' );
 			} else {
@@ -151,8 +149,7 @@ define(["jquery",
 		});
 
 		// disable right/left nav when only one image
-		console.log($('.option.left img').attr('src')===$('.option.right img').attr('src'));
-		if ( $('.option.left img').attr('src')===$('.option.right img').attr('src') ) {
+		if ( projects.getProjectMediaCount() <= 1 ) {
 			$('.main-nav .left img, .main-nav .right img').hide();
 		} else {
 			$('.main-nav .left img, .main-nav .right img').show();
@@ -497,8 +494,6 @@ define(["jquery",
 		rows = ( rows*c.thumbs.hight + (rows-1)*c.gutter <= this.height() - 2*c.margin.y ) ?
 		       rows : (rows) ? rows : 0;
 
-		console.log('initial calculation: rows: '+rows+' ,cols:'+cols);
-
 		// reduce num of rows if too few projects to fill
 		while ( projects.count() <= cols*(rows-1) ) {
 			rows--;
@@ -510,8 +505,6 @@ define(["jquery",
 		itemsPerPage = ( itemsPerPage ) ? itemsPerPage : 1;
 
 		var itemsPerPage = cols * rows;
-
-//		console.log({ rows: rows, cols: cols, itemsPerPage: itemsPerPage });
 
 		return { rows: rows, cols: cols, itemsPerPage: itemsPerPage };
 

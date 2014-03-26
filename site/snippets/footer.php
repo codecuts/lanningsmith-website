@@ -18,6 +18,7 @@
 					$thumb = '<img src="'.scaudio::thumb($p->children()->first()->audio_url()->value).'" alt="audio thumbnail"/>';
 				}
 				
+				$count = 0;
 				foreach ( $p->children()->visible() as $c ) {
 
 					$mtype = $c->template();
@@ -25,6 +26,8 @@
 					$title = ($c->title() !== null) ? $c->title()->value : '';
 					$caption_title = ($c->captiontitle() !== null) ? $c->captiontitle()->value : '';
 					$description = ($c->text() !== null) ? $c->text()->value : '';
+
+					$count++;
 
 					switch ($mtype) {
 						case 'image':
@@ -80,6 +83,8 @@
 							break;
 					}
 				}
+				$media['length'] = $count;
+				
 				if ( ! empty($media) ) {
 					$transfer[] = array(
 						'i' => $i,
