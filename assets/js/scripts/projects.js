@@ -44,6 +44,11 @@ define(["jquery", "scripts/helpers"], function($,helpers) {
 		return _projects;
 	}
 
+	var getProjectMediaCount = function() {
+		var project = activeProjects[indexY];
+		return project.media.length;
+	}
+
 	var setCategory = function (categoryName){	// sets a new categpry and recomputes the subset of projects
 		category = categoryName;
 		this.reactivateProjects();
@@ -157,7 +162,6 @@ define(["jquery", "scripts/helpers"], function($,helpers) {
 	};
 	
 	var relocate = function (name){					// returns options after relocating to project specified by name (slug)	
-		console.log('active:',activeProjects);
 		for(var i=0;i<activeProjects.length;i++){
 			if(name == this.slug(activeProjects[i].url))
 				return this.relocateToY(i);
@@ -224,6 +228,7 @@ define(["jquery", "scripts/helpers"], function($,helpers) {
 	return {
 		get: get,
 		getAll: getAll,
+		getProjectMediaCount: getProjectMediaCount,
 		count: count,
 		move: move,
 		relocate: relocate,
