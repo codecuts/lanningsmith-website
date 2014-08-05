@@ -14,10 +14,10 @@
 				else if ( $p->children()->first()->template() === 'video' ) {
 					$thumb = '<img src="'.videos::thumb($p->children()->first()->video_url()->value).'" alt="video thumbnail"/>';
 				}
-				else if ( $p->children()->first()->template() === 'audio' ) { 
+				else if ( $p->children()->first()->template() === 'audio' ) {
 					$thumb = '<img src="'.scaudio::thumb($p->children()->first()->audio_url()->value).'" alt="audio thumbnail"/>';
 				}
-				
+
 				$count = 0;
 				foreach ( $p->children()->visible() as $c ) {
 
@@ -43,14 +43,14 @@
 								);
 							}
 							break;
-						case 'video':	
+						case 'video':
 							$embed = '';
 							$url = $c->video_url()->value;
 							if ( !isset($c->video_embed()->value) || $c->video_embed()->value == '' ) {
 								$embed = videos::embed($url);
 							} else {
-								$embed = $c->video_embed()->value; 
-							}	
+								$embed = $c->video_embed()->value;
+							}
 							$media[] = array(
 								'type' => $mtype,
 								'id' => videos::id($url),
@@ -84,7 +84,7 @@
 					}
 				}
 				$media['length'] = $count;
-				
+
 				if ( ! empty($media) ) {
 					$transfer[] = array(
 						'i' => $i,
@@ -92,9 +92,9 @@
 						'url' => str_replace('/projects','',$p->url()),
 						'thumb' => $thumb,
 						'media' => $media,
-						'description' => $p->text()->value,	
+						'description' => $p->text()->value,
 						'categories' => $p->categories()->value
-					);	
+					);
 					$i++;
 				}
 			}
