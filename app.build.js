@@ -7,9 +7,9 @@
 	"modules": [
 		{
 			"name": "app"
-		}											
-	],															
-	"paths": {																																																																																																																																																																																																																																																																																														
+		}
+	],
+	"paths": {
 		"app": "../app",
 		"scripts": "../scripts",
 		"jquery": "jquery-2.1.0.min",
@@ -20,20 +20,20 @@
 		"jcarousel-pagination": "jquery.jcarousel-pagination"
 	},
 	"shim": {
-        "jcarousel": { 
-        	"deps": ["jquery"] 
+        "jcarousel": {
+        	"deps": ["jquery"]
         },
-        "jquery-ui": { 
-        	"deps": ["jquery"] 
+        "jquery-ui": {
+        	"deps": ["jquery"]
         },
-        "debounced-resize": { 
-        	"deps": ["jquery"] 
+        "debounced-resize": {
+        	"deps": ["jquery"]
         },
-        "jcarousel-control": { 
-        	"deps": ["jquery", "jcarousel"] 
+        "jcarousel-control": {
+        	"deps": ["jquery", "jcarousel"]
         },
-        "jcarousel-pagination": { 
-        	"deps": ["jquery", "jcarousel"] 
+        "jcarousel-pagination": {
+        	"deps": ["jquery", "jcarousel"]
         }
     }
 }

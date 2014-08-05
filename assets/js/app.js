@@ -1,5 +1,5 @@
 requirejs.config({
-    "baseUrl": "assets/js/vendor",
+    "baseUrl": "/assets/js/vendor",
     "paths": {
       "scripts": "../scripts",
       "jquery": "jquery-2.1.0.min",
