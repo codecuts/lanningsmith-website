@@ -6,9 +6,9 @@ the CMS and display them dynamically. The javascript code is built as a series o
 
 Three branches:
 
-develop    -- for development
-master     -- for testing on a staging server
-production -- the live sitei
+> develop    -- for development  
+> master     -- for testing on a staging server  
+> production -- the live site  
 
 Deployment on a production server:
 
