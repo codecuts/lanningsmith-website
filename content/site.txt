@@ -1,4 +1,4 @@
-﻿Title: (dev) LanningSmith
+﻿Title: LANNINGSMITH
 
 ----
 
@@ -10,7 +10,7 @@ Description: IS  A PROBLEM SOLVING OUTFIT.
 
 ----
 
-Keywords: kirby, cms, kirbycms, php, filesystem
+Keywords: Creative Consultancy, Exhibition Design, Art Department, Art Fabrication, Art
 
 ----
 
@@ -18,11 +18,11 @@ Copyright: © 2009-(date: Year) Code Cuts
 
 ----
 
-Categories Enabled: Yes
+Categories_enabled: YES
 
 ----
 
-Categories: ours, everybodys, client's, hopefull days
+Categories: OUR PROJECTS, CLIENT WORK
 
 ----
 

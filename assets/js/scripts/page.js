@@ -1,10 +1,16 @@
+
 define(["jquery",
 	    "scripts/helpers", 
 	    "scripts/projects",
 	    "jcarousel", 
 	    "jcarousel-control", 
 	    "jcarousel-pagination"], function($,helpers,projects) {
+	/** 
+     * Page view module
+     * @module page
+     */
 
+    /** Contains informaiton about the page's state and configuration */
 	var info = {
 		title: siteTitle,
 		loaded: false,
@@ -35,6 +41,10 @@ define(["jquery",
 		}
 	},
 
+	/** 
+	 * Handles the loading of the page 
+	 * @function
+	 */
 	load = function() {
 
 		$('.splash-text').animate({
@@ -58,6 +68,10 @@ define(["jquery",
 		this.info.loaded = true;
 	},
 
+	/**
+	 * Handles pages reload
+	 * @function
+	 */
 	reload = function() {
 
 		this.setPageInfo();
@@ -72,18 +86,38 @@ define(["jquery",
 
 	},
 
+	/** 
+	 * Relocates the page view to a new project based on a url
+	 * @function
+	 *
+	 * @param {string} contains a url 
+	 */
 	relocate = function(url) {
 		var pageTitle,
 			html,
 			path = url.replace(/^http:\/\/[^/]*/,'').split('/');
 
+		// Calls the funciton that actually handles the request and shifts the page view to the right project
 		this.handleRequest( path );
 		
+		// Change the URL in the address bar and manage history
 		html = document.getElementsByClassName('main-frame')[0].innerHTML
 		pageTitle = document.title;
 		this.pushToHistory( url, pageTitle, html);
 	},
 
+	/**
+	 * Takes in a path asks and displays the right project
+	 * 
+	 * Determines from the path whether the request is for showing all projects,
+	 * a specific category of projects, a specific project within a cateogry,
+	 * or a specific project within all projects. It then initializes the project
+	 * module in the right mode, and asks the project module to return the correct
+	 * project for display.
+	 * @function
+	 *
+	 * @param {array} containing the elements of a path
+	 */
 	handleRequest = function(path) {
 
 		if ( path[1] == '' ) {  // showing all projects
@@ -113,6 +147,10 @@ define(["jquery",
 
 	},
 
+	/** 
+	 * Sets up the info variable with various information about the page
+	 * @function
+	 */
 	setPageInfo = function() {
 
 		this.info.viewport.width = $(window).width();
@@ -125,6 +163,10 @@ define(["jquery",
 
 	},
 
+	/** 
+	 * Handles the layout of the page
+	 * @function
+	 */
 	layout = function() {
 		var page = this;
 
@@ -158,6 +200,14 @@ define(["jquery",
 
 	},
 
+	/**
+	 * Handles the animation/movement on the page from one project to another
+	 * and from one image within a project to another.
+	 * @function
+	 * 
+	 * @param {string} indicating the direction of the animation/movement
+	 * @param {Function} callback containing a function to be called when the animation ends
+	 */
 	animate = function(dir, callback) {
 
 		switch(dir){
@@ -180,11 +230,30 @@ define(["jquery",
 
 	},
 
+	/**
+	 * Handles the management of the history when moving to a new url
+	 * @function
+	 *
+	 * @param {string} url Contains the new url
+	 * @param {string} pageTitle Contains the title of the project at the new url 
+	 * @param {Object} hmtl Contains the content of the new page
+	 */
 	pushToHistory = function(url, pageTitle, html) {
 		history.pushState({'html':html, 'pageTitle':pageTitle}, pageTitle, url);
  		this.setPageInfo();
 	},
 
+	/**
+	 * Determines the direction that the user want to move based on 
+	 * relationship to a central point. Note: This function is used
+	 * in conjuction with an event setup in the setupEvents method.
+	 * @function
+	 * 
+	 * @param {int} localX The x location of the user's click
+	 * @param {int} localY They y location of the user's click.
+	 * @param {int} centerX The x location of the specified central point
+	 * @param {int} centerY The y location of the specified central point
+	 */
 	getDirectionFromCoordinates = function (localX, localY, centerX, centerY){
 		var dir;
 		
@@ -196,6 +265,10 @@ define(["jquery",
 		return dir;
 	},
 
+	/**
+	 * Sets up the events for the page
+	 * @function
+	 */
 	setupEvents = function() {
 
 		var page = this;  // makes it possible to refer to page module's function inside jQuery event functions
@@ -330,6 +403,15 @@ define(["jquery",
 		);
 	},
 
+	/**
+	 * Replaces the content in the main frame wiht the content at the
+	 * current position in the project matrix.
+	 * @function
+	 * 
+	 * @param {Object} options Contains the set of project items to be displayed
+	 * @param {string} dir Contains the direction to move, or 'relocate' if the
+	 *     view is jumping to a new non-adjacent location.
+	 */
 	populateMainFrame = function (options, dir) {
 
 //		console.log('populateMainFrame: options:',options);
@@ -367,6 +449,17 @@ define(["jquery",
 		}
 	},
 
+	/** 
+	 * Creates the html necessary to display a given project item and packages 
+	 * it into a javascript Object.
+	 * @function
+	 * 
+	 * @param {Object} o Contains the raw data for the displayed project item
+	 * @param {string} dir Specifies the positioning of the element in the
+	 *     current set of items, i.e. is this project item displayed at left,
+	 *     right, up, down, or center.
+	 * @return {HTMLElement} elem Containing the html for the project item
+	 */
 	createOptionContent = function(o, dir){
 
 //		console.log('createOptionContent: for direction '+dir,o);
@@ -401,10 +494,16 @@ define(["jquery",
 		return elem;
 	},	
 
+	/**
+	 * Initializes the thumbmenu
+	 * @function
+	 */
 	initThumbMenu = function() {
 
+		// Set up the thumbmenu on the page
 		this.setupThumbMenu();
 
+		// Load the carousel code to handle animation etc
 		$('.jcarousel.thumbs').on('jcarousel:create jcarousel:reload', function() {
 			// do some setup stuff...
 		}).jcarousel({
@@ -440,6 +539,10 @@ define(["jquery",
 
 	},
 
+	/** 
+	 * Sets up the thumbmenu on the page
+	 * @function
+	 */ 
 	setupThumbMenu = function() {
 
 		// short variable for config object
@@ -480,6 +583,10 @@ define(["jquery",
 		$('.grid-item .project-title').vAlign();
 	},
 
+	/** 
+	 * Calculates the number pages and number of thumbs per page
+	 * @function
+	 */
 	calculateThumbGrid = function() {
 
 		c = this.info.thumbMenu;
@@ -509,12 +616,21 @@ define(["jquery",
 		return { rows: rows, cols: cols, itemsPerPage: itemsPerPage };
 
 	},
+
+	/**
+	 * Triggers the opening of the about section of the page
+	 * @function
+	 */
 	aboutOpen = function (){
 		if($('.about').data('open') == "true")
 			return true;
 		return false;
 	},
 
+	/** 
+	 * Toggles the open/close of about section
+	 * @function
+	 */
 	toggleAbout = function(){
 		if($('.about').data('open') == "true") {
 			$('.about').data('open', "false");
@@ -528,6 +644,10 @@ define(["jquery",
 		$('.about').toggle('slide');
 	},
 
+	/**
+	 * Toggles the thumb menu
+	 * @function
+	 */
 	toggleThumbMenu = function() {
 		if ( $('.main-nav').css('visibility') == 'hidden' ) {
 			$('.main-nav').css('visibility', 'visible');
@@ -539,22 +659,45 @@ define(["jquery",
 		$('.gridnav').toggle('slide', { direction: 'up'} );
 	},
 
+	/** 
+	 * Removes the splash screen
+	 * @function
+	 */
 	removeSplash = function() {
 		$('.splash').toggle('slide', {easing: 'linear', duration: 400, direction: 'up'} );
 	},
 
+	/** 
+	 * Clears the thumb menu
+	 * @function
+	 */
 	clearThumbMenu = function() {
 		this.info.thumbMenu.carousel.find('ul').empty();
 	},
 
+	/** 
+	 * Returns the height of the viewport
+	 * @function
+	 * @return {int} The height of page viewport
+	 */ 
 	height = function() {
 		return this.info.viewport.height;
 	},
 
+	/** 
+	 * Returns the width of the viewport
+	 * @function
+	 * @return {int} The width of page viewport
+	 */ 
 	width = function() {
 		return this.info.viewport.width;
 	},
 
+	/** 
+	 * Returns true/false if the page is loaded.
+	 * @function
+	 * @return {Boolean} True/false if the page is loaded or not.
+	 */
 	loaded = function() {
 		return this.info.loaded;
 	};
