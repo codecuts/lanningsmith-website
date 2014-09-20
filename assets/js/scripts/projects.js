@@ -1,5 +1,5 @@
 define(["jquery", "scripts/helpers"], function($,helpers) {
-	/** 
+     /** 
      * Projects Model module
      * @module projects
      */

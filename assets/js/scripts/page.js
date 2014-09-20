@@ -5,7 +5,7 @@ define(["jquery",
 	    "jcarousel", 
 	    "jcarousel-control", 
 	    "jcarousel-pagination"], function($,helpers,projects) {
-	/** 
+     /** 
      * Page view module
      * @module page
      */
