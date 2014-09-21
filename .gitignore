@@ -3,6 +3,7 @@ docs
 content
 site/cache
 thumbs
+site/panel/accounts/
 
 # kirby site config file
 site/config/config.php
