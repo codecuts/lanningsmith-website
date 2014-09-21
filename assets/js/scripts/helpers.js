@@ -1,12 +1,11 @@
 define(["jquery"], function() {
-	
+
 	$.fn.vAlign = function() {
 		return this.each(function() {
 			var ah = $(this).outerHeight();
 			var ph = $(this).parent().outerHeight();
 			var mh = (ph - ah) / 2;
 			$(this).css('margin-top', mh);
-//			console.log('element:'+ah+',parent:'+ph+'margin:'+mh);
   		});
 	};
 
@@ -25,7 +24,6 @@ define(["jquery"], function() {
 			var ph = $(this).parent().outerWidth();
 			var mh = (ph - ah) / 2;
 			$(this).css('margin-left', mh);
-//			console.log('element:'+ah+',parent:'+ph+'margin:'+mh);
   		});
 	};
 
